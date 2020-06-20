@@ -5,6 +5,13 @@ module.exports = {
     connection: {
       filename: "./db/med-cabinet.db",
     },
+    pool: {
+      afterCreate: function (conn, done) {
+        conn.query('SET timezone="UTC";', function (err) {
+          done(err, conn);
+        });
+      },
+    },
     migrations: {
       directory: "./db/migrations",
     },
