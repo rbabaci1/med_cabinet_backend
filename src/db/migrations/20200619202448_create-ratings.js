@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  return knex.schema.createTable("users_products", table => {
+  return knex.schema.createTable("ratings", table => {
     table
       .integer("user_id")
       .unsigned()
@@ -18,6 +18,8 @@ exports.up = function (knex) {
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
 
+    table.integer("rate").notNullable();
+    table.string("description").notNullable();
     table.string("created_at", 64).notNullable();
     table.string("updated_at", 64).notNullable();
 
@@ -26,5 +28,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("users_products");
+  return knex.schema.dropTableIfExists("ratings");
 };
