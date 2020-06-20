@@ -7,10 +7,6 @@ module.exports = {
     },
     pool: {
       afterCreate: function (conn, done) {
-        conn.query('SET timezone="UTC";', function (err) {
-          done(err, conn);
-        });
-
         conn.run("PRAGMA foreign_keys = ON", done);
       },
     },
