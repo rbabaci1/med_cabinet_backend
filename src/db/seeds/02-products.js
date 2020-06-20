@@ -1,4 +1,4 @@
-const generateProducts = require("../../utils/productsSeedHelper");
+const { generateProducts } = require("../../utils/dbSeedHelpers");
 
 const products = generateProducts();
 const firstHalf = products.slice(0, 49);

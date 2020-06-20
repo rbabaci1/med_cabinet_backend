@@ -13,6 +13,8 @@ exports.up = function (knex) {
     table.integer("day_of_week").notNullable();
     table.string("open_time", 64).notNullable();
     table.string("close_time", 64).notNullable();
+
+    table.primary(["dispensary_id", "day_of_week"]);
   });
 };
 

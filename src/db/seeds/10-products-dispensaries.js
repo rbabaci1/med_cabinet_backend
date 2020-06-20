@@ -1,4 +1,6 @@
-const productsDispensaries = require("../mockData/productsDispensaries");
+const { generateProductsDispensaries } = require("../../utils/dbSeedHelpers");
+
+const productsDispensaries = generateProductsDispensaries();
 
 exports.seed = function (knex) {
   return knex("products_dispensaries")
