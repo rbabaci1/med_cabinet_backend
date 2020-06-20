@@ -1,10 +1,12 @@
+const bcrypt = require("bcrypt");
+
 module.exports = [
   {
     first_name: "Aguste",
     last_name: "Bumpass",
     email: "59abumpass0@businessinsider.com",
     username: "abumpass086",
-    password: "hP9YOx",
+    password: bcrypt.hashSync("hP9YOx",12),
     created_at: "2019-11-04",
   },
   {
@@ -12,7 +14,7 @@ module.exports = [
     last_name: "Bullerwell",
     email: "52ebullerwell1@reuters.com",
     username: "ebullerwell199",
-    password: "8IIYtNJqK7",
+    password: bcrypt.hashSync("8IIYtNJqK7",12),
     created_at: "2020-01-18",
   },
   {
@@ -20,7 +22,7 @@ module.exports = [
     last_name: "Kimm",
     email: "16hkimm2@vistaprint.com",
     username: "hkimm223",
-    password: "YnrOdT",
+    password: bcrypt.hashSync("YnrOdT",12),
     created_at: "2020-03-18",
   },
   {
@@ -28,7 +30,7 @@ module.exports = [
     last_name: "Dignall",
     email: "48bdignall3@woothemes.com",
     username: "bdignall335",
-    password: "qQZv2gm",
+    password: bcrypt.hashSync("qQZv2gm",12),
     created_at: "2020-02-20",
   },
   {
@@ -36,7 +38,7 @@ module.exports = [
     last_name: "Holbie",
     email: "38hholbie4@bloomberg.com",
     username: "hholbie447",
-    password: "pLOetgRI1YwE",
+    password: bcrypt.hashSync("pLOetgRI1YwE",12),
     created_at: "2020-02-23",
   },
   {
@@ -44,7 +46,7 @@ module.exports = [
     last_name: "Cawdell",
     email: "24fcawdell5@ca.gov",
     username: "fcawdell553",
-    password: "tkeGAZb",
+    password: bcrypt.hashSync("tkeGAZb",12),
     created_at: "2019-08-11",
   },
   {
@@ -52,7 +54,7 @@ module.exports = [
     last_name: "Bugg",
     email: "18mbugg6@naver.com",
     username: "mbugg634",
-    password: "hjYYzhPTR",
+    password: bcrypt.hashSync("hjYYzhPTR",12),
     created_at: "2019-09-27",
   },
   {
@@ -60,7 +62,7 @@ module.exports = [
     last_name: "McIndrew",
     email: "23rmcindrew7@ibm.com",
     username: "rmcindrew726",
-    password: "OdMLv1a2le",
+    password: bcrypt.hashSync("OdMLv1a2le",12),
     created_at: "2019-08-29",
   },
   {
@@ -68,7 +70,7 @@ module.exports = [
     last_name: "Dering",
     email: "77cdering8@webeden.co.uk",
     username: "cdering877",
-    password: "k0FO7XL",
+    password: bcrypt.hashSync("k0FO7XL",12),
     created_at: "2020-06-08",
   },
   {
@@ -76,7 +78,7 @@ module.exports = [
     last_name: "Bartlomiej",
     email: "83ebartlomiej9@fema.gov",
     username: "ebartlomiej936",
-    password: "iHtIaB1",
+    password: bcrypt.hashSync("iHtIaB1",,12)
     created_at: "2019-11-23",
   },
   {
@@ -84,7 +86,7 @@ module.exports = [
     last_name: "Chadwen",
     email: "37ochadwena@pbs.org",
     username: "ochadwena48",
-    password: "8WnWf4",
+    password: bcrypt.hashSync("8WnWf4",12),
     created_at: "2020-05-27",
   },
   {
@@ -92,7 +94,7 @@ module.exports = [
     last_name: "Sheldrake",
     email: "98jsheldrakeb@senate.gov",
     username: "jsheldrakeb68",
-    password: "sFVoszOap",
+    password: bcrypt.hashSync("sFVoszOap",12),
     created_at: "2019-09-06",
   },
   {
@@ -100,7 +102,7 @@ module.exports = [
     last_name: "Sonnenschein",
     email: "11dsonnenscheinc@cargocollective.com",
     username: "dsonnenscheinc38",
-    password: "vsMuiUzSKjm",
+    password: bcrypt.hashSync("vsMuiUzSKjm",12),
     created_at: "2019-08-15",
   },
   {
@@ -108,7 +110,7 @@ module.exports = [
     last_name: "Matussov",
     email: "72tmatussovd@amazon.co.uk",
     username: "tmatussovd22",
-    password: "oDIayDSdp",
+    password: bcrypt.hashSync("oDIayDSdp",12),
     created_at: "2019-07-14",
   },
   {
@@ -116,7 +118,7 @@ module.exports = [
     last_name: "Le Floch",
     email: "4tlefloche@marketwatch.com",
     username: "tlefloche12",
-    password: "wcfLuZFJKvUg",
+    password: bcrypt.hashSync("wcfLuZFJKvUg",12),
     created_at: "2020-02-24",
   },
   {
@@ -124,7 +126,7 @@ module.exports = [
     last_name: "O'Spellissey",
     email: "6aospellisseyf@time.com",
     username: "aospellisseyf47",
-    password: "PuwiFxHo8S0t",
+    password: bcrypt.hashSync("PuwiFxHo8S0t",12),
     created_at: "2019-12-11",
   },
   {
@@ -132,7 +134,7 @@ module.exports = [
     last_name: "Boughton",
     email: "7gboughtong@sogou.com",
     username: "gboughtong91",
-    password: "z4nMoT2",
+    password: bcrypt.hashSync("z4nMoT2",12),
     created_at: "2020-01-31",
   },
   {
@@ -140,7 +142,7 @@ module.exports = [
     last_name: "Awdry",
     email: "48wawdryh@vimeo.com",
     username: "wawdryh25",
-    password: "fDXePJYs",
+    password: bcrypt.hashSync("fDXePJYs",12),
     created_at: "2019-07-28",
   },
   {
@@ -148,7 +150,7 @@ module.exports = [
     last_name: "Codner",
     email: "58hcodneri@miitbeian.gov.cn",
     username: "hcodneri19",
-    password: "UHjIORJ6NGy",
+    password: bcrypt.hashSync("UHjIORJ6NGy",12),
     created_at: "2019-11-26",
   },
   {
@@ -156,7 +158,7 @@ module.exports = [
     last_name: "Hruska",
     email: "7thruskaj@prlog.org",
     username: "thruskaj65",
-    password: "rO0FENRAr",
+    password: bcrypt.hashSync("rO0FENRAr",12),
     created_at: "2020-05-18",
   },
   {
@@ -164,7 +166,7 @@ module.exports = [
     last_name: "Cumming",
     email: "55bcummingk@blog.com",
     username: "bcummingk73",
-    password: "ddhFMxKSG",
+    password: bcrypt.hashSync("ddhFMxKSG",12),
     created_at: "2020-04-30",
   },
   {
@@ -172,7 +174,7 @@ module.exports = [
     last_name: "Mazella",
     email: "61jmazellal@vk.com",
     username: "jmazellal14",
-    password: "BR1IGYPWQ7",
+    password: bcrypt.hashSync("BR1IGYPWQ7",12),
     created_at: "2019-12-06",
   },
   {
@@ -180,7 +182,7 @@ module.exports = [
     last_name: "Van Der Vlies",
     email: "23hvandervliesm@narod.ru",
     username: "hvandervliesm86",
-    password: "v7gYoDEU",
+    password: bcrypt.hashSync("v7gYoDEU",12),
     created_at: "2020-01-16",
   },
   {
@@ -188,7 +190,7 @@ module.exports = [
     last_name: "Ambrosi",
     email: "55rambrosin@squarespace.com",
     username: "rambrosin25",
-    password: "KsLPABg9BoeY",
+    password: bcrypt.hashSync("KsLPABg9BoeY",12),
     created_at: "2019-09-17",
   },
   {
@@ -196,7 +198,7 @@ module.exports = [
     last_name: "Shearstone",
     email: "0ushearstoneo@wsj.com",
     username: "ushearstoneo57",
-    password: "6UO1xPgPJF",
+    password: bcrypt.hashSync("6UO1xPgPJF",12),
     created_at: "2020-02-26",
   },
   {
@@ -204,7 +206,7 @@ module.exports = [
     last_name: "Arrighini",
     email: "80garrighinip@wikia.com",
     username: "garrighinip85",
-    password: "VYbXoWHs15T",
+    password: bcrypt.hashSync("VYbXoWHs15T",12),
     created_at: "2020-02-29",
   },
   {
@@ -212,7 +214,7 @@ module.exports = [
     last_name: "Abramov",
     email: "91dabramovq@sbwire.com",
     username: "dabramovq72",
-    password: "VyeMRpzixGS1",
+    password: bcrypt.hashSync("VyeMRpzixGS1",12),
     created_at: "2020-06-17",
   },
   {
@@ -220,7 +222,7 @@ module.exports = [
     last_name: "Walentynowicz",
     email: "56gwalentynowiczr@zimbio.com",
     username: "gwalentynowiczr57",
-    password: "md31WA",
+    password: bcrypt.hashSync("md31WA",12),
     created_at: "2019-08-18",
   },
   {
@@ -228,7 +230,7 @@ module.exports = [
     last_name: "Baigrie",
     email: "4cbaigries@microsoft.com",
     username: "cbaigries43",
-    password: "uKPLVXuCLAc",
+    password: bcrypt.hashSync("uKPLVXuCLAc",12),
     created_at: "2020-03-15",
   },
   {
@@ -236,7 +238,7 @@ module.exports = [
     last_name: "Ferran",
     email: "85hferrant@livejournal.com",
     username: "hferrant61",
-    password: "yhlodzyuOkrx",
+    password: bcrypt.hashSync("yhlodzyuOkrx",12),
     created_at: "2019-07-22",
   },
   {
@@ -244,7 +246,7 @@ module.exports = [
     last_name: "Northern",
     email: "77rnorthernu@oakley.com",
     username: "rnorthernu53",
-    password: "AImh1f4KTM",
+    password: bcrypt.hashSync("AImh1f4KTM",12),
     created_at: "2019-12-29",
   },
   {
@@ -252,7 +254,7 @@ module.exports = [
     last_name: "Kilgrew",
     email: "91ckilgrewv@webnode.com",
     username: "ckilgrewv61",
-    password: "XhzC7ziMCJ5R",
+    password: bcrypt.hashSync("XhzC7ziMCJ5R",12),
     created_at: "2019-09-11",
   },
   {
@@ -260,7 +262,7 @@ module.exports = [
     last_name: "Tough",
     email: "8stoughw@facebook.com",
     username: "stoughw39",
-    password: "9Ka9kgA9",
+    password: bcrypt.hashSync("9Ka9kgA9",12),
     created_at: "2020-05-22",
   },
   {
@@ -268,7 +270,7 @@ module.exports = [
     last_name: "Channing",
     email: "44achanningx@infoseek.co.jp",
     username: "achanningx64",
-    password: "gIv0KbspGdx",
+    password: bcrypt.hashSync("gIv0KbspGdx",12),
     created_at: "2019-08-01",
   },
   {
@@ -276,7 +278,7 @@ module.exports = [
     last_name: "Cregg",
     email: "99vcreggy@networkadvertising.org",
     username: "vcreggy93",
-    password: "5FA82cCJH",
+    password: bcrypt.hashSync("5FA82cCJH",12),
     created_at: "2019-07-28",
   },
   {
@@ -284,7 +286,7 @@ module.exports = [
     last_name: "Caukill",
     email: "53ccaukillz@utexas.edu",
     username: "ccaukillz41",
-    password: "yWlFJ0Q0G",
+    password: bcrypt.hashSync("yWlFJ0Q0G",12),
     created_at: "2019-12-29",
   },
   {
@@ -292,7 +294,7 @@ module.exports = [
     last_name: "De Nisco",
     email: "6cdenisco10@cbslocal.com",
     username: "cdenisco1069",
-    password: "gQRwEcBSW",
+    password: bcrypt.hashSync("gQRwEcBSW",12),
     created_at: "2019-11-19",
   },
   {
@@ -300,7 +302,7 @@ module.exports = [
     last_name: "De La Hay",
     email: "14adelahay11@google.nl",
     username: "adelahay1144",
-    password: "2On17q7",
+    password: bcrypt.hashSync("2On17q7",12),
     created_at: "2019-12-23",
   },
   {
@@ -308,7 +310,7 @@ module.exports = [
     last_name: "Ashingden",
     email: "29cashingden12@photobucket.com",
     username: "cashingden1280",
-    password: "ulzGTh5zZjX",
+    password: bcrypt.hashSync("ulzGTh5zZjX",12),
     created_at: "2020-05-18",
   },
   {
@@ -316,7 +318,7 @@ module.exports = [
     last_name: "Syalvester",
     email: "64rsyalvester13@freewebs.com",
     username: "rsyalvester1377",
-    password: "G5XzpG6f",
+    password: bcrypt.hashSync("G5XzpG6f",12),
     created_at: "2019-11-25",
   },
   {
@@ -324,7 +326,7 @@ module.exports = [
     last_name: "MacKaig",
     email: "60bmackaig14@nps.gov",
     username: "bmackaig1432",
-    password: "WNLNBhpddEag",
+    password: bcrypt.hashSync("WNLNBhpddEag",12),
     created_at: "2019-09-28",
   },
   {
@@ -332,7 +334,7 @@ module.exports = [
     last_name: "Simacek",
     email: "8lsimacek15@msn.com",
     username: "lsimacek1546",
-    password: "pcBBU0OuZJdp",
+    password: bcrypt.hashSync("pcBBU0OuZJdp",12),
     created_at: "2020-05-23",
   },
   {
@@ -340,7 +342,7 @@ module.exports = [
     last_name: "Greber",
     email: "23tgreber16@drupal.org",
     username: "tgreber1651",
-    password: "ZW3R8D9",
+    password: bcrypt.hashSync("ZW3R8D9",12),
     created_at: "2020-01-27",
   },
   {
@@ -348,7 +350,7 @@ module.exports = [
     last_name: "Beecroft",
     email: "67gbeecroft17@shinystat.com",
     username: "gbeecroft1795",
-    password: "GuD8LdkxAuX",
+    password: bcrypt.hashSync("GuD8LdkxAuX",12),
     created_at: "2019-06-28",
   },
   {
@@ -356,7 +358,7 @@ module.exports = [
     last_name: "Bourdice",
     email: "13fbourdice18@theguardian.com",
     username: "fbourdice1843",
-    password: "zbhsOoP",
+    password: bcrypt.hashSync("zbhsOoP",12),
     created_at: "2020-02-18",
   },
   {
@@ -364,7 +366,7 @@ module.exports = [
     last_name: "Comazzo",
     email: "69mcomazzo19@state.tx.us",
     username: "mcomazzo1964",
-    password: "gEJiQv7pfcm",
+    password: bcrypt.hashSync("gEJiQv7pfcm",12),
     created_at: "2020-03-26",
   },
   {
@@ -372,7 +374,7 @@ module.exports = [
     last_name: "Gippes",
     email: "99vgippes1a@slashdot.org",
     username: "vgippes1a90",
-    password: "2IF9TWmNC",
+    password: bcrypt.hashSync("2IF9TWmNC",12),
     created_at: "2020-02-08",
   },
   {
@@ -380,7 +382,7 @@ module.exports = [
     last_name: "Bard",
     email: "3dbard1b@mac.com",
     username: "dbard1b7",
-    password: "B8twbU3CS",
+    password: bcrypt.hashSync("B8twbU3CS",12),
     created_at: "2020-04-06",
   },
   {
@@ -388,7 +390,7 @@ module.exports = [
     last_name: "Henrichsen",
     email: "76lhenrichsen1c@examiner.com",
     username: "lhenrichsen1c81",
-    password: "RktABxjOqcaL",
+    password: bcrypt.hashSync("RktABxjOqcaL",12),
     created_at: "2019-11-12",
   },
   {
@@ -396,7 +398,7 @@ module.exports = [
     last_name: "Walwood",
     email: "65bwalwood1d@furl.net",
     username: "bwalwood1d26",
-    password: "AEGfQj",
+    password: bcrypt.hashSync("AEGfQj",12),
     created_at: "2020-05-13",
   },
   {
@@ -404,7 +406,7 @@ module.exports = [
     last_name: "Shemwell",
     email: "99cshemwell1e@jigsy.com",
     username: "cshemwell1e98",
-    password: "4eA2zO",
+    password: bcrypt.hashSync("4eA2zO",12),
     created_at: "2019-12-13",
   },
   {
@@ -412,7 +414,7 @@ module.exports = [
     last_name: "Paye",
     email: "58spaye1f@nationalgeographic.com",
     username: "spaye1f63",
-    password: "Gbyb6bCDkX",
+    password: bcrypt.hashSync("Gbyb6bCDk,12)X",12),
     created_at: "2019-09-14",
   },
   {
@@ -420,7 +422,7 @@ module.exports = [
     last_name: "Reimers",
     email: "41creimers1g@patch.com",
     username: "creimers1g83",
-    password: "qcc5fzvYYoi8",
+    password: bcrypt.hashSync("qcc5fzvYY,12)oi8",12),
     created_at: "2020-05-08",
   },
   {
@@ -428,7 +430,7 @@ module.exports = [
     last_name: "Clipston",
     email: "66wclipston1h@mayoclinic.com",
     username: "wclipston1h36",
-    password: "aGll9zm",
+    password: bcrypt.hashSync("aGll9zm",12),
     created_at: "2020-05-30",
   },
   {
@@ -436,7 +438,7 @@ module.exports = [
     last_name: "MacGillacolm",
     email: "52dmacgillacolm1i@yahoo.co.jp",
     username: "dmacgillacolm1i21",
-    password: "G8yFyNKf81wj",
+    password: bcrypt.hashSync("G8yFyNKf8,12)1wj",12),
     created_at: "2019-09-28",
   },
   {
@@ -444,7 +446,7 @@ module.exports = [
     last_name: "Betton",
     email: "83hbetton1j@mayoclinic.com",
     username: "hbetton1j87",
-    password: "QeRAZQp",
+    password: bcrypt.hashSync("QeRAZQp",12),
     created_at: "2020-05-31",
   },
   {
@@ -452,7 +454,7 @@ module.exports = [
     last_name: "Yare",
     email: "74ayare1k@ycombinator.com",
     username: "ayare1k13",
-    password: "lDdUUz01z",
+    password: bcrypt.hashSync("lDdUUz01z,12)",12),
     created_at: "2019-12-08",
   },
   {
@@ -460,7 +462,7 @@ module.exports = [
     last_name: "Cregin",
     email: "82ecregin1l@narod.ru",
     username: "ecregin1l97",
-    password: "166kwfKU0",
+    password: bcrypt.hashSync("166kwfKU0,12)",12),
     created_at: "2020-01-28",
   },
   {
@@ -468,7 +470,7 @@ module.exports = [
     last_name: "Bohin",
     email: "47ibohin1m@weibo.com",
     username: "ibohin1m53",
-    password: "Q8n6LlKHveTG",
+    password: bcrypt.hashSync("Q8n6LlKHv,12)eTG",12),
     created_at: "2020-04-10",
   },
   {
@@ -476,7 +478,7 @@ module.exports = [
     last_name: "Hexam",
     email: "95chexam1n@ask.com",
     username: "chexam1n43",
-    password: "ILegBd",
+    password: bcrypt.hashSync("ILegBd",12),
     created_at: "2019-12-25",
   },
   {
@@ -484,7 +486,7 @@ module.exports = [
     last_name: "Nisen",
     email: "73mnisen1o@icio.us",
     username: "mnisen1o4",
-    password: "6riFkVLe",
+    password: bcrypt.hashSync("6riFkVLe",12),
     created_at: "2020-06-19",
   },
   {
@@ -492,7 +494,7 @@ module.exports = [
     last_name: "Passion",
     email: "97rpassion1p@amazon.de",
     username: "rpassion1p54",
-    password: "OscD6LymGsWK",
+    password: bcrypt.hashSync("OscD6LymG,12)sWK",12),
     created_at: "2019-07-24",
   },
   {
@@ -500,7 +502,7 @@ module.exports = [
     last_name: "Litterick",
     email: "22glitterick1q@prweb.com",
     username: "glitterick1q37",
-    password: "b6mT1Z",
+    password: bcrypt.hashSync("b6mT1Z",12),
     created_at: "2019-08-08",
   },
   {
@@ -508,7 +510,7 @@ module.exports = [
     last_name: "Keough",
     email: "65skeough1r@pagesperso-orange.fr",
     username: "skeough1r10",
-    password: "UCX1fc",
+    password: bcrypt.hashSync("UCX1fc",12),
     created_at: "2020-03-24",
   },
   {
@@ -516,7 +518,7 @@ module.exports = [
     last_name: "Rome",
     email: "3lrome1s@auda.org.au",
     username: "lrome1s89",
-    password: "xTwTarl",
+    password: bcrypt.hashSync("xTwTarl",12),
     created_at: "2019-11-01",
   },
   {
@@ -524,7 +526,7 @@ module.exports = [
     last_name: "Gosney",
     email: "20kgosney1t@home.pl",
     username: "kgosney1t55",
-    password: "b8rZQxAmrR",
+    password: bcrypt.hashSync("b8rZQxAmr,12)R",12),
     created_at: "2019-06-30",
   },
   {
@@ -532,7 +534,7 @@ module.exports = [
     last_name: "Castellone",
     email: "95mcastellone1u@nsw.gov.au",
     username: "mcastellone1u1",
-    password: "J5jEYrQ5",
+    password: bcrypt.hashSync("J5jEYrQ5",12),
     created_at: "2020-01-15",
   },
   {
@@ -540,7 +542,7 @@ module.exports = [
     last_name: "Skelington",
     email: "34mskelington1v@devhub.com",
     username: "mskelington1v80",
-    password: "XJH7xF8RYgB",
+    password: bcrypt.hashSync("XJH7xF8RY,12)gB",12),
     created_at: "2019-09-06",
   },
   {
@@ -548,7 +550,7 @@ module.exports = [
     last_name: "Ninotti",
     email: "70gninotti1w@delicious.com",
     username: "gninotti1w74",
-    password: "PkZEDax",
+    password: bcrypt.hashSync("PkZEDax",12),
     created_at: "2020-01-30",
   },
   {
@@ -556,7 +558,7 @@ module.exports = [
     last_name: "Dresche",
     email: "96hdresche1x@parallels.com",
     username: "hdresche1x2",
-    password: "CUSm1d2",
+    password: bcrypt.hashSync("CUSm1d2",12),
     created_at: "2019-10-12",
   },
   {
@@ -564,7 +566,7 @@ module.exports = [
     last_name: "Winterton",
     email: "69mwinterton1y@csmonitor.com",
     username: "mwinterton1y8",
-    password: "l6rQks",
+    password: bcrypt.hashSync("l6rQks",12),
     created_at: "2019-10-24",
   },
   {
@@ -572,7 +574,7 @@ module.exports = [
     last_name: "Cabena",
     email: "78bcabena1z@printfriendly.com",
     username: "bcabena1z58",
-    password: "uB9yoT",
+    password: bcrypt.hashSync("uB9yoT",12),
     created_at: "2020-03-29",
   },
   {
@@ -580,7 +582,7 @@ module.exports = [
     last_name: "Hrycek",
     email: "40chrycek20@forbes.com",
     username: "chrycek2084",
-    password: "6OzRuVEWXz",
+    password: bcrypt.hashSync("6OzRuVEWX,12)z",12),
     created_at: "2019-09-23",
   },
   {
@@ -588,7 +590,7 @@ module.exports = [
     last_name: "Unitt",
     email: "34funitt21@go.com",
     username: "funitt2133",
-    password: "w6FOUGLJ",
+    password: bcrypt.hashSync("w6FOUGLJ",12),
     created_at: "2020-01-26",
   },
   {
@@ -596,7 +598,7 @@ module.exports = [
     last_name: "O' Liddy",
     email: "49joliddy22@statcounter.com",
     username: "joliddy2262",
-    password: "RzRR6EcWYsN",
+    password: bcrypt.hashSync("RzRR6EcWY,12)sN",12),
     created_at: "2019-11-09",
   },
   {
@@ -604,7 +606,7 @@ module.exports = [
     last_name: "Cicchitello",
     email: "55kcicchitello23@umich.edu",
     username: "kcicchitello2375",
-    password: "mHVgbeF",
+    password: bcrypt.hashSync("mHVgbeF",12),
     created_at: "2020-04-29",
   },
   {
@@ -612,7 +614,7 @@ module.exports = [
     last_name: "Joist",
     email: "14pjoist24@eepurl.com",
     username: "pjoist2465",
-    password: "mbEP5s",
+    password: bcrypt.hashSync("mbEP5s",12),
     created_at: "2019-11-28",
   },
   {
@@ -620,7 +622,7 @@ module.exports = [
     last_name: "Betjes",
     email: "52abetjes25@storify.com",
     username: "abetjes2585",
-    password: "eA7NMk7R",
+    password: bcrypt.hashSync("eA7NMk7R",12),
     created_at: "2019-08-30",
   },
   {
@@ -628,7 +630,7 @@ module.exports = [
     last_name: "Hatwells",
     email: "79rhatwells26@japanpost.jp",
     username: "rhatwells263",
-    password: "nZFreHuXQwN",
+    password: bcrypt.hashSync("nZFreHuXQ,12)wN",12),
     created_at: "2020-03-04",
   },
   {
@@ -636,7 +638,7 @@ module.exports = [
     last_name: "Roddell",
     email: "84rroddell27@vimeo.com",
     username: "rroddell2733",
-    password: "H52PmI9eFjj",
+    password: bcrypt.hashSync("H52PmI9eF,12)jj",12),
     created_at: "2020-01-22",
   },
   {
@@ -644,7 +646,7 @@ module.exports = [
     last_name: "Wellings",
     email: "61bwellings28@seattletimes.com",
     username: "bwellings2836",
-    password: "SHT9Mh7XzYT",
+    password: bcrypt.hashSync("SHT9Mh7Xz,12)YT",12),
     created_at: "2020-03-17",
   },
   {
@@ -652,7 +654,7 @@ module.exports = [
     last_name: "Morriss",
     email: "66tmorriss29@vinaora.com",
     username: "tmorriss2932",
-    password: "MoKOng4r16q",
+    password: bcrypt.hashSync("MoKOng4r1,12)6q",12),
     created_at: "2019-09-04",
   },
   {
@@ -660,7 +662,7 @@ module.exports = [
     last_name: "Dikle",
     email: "69idikle2a@cocolog-nifty.com",
     username: "idikle2a65",
-    password: "EzhQopdlALPj",
+    password: bcrypt.hashSync("EzhQopdlA,12)LPj",12),
     created_at: "2019-07-15",
   },
   {
@@ -668,7 +670,7 @@ module.exports = [
     last_name: "Panther",
     email: "61tpanther2b@reference.com",
     username: "tpanther2b32",
-    password: "FKjnTgwtGb",
+    password: bcrypt.hashSync("FKjnTgwtG,12)b",12),
     created_at: "2020-06-09",
   },
   {
@@ -676,7 +678,7 @@ module.exports = [
     last_name: "Frain",
     email: "46sfrain2c@youtube.com",
     username: "sfrain2c12",
-    password: "9Bp1kq0",
+    password: bcrypt.hashSync("9Bp1kq0",12),
     created_at: "2020-04-29",
   },
   {
@@ -684,7 +686,7 @@ module.exports = [
     last_name: "Recher",
     email: "46jrecher2d@yelp.com",
     username: "jrecher2d22",
-    password: "mANUI6bhc5UC",
+    password: bcrypt.hashSync("mANUI6bhc,12)5UC",12),
     created_at: "2019-09-29",
   },
   {
@@ -692,7 +694,7 @@ module.exports = [
     last_name: "Ennals",
     email: "21cennals2e@networksolutions.com",
     username: "cennals2e76",
-    password: "JteiF0Uc",
+    password: bcrypt.hashSync("JteiF0Uc",12),
     created_at: "2019-07-19",
   },
   {
@@ -700,7 +702,7 @@ module.exports = [
     last_name: "Suddaby",
     email: "33csuddaby2f@home.pl",
     username: "csuddaby2f49",
-    password: "RqGKLvHYO",
+    password: bcrypt.hashSync("RqGKLvHYO,12)",12),
     created_at: "2020-05-25",
   },
   {
@@ -708,7 +710,7 @@ module.exports = [
     last_name: "Ariss",
     email: "41variss2g@narod.ru",
     username: "variss2g1",
-    password: "Ksa7QX",
+    password: bcrypt.hashSync("Ksa7QX",12),
     created_at: "2019-11-26",
   },
   {
@@ -716,7 +718,7 @@ module.exports = [
     last_name: "Gummie",
     email: "22lgummie2h@constantcontact.com",
     username: "lgummie2h18",
-    password: "XDKR8c1fX",
+    password: bcrypt.hashSync("XDKR8c1fX,12)",12),
     created_at: "2020-05-25",
   },
   {
@@ -724,7 +726,7 @@ module.exports = [
     last_name: "Murdoch",
     email: "31bmurdoch2i@deliciousdays.com",
     username: "bmurdoch2i49",
-    password: "bUKj233eBd",
+    password: bcrypt.hashSync("bUKj233eB,12)d",12),
     created_at: "2020-05-27",
   },
   {
@@ -732,7 +734,7 @@ module.exports = [
     last_name: "Grammer",
     email: "28agrammer2j@squarespace.com",
     username: "agrammer2j91",
-    password: "pxFfktTqhE",
+    password: bcrypt.hashSync("pxFfktTqh,12)E",12),
     created_at: "2020-05-21",
   },
   {
@@ -740,7 +742,7 @@ module.exports = [
     last_name: "Hemphall",
     email: "34ghemphall2k@icio.us",
     username: "ghemphall2k16",
-    password: "4bstvludY2aa",
+    password: bcrypt.hashSync("4bstvludY,12)2aa",12),
     created_at: "2020-04-08",
   },
   {
@@ -748,7 +750,7 @@ module.exports = [
     last_name: "Heninghem",
     email: "80rheninghem2l@xing.com",
     username: "rheninghem2l89",
-    password: "V4J0IAkA",
+    password: bcrypt.hashSync("V4J0IAkA",12),
     created_at: "2019-11-02",
   },
   {
@@ -756,7 +758,7 @@ module.exports = [
     last_name: "Davana",
     email: "77cdavana2m@icio.us",
     username: "cdavana2m59",
-    password: "YtzKWoVG4",
+    password: bcrypt.hashSync("YtzKWoVG4,12)",12),
     created_at: "2020-03-13",
   },
   {
@@ -764,7 +766,7 @@ module.exports = [
     last_name: "Fendt",
     email: "20hfendt2n@shareasale.com",
     username: "hfendt2n14",
-    password: "OokxsO",
+    password: bcrypt.hashSync("OokxsO",12),
     created_at: "2019-11-14",
   },
   {
@@ -772,7 +774,7 @@ module.exports = [
     last_name: "O' Liddy",
     email: "63noliddy2o@usnews.com",
     username: "noliddy2o54",
-    password: "Z0Il56ipLdN",
+    password: bcrypt.hashSync("Z0Il56ipL,12)dN",12),
     created_at: "2019-10-20",
   },
   {
@@ -780,7 +782,7 @@ module.exports = [
     last_name: "Sirrell",
     email: "74csirrell2p@weather.com",
     username: "csirrell2p30",
-    password: "JoHeCIt1cNI",
+    password: bcrypt.hashSync("JoHeCIt1c,12)NI",12),
     created_at: "2020-05-03",
   },
   {
@@ -788,7 +790,7 @@ module.exports = [
     last_name: "La Grange",
     email: "88vlagrange2q@sina.com.cn",
     username: "vlagrange2q53",
-    password: "T9qrFOmcR",
+    password: bcrypt.hashSync("T9qrFOmcR,12)",12),
     created_at: "2020-02-08",
   },
   {
@@ -796,7 +798,7 @@ module.exports = [
     last_name: "Pond-Jones",
     email: "64kpondjones2r@infoseek.co.jp",
     username: "kpondjones2r99",
-    password: "NRWMepaC",
+    password: bcrypt.hashSync("NRWMepaC",12),
     created_at: "2019-11-05",
   },
 ];
