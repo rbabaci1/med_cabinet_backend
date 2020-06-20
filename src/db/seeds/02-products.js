@@ -1,11 +1,16 @@
 const generateProducts = require("../../utils/productsSeedHelper");
 
-exports.seed = function (knex) {
-  const products = generateProducts();
+const products = generateProducts();
+const firstHalf = products.slice(0, 49);
+const secondHalf = products.splice(49);
 
+exports.seed = function (knex) {
   return knex("products")
     .del()
     .then(function () {
-      return knex("products").insert(products);
+      return knex("products").insert(firstHalf);
+    })
+    .then(function () {
+      return knex("products").insert(secondHalf);
     });
 };

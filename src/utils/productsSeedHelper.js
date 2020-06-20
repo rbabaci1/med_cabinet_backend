@@ -8,8 +8,6 @@ const {
   price_units,
 } = require("../db/mockData/products");
 
-console.log(products);
-
 const random = arr => arr[Math.floor(Math.random() * arr.length)];
 
 const generateProducts = () => {
@@ -17,7 +15,7 @@ const generateProducts = () => {
     p.strain_name = strain_names[i];
     p.strain_category = random(strain_categories);
     p.strain_type = random(strain_types);
-    p.description = random(descreptions);
+    p.description = random(descreptions) || descreptions[0];
 
     p.img_url =
       p.strain_category === "Flower"
@@ -35,6 +33,8 @@ const generateProducts = () => {
         : random(images.cbd);
     p.price_unit = random(price_units);
     p.is_available = random([true, false]);
+
+    return p;
   });
 };
 
