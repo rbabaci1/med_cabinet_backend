@@ -12,7 +12,6 @@ exports.up = function (knex) {
     table.string("img_url", 128).notNullable();
     table.boolean("is_available").notNullable();
     table.string("created_at", 64).notNullable();
-    table.string("updated_at", 64).notNullable();
   });
 };
 
