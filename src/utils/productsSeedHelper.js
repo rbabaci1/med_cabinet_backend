@@ -1,14 +1,16 @@
-const random = arr => arr[Math.floor(Math.random() * arr.length)];
-
-const generateProducts = (
+const {
   products,
   strain_names,
   strain_categories,
   strain_types,
   descreptions,
   images,
-  price_units
-) => {
+  price_units,
+} = require("../db/mockData/products");
+
+const random = arr => arr[Math.floor(Math.random() * arr.length)];
+
+const generateProducts = () => {
   return products.map((p, i) => {
     p.strain_name = strain_names[i];
     p.strain_category = random(strain_categories);

@@ -733,6 +733,7 @@ const strain_categories = [
 ];
 
 const strain_types = ["Sativa", "Indica", "hybrid"];
+const price_units = ["gram", "piece"];
 
 const descreptions = [
   "named for its direct Afghani and Pakistani landrace heritage, is a beautiful indica-dominant hybrid with light green and deep bluish purple leaves. The taste and aroma are floral with a touch of lemon, making the inhale light and smooth. Its effects start in the stomach by activating the appetite. There is also a potent relaxation that starts in the head and face, and gradually sinks down into the body. Enjoy this strain if you’re suffering from stress, mild physical discomfort, or having difficulty eating.  ",
@@ -815,8 +816,6 @@ const images = {
   pre_rolls,
   cbd,
 };
-
-const price_units = ["gram", "piece"];
 
 module.exports = {
   products,
