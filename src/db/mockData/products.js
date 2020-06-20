@@ -204,24 +204,6 @@ const strain_names = [
   "Oakland haze",
 ];
 
-const flavors = [
-  "Earthy",
-  "Chemical",
-  "Pine",
-  "Spicy/Herbal",
-  "Pungent",
-  "Pepper",
-  "Flowery",
-  "Flowery",
-  "Citrus",
-  "Orange",
-  "Sweet",
-  "Skunk",
-  "Woody",
-  "Grape",
-  "Minty",
-];
-
 const strain_categories = [
   "Flower",
   "Edibles",

@@ -1,0 +1,17 @@
+module.exports = [
+  { flavor: "Earthy" },
+  { flavor: "Chemical" },
+  { flavor: "Pine" },
+  { flavor: "Spicy/Herbal" },
+  { flavor: "Pungent" },
+  { flavor: "Pepper" },
+  { flavor: "Flowery" },
+  { flavor: "Flowery" },
+  { flavor: "Citrus" },
+  { flavor: "Orange" },
+  { flavor: "Sweet" },
+  { flavor: "Skunk" },
+  { flavor: "Woody" },
+  { flavor: "Grape" },
+  { flavor: "Minty" },
+];
