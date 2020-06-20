@@ -9,7 +9,7 @@ module.exports = [
     email: "24mcawsey0@blogger.com",
     logo_url: "http://dummyimage.com/225x155.jpg/ff4444/ffffff",
     has_delivery: false,
-    created_at: "2019-08-14",
+    created_at: "2019-08-14 02:01:24",
   },
   {
     name: "Devify-45",
@@ -21,7 +21,7 @@ module.exports = [
     email: "16bcongreve1@wp.com",
     logo_url: "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2020-06-16",
+    created_at: "2020-06-16 02:01:24",
   },
   {
     name: "Photobean-27",
@@ -33,7 +33,7 @@ module.exports = [
     email: "83dphillcox2@baidu.com",
     logo_url: "http://dummyimage.com/128x123.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2019-10-06",
+    created_at: "2019-10-06 02:01:24",
   },
   {
     name: "Kamba-75",
@@ -45,7 +45,7 @@ module.exports = [
     email: "2bhawkridge3@ucoz.com",
     logo_url: "http://dummyimage.com/152x156.jpg/ff4444/ffffff",
     has_delivery: false,
-    created_at: "2020-01-25",
+    created_at: "2020-01-25 02:01:24",
   },
   {
     name: "Demizz-95",
@@ -57,7 +57,7 @@ module.exports = [
     email: "83wbains4@bloglovin.com",
     logo_url: "http://dummyimage.com/244x139.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-08-10",
+    created_at: "2019-08-10 02:01:24",
   },
   {
     name: "Tazz-71",
@@ -69,7 +69,7 @@ module.exports = [
     email: "2hboffey5@posterous.com",
     logo_url: "http://dummyimage.com/245x142.jpg/5fa2dd/ffffff",
     has_delivery: false,
-    created_at: "2019-09-22",
+    created_at: "2019-09-22 02:01:24",
   },
   {
     name: "Eabox-14",
@@ -81,7 +81,7 @@ module.exports = [
     email: "17fyounge6@t-online.de",
     logo_url: "http://dummyimage.com/250x247.jpg/ff4444/ffffff",
     has_delivery: false,
-    created_at: "2020-01-05",
+    created_at: "2020-01-05 02:01:24",
   },
   {
     name: "Yodo-21",
@@ -93,7 +93,7 @@ module.exports = [
     email: "48prenbold7@biblegateway.com",
     logo_url: "http://dummyimage.com/147x144.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2020-05-04",
+    created_at: "2020-05-04 02:01:24",
   },
   {
     name: "Roodel-87",
@@ -105,7 +105,7 @@ module.exports = [
     email: "71bsprull8@slideshare.net",
     logo_url: "http://dummyimage.com/108x216.jpg/5fa2dd/ffffff",
     has_delivery: false,
-    created_at: "2019-08-05",
+    created_at: "2019-08-05 02:01:24",
   },
   {
     name: "Leenti-92",
@@ -117,7 +117,7 @@ module.exports = [
     email: "19bpezey9@japanpost.jp",
     logo_url: "http://dummyimage.com/159x250.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2020-04-01",
+    created_at: "2020-04-01 02:01:24",
   },
   {
     name: "Gigazoom-63",
@@ -129,7 +129,7 @@ module.exports = [
     email: "93byemma@loc.gov",
     logo_url: "http://dummyimage.com/133x229.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2020-06-07",
+    created_at: "2020-06-07 02:01:24",
   },
   {
     name: "Gigaclub-70",
@@ -141,7 +141,7 @@ module.exports = [
     email: "15bpowersb@bbb.org",
     logo_url: "http://dummyimage.com/112x137.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-05-01",
+    created_at: "2020-05-01 02:01:24",
   },
   {
     name: "Rhynoodle-72",
@@ -153,7 +153,7 @@ module.exports = [
     email: "18gsysonc@ning.com",
     logo_url: "http://dummyimage.com/232x249.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-04-07",
+    created_at: "2020-04-07 02:01:24",
   },
   {
     name: "Brightbean-63",
@@ -165,7 +165,7 @@ module.exports = [
     email: "83gkobierrad@rakuten.co.jp",
     logo_url: "http://dummyimage.com/184x214.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2019-08-26",
+    created_at: "2019-08-26 02:01:24",
   },
   {
     name: "Einti-32",
@@ -177,7 +177,7 @@ module.exports = [
     email: "16drimbaulte@yahoo.co.jp",
     logo_url: "http://dummyimage.com/242x224.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2019-09-27",
+    created_at: "2019-09-27 02:01:24",
   },
   {
     name: "Thoughtmix-32",
@@ -189,7 +189,7 @@ module.exports = [
     email: "44gjohnstonef@wikispaces.com",
     logo_url: "http://dummyimage.com/231x174.jpg/5fa2dd/ffffff",
     has_delivery: false,
-    created_at: "2019-12-22",
+    created_at: "2019-12-22 02:01:24",
   },
   {
     name: "Mynte-33",
@@ -201,7 +201,7 @@ module.exports = [
     email: "70syannonig@icq.com",
     logo_url: "http://dummyimage.com/166x132.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2019-08-15",
+    created_at: "2019-08-15 02:01:24",
   },
   {
     name: "Jetwire-57",
@@ -213,7 +213,7 @@ module.exports = [
     email: "36asimonsh@youtu.be",
     logo_url: "http://dummyimage.com/218x212.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-12-09",
+    created_at: "2019-12-09 02:01:24",
   },
   {
     name: "Youtags-82",
@@ -225,7 +225,7 @@ module.exports = [
     email: "46sleetei@washington.edu",
     logo_url: "http://dummyimage.com/247x178.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2020-03-10",
+    created_at: "2020-03-10 02:01:24",
   },
   {
     name: "Youbridge-40",
@@ -237,7 +237,7 @@ module.exports = [
     email: "31acalcuttj@istockphoto.com",
     logo_url: "http://dummyimage.com/196x183.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2019-07-06",
+    created_at: "2019-07-06 02:01:24",
   },
   {
     name: "Izio-16",
@@ -249,7 +249,7 @@ module.exports = [
     email: "35anorleyk@economist.com",
     logo_url: "http://dummyimage.com/204x132.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2019-07-23",
+    created_at: "2019-07-23 02:01:24",
   },
   {
     name: "Divape-61",
@@ -261,7 +261,7 @@ module.exports = [
     email: "42ihaversl@biglobe.ne.jp",
     logo_url: "http://dummyimage.com/222x207.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2020-02-09",
+    created_at: "2020-02-09 02:01:24",
   },
   {
     name: "Gabtune-50",
@@ -273,7 +273,7 @@ module.exports = [
     email: "24aautinm@bandcamp.com",
     logo_url: "http://dummyimage.com/175x170.jpg/5fa2dd/ffffff",
     has_delivery: false,
-    created_at: "2020-03-23",
+    created_at: "2020-03-23 02:01:24",
   },
   {
     name: "Plajo-93",
@@ -285,7 +285,7 @@ module.exports = [
     email: "62proxbroughn@thetimes.co.uk",
     logo_url: "http://dummyimage.com/145x221.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-12-16",
+    created_at: "2019-12-16 02:01:24",
   },
   {
     name: "Voonte-60",
@@ -297,7 +297,7 @@ module.exports = [
     email: "17blievesleyo@de.vu",
     logo_url: "http://dummyimage.com/213x197.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2019-11-05",
+    created_at: "2019-11-05 02:01:24",
   },
   {
     name: "Yodoo-74",
@@ -309,7 +309,7 @@ module.exports = [
     email: "95kmillep@netvibes.com",
     logo_url: "http://dummyimage.com/109x250.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2019-06-28",
+    created_at: "2019-06-28 02:01:24",
   },
   {
     name: "Yodel-32",
@@ -321,7 +321,7 @@ module.exports = [
     email: "1tlemonnierq@xinhuanet.com",
     logo_url: "http://dummyimage.com/166x140.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-01-29",
+    created_at: "2020-01-29 02:01:24",
   },
   {
     name: "Latz-2",
@@ -333,7 +333,7 @@ module.exports = [
     email: "90bblackmanr@sciencedaily.com",
     logo_url: "http://dummyimage.com/195x249.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2020-04-22",
+    created_at: "2020-04-22 02:01:24",
   },
   {
     name: "Mymm-11",
@@ -345,7 +345,7 @@ module.exports = [
     email: "71agrzegorzewskis@ow.ly",
     logo_url: "http://dummyimage.com/184x101.jpg/5fa2dd/ffffff",
     has_delivery: false,
-    created_at: "2020-02-06",
+    created_at: "2020-02-06 02:01:24",
   },
   {
     name: "Geba-81",
@@ -357,7 +357,7 @@ module.exports = [
     email: "6lfarenst@nature.com",
     logo_url: "http://dummyimage.com/107x248.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2020-06-13",
+    created_at: "2020-06-13 02:01:24",
   },
   {
     name: "Ooba-9",
@@ -369,7 +369,7 @@ module.exports = [
     email: "93eeverwinu@elpais.com",
     logo_url: "http://dummyimage.com/246x103.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2020-04-28",
+    created_at: "2020-04-28 02:01:24",
   },
   {
     name: "Yotz-95",
@@ -381,7 +381,7 @@ module.exports = [
     email: "87bwicklingv@businesswire.com",
     logo_url: "http://dummyimage.com/158x101.jpg/ff4444/ffffff",
     has_delivery: true,
-    created_at: "2020-02-07",
+    created_at: "2020-02-07 02:01:24",
   },
   {
     name: "Ozu-16",
@@ -393,7 +393,7 @@ module.exports = [
     email: "20cmolesworthw@ucla.edu",
     logo_url: "http://dummyimage.com/159x219.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-07-05",
+    created_at: "2019-07-05 02:01:24",
   },
   {
     name: "Demizz-94",
@@ -405,7 +405,7 @@ module.exports = [
     email: "11paslottx@wikimedia.org",
     logo_url: "http://dummyimage.com/143x137.jpg/ff4444/ffffff",
     has_delivery: true,
-    created_at: "2020-02-25",
+    created_at: "2020-02-25 02:01:24",
   },
   {
     name: "Rhynyx-58",
@@ -417,7 +417,7 @@ module.exports = [
     email: "7cortasy@simplemachines.org",
     logo_url: "http://dummyimage.com/200x149.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-05-05",
+    created_at: "2020-05-05 02:01:24",
   },
   {
     name: "Roomm-76",
@@ -429,7 +429,7 @@ module.exports = [
     email: "75merbainz@addthis.com",
     logo_url: "http://dummyimage.com/194x153.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2019-12-10",
+    created_at: "2019-12-10 02:01:24",
   },
   {
     name: "Lazzy-66",
@@ -441,7 +441,7 @@ module.exports = [
     email: "46lreef10@cornell.edu",
     logo_url: "http://dummyimage.com/165x199.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2019-07-29",
+    created_at: "2019-07-29 02:01:24",
   },
   {
     name: "Voomm-48",
@@ -453,7 +453,7 @@ module.exports = [
     email: "25jgrigsby11@geocities.jp",
     logo_url: "http://dummyimage.com/215x166.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2020-02-22",
+    created_at: "2020-02-22 02:01:24",
   },
   {
     name: "Flashdog-45",
@@ -465,7 +465,7 @@ module.exports = [
     email: "82stiffney12@jalbum.net",
     logo_url: "http://dummyimage.com/102x101.jpg/ff4444/ffffff",
     has_delivery: true,
-    created_at: "2020-03-22",
+    created_at: "2020-03-22 02:01:24",
   },
   {
     name: "Camimbo-15",
@@ -477,7 +477,7 @@ module.exports = [
     email: "23ulapere13@auda.org.au",
     logo_url: "http://dummyimage.com/100x180.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2019-11-01",
+    created_at: "2019-11-01 02:01:24",
   },
   {
     name: "Ooba-87",
@@ -489,7 +489,7 @@ module.exports = [
     email: "63gbradd14@businessinsider.com",
     logo_url: "http://dummyimage.com/140x226.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2019-06-24",
+    created_at: "2019-06-24 02:01:24",
   },
   {
     name: "InnoZ-56",
@@ -501,7 +501,7 @@ module.exports = [
     email: "32rreggiani15@sitemeter.com",
     logo_url: "http://dummyimage.com/238x141.jpg/dddddd/000000",
     has_delivery: false,
-    created_at: "2019-12-01",
+    created_at: "2019-12-01 02:01:24",
   },
   {
     name: "Kwilith-60",
@@ -513,7 +513,7 @@ module.exports = [
     email: "95focooney16@geocities.com",
     logo_url: "http://dummyimage.com/234x100.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-04-03",
+    created_at: "2020-04-03 02:01:24",
   },
   {
     name: "Jabbercube-97",
@@ -525,7 +525,7 @@ module.exports = [
     email: "93omcsharry17@a8.net",
     logo_url: "http://dummyimage.com/214x242.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2019-09-12",
+    created_at: "2019-09-12 02:01:24",
   },
   {
     name: "Voolia-49",
@@ -537,7 +537,7 @@ module.exports = [
     email: "28dtoderbrugge18@goo.gl",
     logo_url: "http://dummyimage.com/148x207.jpg/cc0000/ffffff",
     has_delivery: false,
-    created_at: "2020-03-27",
+    created_at: "2020-03-27 02:01:24",
   },
   {
     name: "Eayo-5",
@@ -549,7 +549,7 @@ module.exports = [
     email: "60roldacres19@bloglovin.com",
     logo_url: "http://dummyimage.com/169x176.jpg/ff4444/ffffff",
     has_delivery: true,
-    created_at: "2020-04-06",
+    created_at: "2020-04-06 02:01:24",
   },
   {
     name: "Twimm-14",
@@ -561,7 +561,7 @@ module.exports = [
     email: "63pbowring1a@google.com.au",
     logo_url: "http://dummyimage.com/129x117.jpg/5fa2dd/ffffff",
     has_delivery: true,
-    created_at: "2019-07-08",
+    created_at: "2019-07-08 02:01:24",
   },
   {
     name: "Feedspan-83",
@@ -573,7 +573,7 @@ module.exports = [
     email: "78bparkyn1b@ycombinator.com",
     logo_url: "http://dummyimage.com/139x232.jpg/cc0000/ffffff",
     has_delivery: true,
-    created_at: "2019-11-19",
+    created_at: "2019-11-19 02:01:24",
   },
   {
     name: "Riffpath-46",
@@ -585,7 +585,7 @@ module.exports = [
     email: "81ipiper1c@elpais.com",
     logo_url: "http://dummyimage.com/119x145.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-11-30",
+    created_at: "2019-11-30 02:01:24",
   },
   {
     name: "Yoveo-21",
@@ -597,6 +597,6 @@ module.exports = [
     email: "79mdowty1d@networksolutions.com",
     logo_url: "http://dummyimage.com/111x196.jpg/dddddd/000000",
     has_delivery: true,
-    created_at: "2019-10-07",
+    created_at: "2019-10-07 02:01:24",
   },
 ];
