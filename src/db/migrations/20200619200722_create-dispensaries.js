@@ -10,6 +10,7 @@ exports.up = function (knex) {
     table.string("phone_number", 64).notNullable();
     table.string("email", 64).notNullable();
     table.string("logo_url", 64).notNullable();
+    table.string("page_url", 64).notNullable();
     table.boolean("has_delivery").notNullable();
     table.string("created_at", 64).notNullable();
   });

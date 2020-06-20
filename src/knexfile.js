@@ -5,11 +5,6 @@ module.exports = {
     connection: {
       filename: "./db/med-cabinet.db",
     },
-    pool: {
-      afterCreate: function (conn, done) {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      },
-    },
     migrations: {
       directory: "./db/migrations",
     },
