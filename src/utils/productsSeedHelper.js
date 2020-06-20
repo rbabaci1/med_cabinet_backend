@@ -13,8 +13,8 @@ const random = arr => arr[Math.floor(Math.random() * arr.length)];
 const generateProducts = () => {
   return products.map((p, i) => {
     p.strain_name = strain_names[i];
-    p.strain_category = random(strain_categories);
-    p.strain_type = random(strain_types);
+    p.strain_category = random(strain_categories) || strain_categories[0];
+    p.strain_type = random(strain_types) || strain_types[0];
     p.description = random(descreptions) || descreptions[0];
 
     p.img_url =
