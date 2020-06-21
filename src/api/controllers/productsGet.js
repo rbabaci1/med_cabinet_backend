@@ -13,6 +13,10 @@ const getProducts = async (req, res) => {
   }
 };
 
+const getProductById = (req, res) => {
+  res.status(200).json(req.product);
+};
+
 const getProductFullInfo = async (req, res) => {
   try {
     const { product, params } = req;
@@ -25,4 +29,4 @@ const getProductFullInfo = async (req, res) => {
   }
 };
 
-module.exports = { getProducts, getProductFullInfo };
+module.exports = { getProducts, getProductById, getProductFullInfo };
