@@ -15,4 +15,9 @@ const getUserById = async (req, res) => {
   res.status(200).json(req.user);
 };
 
-module.exports = { getUsers, getUserById };
+const getUserProducts = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+
+module.exports = { getUsers, getUserById, getUserProducts };
