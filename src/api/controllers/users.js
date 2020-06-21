@@ -1,5 +1,5 @@
 const { getAll } = require("../../db/models/global");
-const { getProducts } = require("../../db/models/user");
+const { getProducts, getReviews } = require("../../db/models/user");
 
 const getUsers = async (req, res) => {
   try {
@@ -45,7 +45,7 @@ const getUserReviews = async (req, res) => {
     res
       .status(200)
       .json(
-        products.length
+        reviews.length
           ? { user_name: `${user.first_name} ${user.last_name}`, reviews }
           : { message: "The specified user has 0 reviews." }
       );
