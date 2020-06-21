@@ -1,4 +1,4 @@
-const { getAll, getBy } = require("../../db/models/allRoutes");
+const { getAll } = require("../../db/models/global");
 
 const getUsers = async (req, res) => {
   try {
