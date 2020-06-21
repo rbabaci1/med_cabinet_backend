@@ -1,5 +1,5 @@
 const { getAll } = require("../../db/models/global");
-const { getProducts, getReviews } = require("../../db/models/user");
+const User = require("../../db/models/user");
 
 const getUsers = async (req, res) => {
   try {
@@ -13,48 +13,19 @@ const getUsers = async (req, res) => {
   }
 };
 
-const getUserById = async (req, res) => {
-  res.status(200).json(req.user);
-};
-
-const getUserProducts = async (req, res) => {
+const getUserFullInfo = async (req, res) => {
   try {
     const { user, params } = req;
-    const products = await getProducts(params.id);
+    const products = await User.getProducts(params.id);
+    const reviews = await User.getReviews(params.id);
 
-    res
-      .status(200)
-      .json(
-        products.length
-          ? { user_name: `${user.first_name} ${user.last_name}`, products }
-          : { message: "The specified user has 0 products." }
-      );
+    res.status(200).json({ ...user, products, reviews });
   } catch ({ message }) {
     res.status(500).json({
-      message: "The user products can't be retrieved at this moment.",
+      message: "The user details can't be retrieved at this moment.",
       reason: message,
     });
   }
 };
 
-const getUserReviews = async (req, res) => {
-  try {
-    const { user, params } = req;
-    const reviews = await getReviews(params.id);
-
-    res
-      .status(200)
-      .json(
-        reviews.length
-          ? { user_name: `${user.first_name} ${user.last_name}`, reviews }
-          : { message: "The specified user has 0 reviews." }
-      );
-  } catch ({ message }) {
-    res.status(500).json({
-      message: "The user reviews can't be retrieved at this moment.",
-      reason: message,
-    });
-  }
-};
-
-module.exports = { getUsers, getUserById, getUserProducts, getUserReviews };
+module.exports = { getUsers, getUserFullInfo };
