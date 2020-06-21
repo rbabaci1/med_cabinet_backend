@@ -1,12 +1,14 @@
 const { getAll } = require("../../db/models/allRoutes");
 
-const get = async (req, res, next) => {
+const getUsers = async (req, res) => {
   try {
     const users = await getAll("users");
     res.status(200).json(users);
-  } catch (error) {
-    console.error(error);
+  } catch ({ message }) {
+    res
+      .status(500)
+      .json({ message: "Could not retrieve users now.", reason: message });
   }
 };
 
-module.exports = { get };
+module.exports = { getUsers };
