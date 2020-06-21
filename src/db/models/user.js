@@ -7,3 +7,5 @@ const getProducts = async user_id => {
     .join("products as p", "u_p.product_id", "p.id")
     .where({ user_id });
 };
+
+module.exports = { getProducts };

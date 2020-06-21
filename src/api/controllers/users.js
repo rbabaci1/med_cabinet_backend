@@ -1,4 +1,5 @@
 const { getAll } = require("../../db/models/global");
+const { getProducts } = require("../../db/models/user");
 
 const getUsers = async (req, res) => {
   try {
@@ -16,8 +17,14 @@ const getUserById = async (req, res) => {
 };
 
 const getUserProducts = async (req, res) => {
+  const { id } = req.params;
   try {
-  } catch (error) {}
+    const userProducts = await getProducts(id);
+
+    res.status(200).json(userProducts);
+  } catch ({ message }) {
+    res.status(500).json({ reason: message });
+  }
 };
 
 module.exports = { getUsers, getUserById, getUserProducts };
