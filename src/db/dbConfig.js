@@ -1,6 +1,8 @@
 const knex = require("knex");
 
-const config = require("../knexfile");
+const dbConfig = require("../knexfile");
 const { DB_ENV, addForeignKeys } = require("../config");
 
-module.exports = knex({ ...config([DB_ENV]), pool: addForeignKeys });
+dbConfig[DB_ENV].pool = addForeignKeys;
+
+module.exports = knex(dbConfig[DB_ENV]);
