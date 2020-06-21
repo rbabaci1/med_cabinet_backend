@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
-server.use("/api/users", usersRouter);
+// server.use("/api/users", usersRouter);
 // server.use("/api/products", productsRouter);
 // server.use("/api/dispensaries", dispensariesRouter);
 
