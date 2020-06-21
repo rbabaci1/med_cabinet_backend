@@ -1,16 +1,15 @@
 const { getBy } = require("../../db/models/global");
 
 const validateId = tableName => async (req, res, next) => {
+  const entity =
+    tableName === "users" ? "user" : tableName === "products" ? "product" : "";
+
   try {
     const { id } = req.params;
-    const entity =
-      tableName === "users" ? "user" : tableName === products ? "product" : "";
-
     const item = await getBy(tableName, { id });
 
     if (item) {
       req[entity] = item;
-
       next();
     } else {
       res.status(401).json({
