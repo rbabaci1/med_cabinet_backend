@@ -20,10 +20,11 @@ const getProductById = (req, res) => {
 const getProductFullInfo = async (req, res) => {
   try {
     const { product, params } = req;
+    const provider = await Product.getProvider(params.id);
     const flavors = await Product.getFlavors(params.id);
     const effects = await Product.getEffects(params.id);
 
-    res.status(200).json({ ...product, flavors, effects });
+    res.status(200).json({ ...product, provider, flavors, effects });
   } catch ([message]) {
     res.status(500).json({ reason: message });
   }
