@@ -1,9 +1,11 @@
 const { getAll } = require("../../db/models/global");
 const Product = require("../../db/models/products");
 
+const TABLE_NAME = "products";
+
 const getProducts = async (req, res) => {
   try {
-    const products = await getAll("products");
+    const products = await getAll(TABLE_NAME);
     res.status(200).json(products);
   } catch ({ message }) {
     res.status(500).json({
@@ -20,7 +22,7 @@ const getProductById = (req, res) => {
 const getProductFullInfo = async (req, res) => {
   try {
     const { product, params } = req;
-    const provider = await Product.getProvider(params.id);
+    const [provider = false] = await Product.getProvider(params.id);
     const flavors = await Product.getFlavors(params.id);
     const effects = await Product.getEffects(params.id);
 
