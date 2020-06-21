@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const usersRouter = require("./api/routers/users");
+const routes = require("./api/routes");
 
 const server = express();
 
@@ -10,8 +10,8 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
-server.use("/api/users", usersRouter);
-// server.use("/api/products", productsRouter);
+server.use("/api/users", routes.user);
+server.use("/api/products", routes.product);
 // server.use("/api/dispensaries", dispensariesRouter);
 
 server.get("/", (req, res) => {
