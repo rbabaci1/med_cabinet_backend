@@ -12,7 +12,7 @@ const validateId = async (req, res, next) => {
     } else {
       res
         .status(401)
-        .json({ message: "The user with the specified ID does not exists." });
+        .json({ message: "The user with the specified ID does not exist." });
     }
   } catch ({ message }) {
     res
@@ -20,3 +20,5 @@ const validateId = async (req, res, next) => {
       .json({ message: "Could not retrieve the user now.", reason: message });
   }
 };
+
+module.exports = { validateId };
