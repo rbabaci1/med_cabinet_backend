@@ -13,6 +13,10 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getUserById = (req, res) => {
+  res.status(200).json(req.user);
+};
+
 const getUserFullInfo = async (req, res) => {
   try {
     const { user, params } = req;
@@ -28,4 +32,4 @@ const getUserFullInfo = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserFullInfo };
+module.exports = { getUsers, getUserById, getUserFullInfo };
