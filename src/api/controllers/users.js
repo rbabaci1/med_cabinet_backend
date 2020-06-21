@@ -6,9 +6,10 @@ const getUsers = async (req, res) => {
     const users = await getAll("users");
     res.status(200).json(users);
   } catch ({ message }) {
-    res
-      .status(500)
-      .json({ message: "Could not retrieve users now.", reason: message });
+    res.status(500).json({
+      message: "The users list can't be retrieved at this moment",
+      reason: message,
+    });
   }
 };
 
@@ -17,13 +18,22 @@ const getUserById = async (req, res) => {
 };
 
 const getUserProducts = async (req, res) => {
-  const { id } = req.params;
   try {
-    const userProducts = await getProducts(id);
+    const { user, params } = req;
+    const products = await getProducts(params.id);
 
-    res.status(200).json(userProducts);
+    res
+      .status(200)
+      .json(
+        products.length
+          ? { user_name: `${user.first_name} ${user.last_name}`, products }
+          : { message: "The specified user has 0 products." }
+      );
   } catch ({ message }) {
-    res.status(500).json({ reason: message });
+    res.status(500).json({
+      message: "The user products can't be retrieved at this moment.",
+      reason: message,
+    });
   }
 };
 
