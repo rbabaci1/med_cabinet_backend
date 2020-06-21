@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const usersRouter = require("./api/routers/users");
+const userRouter = require("./api/routers/user");
 
 const server = express();
 
@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
-server.use("/api/users", usersRouter);
+server.use("/api/users", userRouter);
 // server.use("/api/products", productsRouter);
 // server.use("/api/dispensaries", dispensariesRouter);
 
