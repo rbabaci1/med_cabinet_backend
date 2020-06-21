@@ -3,7 +3,6 @@ exports.up = function (knex) {
     table
       .integer("dispensary_id")
       .unsigned()
-      .unique()
       .notNullable()
       .references("id")
       .inTable("dispensaries")
