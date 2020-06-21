@@ -1,14 +1,11 @@
 const router = require("express").Router();
 
-const {
-  getUsers,
-  getUserById,
-  getUserProducts,
-} = require("../controllers/users");
+const controller = require("../controllers/users");
 const { validateId } = require("../middlewares/global");
 
-router.get("/", getUsers);
-router.get("/:id", validateId("users"), getUserById);
-router.get("/:id/products", validateId("users"), getUserProducts);
+router.get("/", controller.getUsers);
+router.get("/:id", validateId("users"), controller.getUserById);
+router.get("/:id/products", validateId("users"), controller.getUserProducts);
+router.get("/:id/reviews", validateId("users"), controller.getUserReviews);
 
 module.exports = router;
