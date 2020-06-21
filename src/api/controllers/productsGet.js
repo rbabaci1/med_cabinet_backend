@@ -1,4 +1,5 @@
 const { getAll } = require("../../db/models/global");
+const Product = require("../../db/models/products");
 
 const getProducts = async (req, res) => {
   try {
@@ -12,9 +13,16 @@ const getProducts = async (req, res) => {
   }
 };
 
-const getProductFullInfo = (req, res) => {
+const getProductFullInfo = async (req, res) => {
   try {
-  } catch (error) {}
+    const { product, params } = req;
+    const flavors = await Product.getFlavors(params.id);
+    const effects = await Product.getEffects(params.id);
+
+    res.status(200).json({ ...product, flavors, effects });
+  } catch ([message]) {
+    res.status(500).json({ reason: message });
+  }
 };
 
 module.exports = { getProducts, getProductFullInfo };
