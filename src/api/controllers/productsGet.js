@@ -12,6 +12,9 @@ const getProducts = async (req, res) => {
   }
 };
 
-const getProductWithDetails = (req, res) => {};
+const getProductFullInfo = (req, res) => {
+  try {
+  } catch (error) {}
+};
 
-module.exports = { getProducts, getProductWithDetails };
+module.exports = { getProducts, getProductFullInfo };
