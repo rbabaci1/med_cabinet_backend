@@ -1,9 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable("products_dispensaries", table => {
     table
-      .string("product_name", 64)
+      .integer("product_id")
       .notNullable()
-      .references("strain_name")
+      .references("id")
       .inTable("products")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
@@ -17,7 +17,7 @@ exports.up = function (knex) {
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
 
-    table.primary(["product_name", "dispensary_id"]);
+    table.primary(["product_id", "dispensary_id"]);
   });
 };
 

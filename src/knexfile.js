@@ -1,15 +1,22 @@
+const path = require("path");
+
 module.exports = {
   development: {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: "./db/med-cabinet.db",
+      filename: path.resolve(__dirname, "./db/med-cabinet.db"),
     },
     migrations: {
       directory: "./db/migrations",
     },
     seeds: {
       directory: "./db/seeds",
+    },
+    pool: {
+      afterCreate: function (conn, done) {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
     },
   },
 
