@@ -37,4 +37,24 @@ const getUserProducts = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, getUserProducts };
+const getUserReviews = async (req, res) => {
+  try {
+    const { user, params } = req;
+    const reviews = await getReviews(params.id);
+
+    res
+      .status(200)
+      .json(
+        products.length
+          ? { user_name: `${user.first_name} ${user.last_name}`, reviews }
+          : { message: "The specified user has 0 reviews." }
+      );
+  } catch ({ message }) {
+    res.status(500).json({
+      message: "The user reviews can't be retrieved at this moment.",
+      reason: message,
+    });
+  }
+};
+
+module.exports = { getUsers, getUserById, getUserProducts, getUserReviews };

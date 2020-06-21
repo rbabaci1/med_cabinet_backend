@@ -8,4 +8,10 @@ const getProducts = async user_id => {
     .where({ user_id });
 };
 
-module.exports = { getProducts };
+const getUserReviews = async user_id => {
+  return db("ratings as r")
+    .select("r.product_id r.rate r.description r.created_at")
+    .where({ user_id });
+};
+
+module.exports = { getProducts, getUserReviews };
