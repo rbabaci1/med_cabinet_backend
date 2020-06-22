@@ -136,7 +136,7 @@ Response: `res.body`
     "username": "abumpass086",
     "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
         
-    "products": [       // a nested array that represents the users products
+    "products": [       // a nested array that represents the user products
         {   
             "id": 1,                // this is the product id#
             "strain_name": "African",
@@ -154,7 +154,7 @@ Response: `res.body`
         },
         // ... etc.
     ],
-    "reviews": [
+    "reviews": [         // a nested array that represents the review written by the user
         {
             "product_id": 1    // the product id# (NOT REVIEW)
             "rate": 5,      //  [0 - 5]
@@ -193,7 +193,7 @@ Response: `res.body`
     "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
     "dispensary_id": 5, 
       
-    "dispensay": {       // a nested object that represents the product dispensary provider
+    "provider": {       // a nested object that represents the product dispensary provider info
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
         "name": "Demizz-95",
         "address": "8017 Pleasure Trail",
@@ -259,7 +259,7 @@ Response: `res.body`
     "has_delivery": 1,      // 0 === false, 1 === true
     "created_at": "2020-06-16 02:01:24",        // this is the date when the dispensary was created
     
-    "business_hours": [     // a nested array that represents the dispensray operating hours
+    "business_hours": [     // a nested array that represents the dispensary operating hours
         {
             "day_of_week": 0,       // [0 === Monday] --> [6 === Sunday]
             "open_time": "08:30 AM",
@@ -267,7 +267,7 @@ Response: `res.body`
         },
         // ... etc
     ],
-    "products": [       // a nested array that represents all the dispensary product
+    "products": [       // a nested array that represents all the dispensary products
         {
             "id": 6,              // this is the id# of the product (NOT DISPENSARY)
             "strain_name": "Alien Rock Candy",
