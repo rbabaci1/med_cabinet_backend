@@ -1,7 +1,7 @@
 const { getAll } = require("../../db/models/global.js");
 const {
-  getDispensaryHours,
-  getDispensaryProducts,
+  getBusinessHours,
+  getProducts,
 } = require("../../db/models/dispensaries");
 
 const TABLE_NAME = "dispensaries";
@@ -20,8 +20,8 @@ const getDispensaries = async (req, res) => {
 
 const getDispensaryById = async ({ dispensary }, res) => {
   try {
-    const business_hours = await getDispensaryHours(dispensary.id);
-    const products = await getDispensaryProducts(dispensary.id);
+    const business_hours = await getBusinessHours(dispensary.id);
+    const products = await getProducts(dispensary.id);
 
     res.status(200).json({ ...dispensary, business_hours, products });
   } catch ({ message }) {
