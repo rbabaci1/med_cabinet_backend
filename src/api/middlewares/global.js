@@ -1,6 +1,11 @@
 const { getBy } = require("../../db/models/global");
 
 const validateId = tableName => async (req, res, next) => {
+  let entity;
+  switch (tableName) {
+    case "users":
+      entity = "user";
+  }
   const entity =
     tableName === "users"
       ? "user"
@@ -8,6 +13,8 @@ const validateId = tableName => async (req, res, next) => {
       ? "product"
       : "flavors"
       ? "flavor"
+      : "effects"
+      ? "effect"
       : "";
 
   try {
