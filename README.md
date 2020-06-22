@@ -123,8 +123,9 @@ Response: `res.body`
      "img_url": "https:// ..",     // this is the product image
      "is_available": 0,            // 0 === false, 1 === true
      "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
-     
-     "provider": {       // a nasted object that represents the product dispensary provider
+     "dispensary_id": 5, 
+      
+     "provider": {       // a nested object that represents the product dispensary provider
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
         "name": "Demizz-95",
         "address": "8017 Pleasure Trail",
@@ -140,20 +141,20 @@ Response: `res.body`
     
      "flavors": [       // a nested array that represents the product flavors
         {
-            "id": 8,
+            "id": 8,    // flavor id#
             "flavor": "Flowery"
         }
         // ... etc
      ],
     "effects": [        // a nested array that represents the product effects
         {
-            "id": 8,    // effect id
+            "id": 8,    // effect id#
             "effect": "Talkative",
             "effect_type": "positive"
         }
         // ... etc
     ],
-    "ratings": false       // this is the product ratings 0-5 (if product has not ratings value is ```false```)
+    "ratings": false       // this is the product ratings 0-5 (if product has not ratings, value is ```false```)
 },
 ```
 
@@ -170,7 +171,7 @@ Request: `req.body`
 Response: `res.body`
 ```
 [
-     {
+    {
         "id": 27,              // this is the id# of the product (NOT USER)
         "strain_name": "Alien Rock Candy",
         "strain_category": "Pre-rolls",
