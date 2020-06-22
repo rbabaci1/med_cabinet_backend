@@ -25,7 +25,13 @@ const getDispensary = dispensary_id => {
 
 const getReviews = product_id => {
   return db("ratings as r")
-    .select("r.rate", "r.description", "r.created_at", "updated_at")
+    .select(
+      "r.user_id",
+      "r.rate",
+      "r.description",
+      "r.created_at",
+      "updated_at"
+    )
     .where({ product_id });
 };
 
