@@ -16,7 +16,7 @@ const getEffects = product_id => {
     .where({ product_id });
 };
 
-const getProvider = dispensary_id => {
+const getDispensary = dispensary_id => {
   return db("products as p")
     .join("dispensaries as d", "p.dispensary_id", "d.id")
     .select("d.*")
@@ -29,4 +29,4 @@ const getRatings = product_id => {
     .where({ product_id });
 };
 
-module.exports = { getProvider, getFlavors, getEffects, getRatings };
+module.exports = { getDispensary, getFlavors, getEffects, getRatings };

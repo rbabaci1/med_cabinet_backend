@@ -35,4 +35,6 @@ const getUserProducts = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, getUserProducts };
+const getUserReviews = async (req, res) => {};
+
+module.exports = { getUsers, getUserById, getUserProducts, getUserReviews };
