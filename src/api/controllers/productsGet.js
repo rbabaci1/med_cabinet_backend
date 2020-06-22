@@ -18,14 +18,12 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const { product, params } = req;
-    const [dispensary = false] = await Product.getDispensary(
-      product.dispensary_id
-    );
-    const [ratings = false] = await Product.getRatings(params.id);
+    const dispensary = await Product.getDispensary(product.dispensary_id);
+    const reviews = await Product.getReviews(params.id);
     const flavors = await Product.getFlavors(params.id);
     const effects = await Product.getEffects(params.id);
 
-    res.status(200).json({ ...product, dispensary, flavors, effects, ratings });
+    res.status(200).json({ ...product, dispensary, flavors, effects, reviews });
   } catch ([message]) {
     res.status(500).json({
       message: "The product details can't be retrieved at this moment",

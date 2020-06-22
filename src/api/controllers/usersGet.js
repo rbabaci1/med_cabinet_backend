@@ -35,6 +35,18 @@ const getUserProducts = async (req, res) => {
   }
 };
 
-const getUserReviews = async (req, res) => {};
+const getUserReviews = async (req, res) => {
+  try {
+    const { id } = req.user;
+    const reviews = await User.getReviews(id);
+
+    res.status(200).json(reviews);
+  } catch ({ message }) {
+    res.status(500).json({
+      message: "The user reviews can't be retrieved at this moment.",
+      reason: message,
+    });
+  }
+};
 
 module.exports = { getUsers, getUserById, getUserProducts, getUserReviews };
