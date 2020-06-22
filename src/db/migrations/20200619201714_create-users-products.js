@@ -24,7 +24,3 @@ exports.up = function (knex) {
     table.primary(["user_id", "product_id"]);
   });
 };
-
-exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("users_products");
-};
