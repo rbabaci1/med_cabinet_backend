@@ -8,8 +8,6 @@ const {
   price_units,
 } = require("../db/mockData/products");
 
-const productsDispensaries = require("../db/mockData/productsDispensaries");
-
 const random = arr => arr[Math.floor(Math.random() * arr.length)];
 
 const generateProducts = () => {
@@ -40,11 +38,4 @@ const generateProducts = () => {
   });
 };
 
-const generateProductsDispensaries = () => {
-  return productsDispensaries.map((p_d, i) => ({
-    ...p_d,
-    product_name: strain_names[i],
-  }));
-};
-
-module.exports = { generateProducts, generateProductsDispensaries };
+module.exports = { generateProducts };
