@@ -74,7 +74,7 @@ Response: `res.body`
 ```
 
 ### 2. Access all products of single user
-#### **GET** */api/:id/products/*
+#### **GET** */api/:id/products*
 
 Returns all products for a single user, via the **user's** `:id` URL param.
 
