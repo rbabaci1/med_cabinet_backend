@@ -1,7 +1,3 @@
-exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("users_products");
-};
-
 exports.up = function (knex) {
   return knex.schema.createTable("dispensaries", table => {
     table.increments();
