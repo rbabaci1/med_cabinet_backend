@@ -1,3 +1,4 @@
+const removeObjKey = require("../../utils/removeObjKey");
 const { getAll } = require("../../db/models/global");
 const Product = require("../../db/models/products");
 
@@ -19,12 +20,13 @@ const getProducts = async (req, res) => {
 // GET all details about a product
 const getProductById = async ({ product }, res) => {
   try {
-    const dispensary = await Product.getDispensary(product.dispensary_id);
+    const provider = await Product.getDispensary(product.dispensary_id);
     const reviews = await Product.getReviews(product.id);
     const flavors = await Product.getFlavors(product.id);
     const effects = await Product.getEffects(product.id);
+    const resultObj = removeObjKey(product, "dispensary_id");
 
-    res.status(200).json({ ...product, dispensary, flavors, effects, reviews });
+    res.status(200).json({ ...resultObj, provider, flavors, effects, reviews });
   } catch ({ message }) {
     res.status(500).json({
       message: "The product details can't be retrieved at this moment",

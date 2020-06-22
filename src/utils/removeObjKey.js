@@ -8,5 +8,7 @@ const removeObjKey = (obj, keyName) => {
     }
   });
 
-  return newObj;
+  return Object.freeze(newObj);
 };
+
+module.exports = removeObjKey;

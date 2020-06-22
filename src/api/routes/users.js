@@ -7,4 +7,6 @@ const TABLE_NAME = "users";
 router.get("/", controller.getUsers);
 router.get("/:id", validateId(TABLE_NAME), controller.getUserById);
 
+router.post("/", controller.registerUser);
+
 module.exports = router;
