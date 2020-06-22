@@ -122,7 +122,38 @@ Response: `res.body`
      "description": "rapidly becoming a Colorado cannabis staple ...",
      "img_url": "https:// ..",     // this is the product image
      "is_available": 0,            // 0 === false, 1 === true
-     "created_at": "2020-04-03 02:01:24"     // this is the date when the product was created
+     "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
+     
+     "provider": {       // a nasted object that represents the product dispensary provider
+        "id": 5,        // this is the dispensary id# (NOT PRODUCT)
+        "name": "Demizz-95",
+        "address": "8017 Pleasure Trail",
+        "city": "New York City",
+        "state": "New York",
+        "postal_code": "10039",
+        "phone_number": "(212) 9963639",
+        "email": "wbains4@bloglovin.com",
+        "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image
+        "has_delivery": 1,      // 0 === false, 1 === true
+        "created_at": "2019-08-10 02:01:24"     // this is the date when the dispensary was created
+    },
+    
+     "flavors": [       // a nested array that represents the product flavors
+        {
+            "id": 8,
+            "flavor": "Flowery"
+        }
+        // ... etc
+     ],
+    "effects": [        // a nested array that represents the product effects
+        {
+            "id": 8,    // effect id
+            "effect": "Talkative",
+            "effect_type": "positive"
+        }
+        // ... etc
+    ],
+    "ratings": false       // this is the product ratings 0-5 (if product has not ratings value is ```false```)
 },
 ```
 
