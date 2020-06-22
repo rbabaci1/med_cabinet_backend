@@ -15,17 +15,13 @@ const getProducts = async (req, res) => {
   }
 };
 
-const getProductById = (req, res) => {
-  res.status(200).json(req.product);
-};
-
-const getProductFullInfo = async (req, res) => {
+const getProductById = async (req, res) => {
   try {
     const { product, params } = req;
     const [provider = false] = await Product.getProvider(params.id);
+    const [ratings = false] = await Product.getRatings(params.id);
     const flavors = await Product.getFlavors(params.id);
     const effects = await Product.getEffects(params.id);
-    const ratings = await Product.getRatings(params.id);
 
     res.status(200).json({ ...product, provider, flavors, effects, ratings });
   } catch ([message]) {
@@ -36,8 +32,4 @@ const getProductFullInfo = async (req, res) => {
   }
 };
 
-module.exports = {
-  getProducts,
-  getProductById,
-  getProductFullInfo,
-};
+module.exports = { getProducts, getProductById };
