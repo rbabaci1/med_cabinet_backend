@@ -3,6 +3,7 @@ const Product = require("../../db/models/products");
 
 const TABLE_NAME = "products";
 
+// GET all available products
 const getProducts = async (req, res) => {
   try {
     const products = await getAll(TABLE_NAME);
@@ -15,6 +16,7 @@ const getProducts = async (req, res) => {
   }
 };
 
+// GET all details about a product
 const getProductById = async (req, res) => {
   try {
     const { product, params } = req;
