@@ -15,20 +15,24 @@ const getUsers = async (req, res) => {
   }
 };
 
-//GET user by their id
-const getUserById = async (req, res) => {
-  try {
-    const { user, params } = req;
-    const products = await User.getProducts(params.id);
-    const written_reviews = await User.getReviews(params.id);
+const getUserById = (req, res) => {
+  res.status(200).json(req.user);
+};
 
-    res.status(200).json({ ...user, products, written_reviews });
+// GET all products of a user
+const getUserProducts = async (req, res) => {
+  try {
+    const { id } = req.user;
+    const products = await User.getProducts(id);
+    // const written_reviews = await User.getReviews(params.id);
+
+    res.status(200).json(products);
   } catch ({ message }) {
     res.status(500).json({
-      message: "The user details can't be retrieved at this moment.",
+      message: "The user products can't be retrieved at this moment.",
       reason: message,
     });
   }
 };
 
-module.exports = { getUsers, getUserById };
+module.exports = { getUsers, getUserById, getUserProducts };

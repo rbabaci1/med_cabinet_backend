@@ -8,11 +8,7 @@ const getDispensaryHours = dispensary_id => {
 };
 
 const getDispensaryProducts = dispensary_id => {
-  return db("products_dispensaries as p_d")
-    .join("dispensaries as d", "p_d.dispensary_id", "d.id")
-    .join("products as p", "p_d.product_id", "p.id")
-    .select("p.*")
-    .where({ dispensary_id });
+  return db("products").where({ dispensary_id });
 };
 
 module.exports = { getDispensaryHours, getDispensaryProducts };
