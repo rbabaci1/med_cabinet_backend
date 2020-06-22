@@ -1,6 +1,7 @@
 const db = require("../dbConfig");
+const { getFlavors, getEffects } = require("../../db/models/products");
 
-const getProducts = user_id => {
+const getProducts = async user_id => {
   return db("users_products as u_p")
     .join("users as u", "u_p.user_id", "u.id")
     .join("products as p", "u_p.product_id", "p.id")

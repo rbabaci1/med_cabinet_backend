@@ -1,9 +1,9 @@
-const fakeDispensaries = require("../mockData/dispensaries");
+const dispensaries = require("../mockData/dispensaries");
 
 exports.seed = function (knex) {
   return knex("dispensaries")
     .del()
     .then(function () {
-      return knex("dispensaries").insert(fakeDispensaries);
+      return knex("dispensaries").insert(dispensaries);
     });
 };
