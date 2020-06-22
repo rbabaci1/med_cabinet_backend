@@ -1,4 +1,4 @@
-export default function adaptRequest(req = {}) {
+function adaptRequest(req = {}) {
   return Object.freeze({
     path: req.path,
     method: req.method,
@@ -7,3 +7,5 @@ export default function adaptRequest(req = {}) {
     body: req.body,
   });
 }
+
+module.exports = adaptRequest;
