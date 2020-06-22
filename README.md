@@ -129,12 +129,41 @@ Request: `req.body`
 Response: `res.body`
 ```
 {
-        "id": 1,    // user id#
-        "first_name": "Aguste",
-        "last_name": "Bumpass",
-        "email": "abumpass0@businessinsider.com",
-        "username": "abumpass086",
-        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
+    "id": 1,    // user id#
+    "first_name": "Aguste",
+    "last_name": "Bumpass",
+    "email": "abumpass0@businessinsider.com",
+    "username": "abumpass086",
+    "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
+        
+    "products": [       // a nested array that represents the users products
+        {   
+            "id": 1,                // this is the product id#
+            "strain_name": "African",
+            "strain_category": "Cartridges",
+            "strain_type": "hybrid",
+            "avg_thc": 5.61,      // percentage
+            "avg_cbd": 31.31,     // percentage
+            "price": 7.91,        // $
+            "price_unit": "gram",
+            "description": "rapidly becoming a Colorado cannabis staple ...",
+            "img_url": "https:// ..",       // this is the product image
+            "is_available": 0,              // 0 === false, 1 === true
+            "created_at": "2020-04-03 02:01:24",
+            d"dispensary_id": 3      // the dispensary provider id
+        },
+        // ... etc.
+    ],
+    "reviews": [
+        {
+            "product_id": 1    // the product id# (NOT REVIEW)
+            "rate": 5,      //  [0 - 5]
+            "description": "Removal of Infusion Device from Cervical Vertebral Disc, Percutaneous Endoscopic Approach",
+            "created_at": "2020-01-01 12:01:18",        // this is the date when the rating was written 
+            "updated_at": "2019-08-22 11:37:00"         // this is the date when the rating was updated
+        },
+        // ... etc 
+    ]
 },
 ```
 --------------------------------
@@ -150,21 +179,21 @@ Request: `req.body`
 Response: `res.body`
 ```
 {
-     "id": 2,                // this is the product id# (NOT USER)
-     "strain_name": "African",
-     "strain_category": "Cartridges",
-     "strain_type": "hybrid",
-     "avg_thc": 5.61,         // percentage
-     "avg_cbd": 31.31,        // percentage
-     "price": 7.91,           // $
-     "price_unit": "gram",
-     "description": "rapidly becoming a Colorado cannabis staple ...",
-     "img_url": "https:// ..",     // this is the product image
-     "is_available": 0,            // 0 === false, 1 === true
-     "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
-     "dispensary_id": 5, 
+    "id": 2,                // this is the product id# (NOT USER)
+    "strain_name": "African",
+    "strain_category": "Cartridges",
+    "strain_type": "hybrid",
+    "avg_thc": 5.61,         // percentage
+    "avg_cbd": 31.31,        // percentage
+    "price": 7.91,           // $
+    "price_unit": "gram",
+    "description": "rapidly becoming a Colorado cannabis staple ...",
+    "img_url": "https:// ..",     // this is the product image
+    "is_available": 0,            // 0 === false, 1 === true
+    "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
+    "dispensary_id": 5, 
       
-     "dispensay": {       // a nested object that represents the product dispensary provider
+    "dispensay": {       // a nested object that represents the product dispensary provider
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
         "name": "Demizz-95",
         "address": "8017 Pleasure Trail",
@@ -193,7 +222,16 @@ Response: `res.body`
         }
         // ... etc
     ],
-    "ratings": false       // this is the product ratings 0-5 (if product has not ratings, value is ```false```)
+    "reviews":[      // a nested array that represents the product reviews written by users
+         {
+            "user_id": 1    // the user id# (NOT REVIEW)
+            "rate": 5,      //  [0 - 5]
+            "description": "Removal of Infusion Device from Cervical Vertebral Disc, Percutaneous Endoscopic Approach",
+            "created_at": "2020-01-01 12:01:18",        // this is the date when the rating was written 
+            "updated_at": "2019-08-22 11:37:00"         // this is the date when the rating was updated
+         },
+        // ... etc
+    ]      
 },
 ```
 --------------------------------
@@ -244,9 +282,10 @@ Response: `res.body`
             "is_available": 0,              // 0 === false, 1 === true
             "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
             "dispensary_id": 2         // this the dispensary provider id#
-    },
+        },
         // .. etc
     ]
+}
 ```
 --------------------------------
 
