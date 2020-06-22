@@ -14,7 +14,7 @@ const getFlavors = async (req, res) => {
   }
 };
 
-const getFlavorById = async (req, res) => {
+const getFlavorById = (req, res) => {
   res.status(200).json(req.flavor);
 };
 
