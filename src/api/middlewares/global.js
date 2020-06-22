@@ -1,25 +1,26 @@
 const { getBy } = require("../../db/models/global");
 
 const validateId = tableName => async (req, res, next) => {
-  const { id } = req.params;
+  const entity =
+    tableName === "users" ? "user" : tableName === "products" ? "product" : "";
 
   try {
-    // todo fetch conditionally, depending on tableName
-    const user = await getBy(tableName, { id });
+    const { id } = req.params;
+    const item = await getBy(tableName, { id });
 
-    if (user) {
-      // todo create conditionally too
-      req.user = user;
+    if (item) {
+      req[entity] = item;
       next();
     } else {
-      res
-        .status(401)
-        .json({ message: "The user with the specified ID does not exist." });
+      res.status(401).json({
+        message: `The ${entity} with the specified ID does not exist.`,
+      });
     }
   } catch ({ message }) {
-    res
-      .status(500)
-      .json({ message: "Could not retrieve the user now.", reason: message });
+    res.status(500).json({
+      message: `Could not retrieve the ${entity} now.`,
+      reason: message,
+    });
   }
 };
 
