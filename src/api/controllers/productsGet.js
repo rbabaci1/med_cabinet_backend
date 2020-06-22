@@ -19,6 +19,20 @@ const getProductById = (req, res) => {
   res.status(200).json(req.product);
 };
 
+const getProductProvider = async (req, res) => {
+  try {
+    const { product } = req;
+    const [provider = false] = await Product.getProvider(product.dispensary_id);
+
+    res.status(200).json(provider);
+  } catch ([message]) {
+    res.status(500).json({
+      message: "The product provider details can't be retrieved at this moment",
+      reason: message,
+    });
+  }
+};
+
 // const getProductById = async (req, res) => {
 //   try {
 //     const { product, params } = req;
@@ -36,4 +50,4 @@ const getProductById = (req, res) => {
 //   }
 // };
 
-module.exports = { getProducts, getProductById };
+module.exports = { getProducts, getProductById, getProductProvider };
