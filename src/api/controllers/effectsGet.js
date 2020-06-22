@@ -14,8 +14,8 @@ const getEffects = async (req, res) => {
   }
 };
 
-const getEffectById = (req, res) => {
-  res.status(200).json(req.effect);
+const getEffectById = ({ effect }, res) => {
+  res.status(200).json(effect);
 };
 
 module.exports = { getEffects, getEffectById };

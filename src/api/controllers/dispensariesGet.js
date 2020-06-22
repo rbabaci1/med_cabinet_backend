@@ -18,9 +18,8 @@ const getDispensaries = async (req, res) => {
   }
 };
 
-const getDispensaryById = async (req, res) => {
+const getDispensaryById = async ({ dispensary }, res) => {
   try {
-    const { dispensary } = req;
     const business_hours = await getDispensaryHours(dispensary.id);
     const products = await getDispensaryProducts(dispensary.id);
 

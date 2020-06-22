@@ -16,11 +16,8 @@ const getEffects = product_id => {
     .where({ product_id });
 };
 
-const getDispensary = dispensary_id => {
-  return db("products as p")
-    .join("dispensaries as d", "p.dispensary_id", "d.id")
-    .select("d.*")
-    .where({ dispensary_id });
+const getDispensary = id => {
+  return db("dispensaries").where({ id }).first();
 };
 
 const getReviews = product_id => {

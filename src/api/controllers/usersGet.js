@@ -15,9 +15,8 @@ const getUsers = async (req, res) => {
   }
 };
 // GET all details about a user
-const getUserById = async (req, res) => {
+const getUserById = async ({ user }, res) => {
   try {
-    const { user } = req;
     const products = await User.getProducts(user.id);
     const reviews = await User.getReviews(user.id);
 
