@@ -22,36 +22,21 @@ Request: `req.body`
 ```
 // N/A
 ```
-Response: `res.data`
+Response: `res.body`
 ```
 [
-     {
-        "id": 1,              // this is the id of the product
-        "strain_name": "Afpak",
-        "strain_category": "Pre-rolls",
-        "strain_type": "Indica",
-        "avg_thc": 1.61,
-        "avg_cbd": 21.48,
-        "price": 38.98,
-        "price_unit": "piece",
-        "description": "From Sonoma County comes Alaska Thunder Grape ...",
-        "img_url": "https:// ...",
-        "is_available": 1,
-        "created_at": "2019-09-09 02:01:24",
-        "dispensary_id": 3       // the dispensary provider id
-    },
     {
-        "id": 2,                // this is the id of the product 
+        "id": 1,                // this is the product id#
         "strain_name": "African",
         "strain_category": "Cartridges",
         "strain_type": "hybrid",
-        "avg_thc": 5.61,
-        "avg_cbd": 31.31,
-        "price": 7.91,
+        "avg_thc": 5.61,      // percentage
+        "avg_cbd": 31.31,     // percentage
+        "price": 7.91,        // $
         "price_unit": "gram",
         "description": "rapidly becoming a Colorado cannabis staple ...",
-        "img_url": "https:// ..",
-        "is_available": 0,
+        "img_url": "https:// ..",       // this is the product image
+        "is_available": 0,              // 0 === false, 1 === true
         "created_at": "2020-04-03 02:01:24",
         "dispensary_id": 3      // the dispensary provider id
     },
@@ -70,22 +55,55 @@ Request: `req.body`
 ```
 // N/A
 ```
-Response: `res.data`
+Response: `res.body`
 ```
 {
-        "id": 2,                // this is the id# of the product (NOT USER)
-        "strain_name": "African",
-        "strain_category": "Cartridges",
-        "strain_type": "hybrid",
-        "avg_thc": 5.61,
-        "avg_cbd": 31.31,
-        "price": 7.91,
+     "id": 2,                // this is the product id# (NOT USER)
+     "strain_name": "African",
+     "strain_category": "Cartridges",
+     "strain_type": "hybrid",
+     "avg_thc": 5.61,         // percentage
+     "avg_cbd": 31.31,        // percentage
+     "price": 7.91,           // $
+     "price_unit": "gram",
+     "description": "rapidly becoming a Colorado cannabis staple ...",
+     "img_url": "https:// ..",     // this is the product image
+     "is_available": 0,            // 0 === false, 1 === true
+     "created_at": "2020-04-03 02:01:24"     // this is the date when the product was created
+},
+```
+
+### 2. Access all products of single user
+#### **GET** */api/:id/products/*
+
+Returns all products for a single user, via the **user's** `:id` URL param.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+[
+     {
+        "id": 27,              // this is the id# of the product (NOT USER)
+        "strain_name": "Alien Rock Candy",
+        "strain_category": "Pre-rolls",
+        "strain_type": "Indica",
+        "avg_thc": 33.23,          // percentage
+        "avg_cbd": 16.41,          // percentage
+        "price": 17.24,            // $
         "price_unit": "gram",
-        "description": "rapidly becoming a Colorado cannabis staple ...",
-        "img_url": "https:// ..",
-        "is_available": 0,
-        "created_at": "2020-04-03 02:01:24"
+        "description": "From Sonoma County comes Alaska Thunder Grape ...",
+        "img_url": "https:// ...",      // this is the product image
+        "is_available": 0,              // 0 === false, 1 === true
+        "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
+        "dispensary_id": 5         // this the dispensary provider id#
     },
+    
+    // ... etc.
+]
 ```
 
 --------------------------------
@@ -110,21 +128,15 @@ Returns an array of JSON objects.
 ```
 [
     {
-        "id": 1,
+        "id": 1,    // user id#
         "first_name": "Aguste",
         "last_name": "Bumpass",
         "email": "abumpass0@businessinsider.com",
-        "username": "abumpass086",f
-        "created_at": "2019-11-04 02:01:24"
+        "username": "abumpass086",
+        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
     },
-    {
-        "id": 2,
-        "first_name": "Ely",
-        "last_name": "Bullerwell",
-        "email": "ebullerwell1@reuters.com",
-        "username": "ebullerwell199",
-        "created_at": "2020-01-18 02:01:24"
-    }
+    
+    // ... etc
 ]
 ```
 
