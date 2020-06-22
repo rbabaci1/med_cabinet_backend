@@ -12,7 +12,38 @@ Installing
 6. populate database with dummy/seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 8000.
 
-### 1. Default route
+### 1. Generat Routes
+
+#### **GET** */api/users*
+
+Returns an array of objects of **ALL** users created.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.data`
+
+Returns an array of JSON objects.
+
+```
+[
+    {
+        "id": 1,    // user id#
+        "first_name": "Aguste",
+        "last_name": "Bumpass",
+        "email": "abumpass0@businessinsider.com",
+        "username": "abumpass086",
+        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
+    },
+    
+    // ... etc
+]
+```
+
+--------------------------------
+
 #### **GET** */api/products*
 
 Return an array of objects of **ALL** products created by **ALL** dispensaries.
@@ -45,7 +76,29 @@ Response: `res.body`
 ]
 ```
 
-### 2. Access single product
+### 2. Access single item
+
+#### **GET** */api/users/:id*
+
+Returns a single user via the **user's** `:id` URL param.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+{
+        "id": 1,    // user id#
+        "first_name": "Aguste",
+        "last_name": "Bumpass",
+        "email": "abumpass0@businessinsider.com",
+        "username": "abumpass086",
+        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
+},
+```
+
 #### **GET** */api/products/:id*
 
 Returns a single product via the **product's** `:id` URL param.
@@ -103,40 +156,6 @@ Response: `res.body`
     },
     
     // ... etc.
-]
-```
-
---------------------------------
-
-## General Routes
-
-### 1. Get Users
-#### **GET** */api/users*
-
-Fetches all usernames and id# from database. No authentication required.
-
-Request: `req.body`
-
-
-```
-// N/A
-```
-Response: `res.data`
-
-Returns an array of JSON objects.
-
-```
-[
-    {
-        "id": 1,    // user id#
-        "first_name": "Aguste",
-        "last_name": "Bumpass",
-        "email": "abumpass0@businessinsider.com",
-        "username": "abumpass086",
-        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
-    },
-    
-    // ... etc
 ]
 ```
 
