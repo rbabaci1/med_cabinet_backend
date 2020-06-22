@@ -14,4 +14,8 @@ const getFlavors = async (req, res) => {
   }
 };
 
-module.exports = { getFlavors };
+const getFlavorById = (req, res) => {
+  res.status(200).json(req.flavor);
+};
+
+module.exports = { getFlavors, getFlavorById };

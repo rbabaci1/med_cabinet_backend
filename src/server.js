@@ -10,11 +10,11 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
-
 server.use("/api/users", route.users);
 server.use("/api/products", route.products);
 server.use("/api/flavors", route.flavors);
-
+server.use("/api/effects", route.effects);
+server.use("/api/dispensaries", route.dispensaries);
 
 server.get("/", (req, res) => {
   res.status(200).json({ message: "*** API is up! ***" });

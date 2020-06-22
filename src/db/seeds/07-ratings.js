@@ -1,9 +1,9 @@
-const fakeRatings = require("../mockData/ratings");
+const ratings = require("../mockData/ratings");
 
 exports.seed = function (knex) {
   return knex("ratings")
     .del()
     .then(function () {
-      return knex("ratings").insert(fakeRatings);
+      return knex("ratings").insert(ratings);
     });
 };
