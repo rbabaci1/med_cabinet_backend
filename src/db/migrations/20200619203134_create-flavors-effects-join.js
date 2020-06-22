@@ -25,7 +25,7 @@ exports.up = function (knex) {
         .notNullable()
         .references("id")
         .inTable("flavors")
-        .onDelete("CASCADE")
+        .onDelete("RESTRICT")
         .onUpdate("CASCADE");
 
       table.primary(["product_id", "flavor_id"]);
@@ -46,7 +46,7 @@ exports.up = function (knex) {
         .notNullable()
         .references("id")
         .inTable("effects")
-        .onDelete("CASCADE")
+        .onDelete("RESTRICT")
         .onUpdate("CASCADE");
 
       table.primary(["product_id", "effect_id"]);

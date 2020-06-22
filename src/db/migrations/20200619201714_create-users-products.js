@@ -15,7 +15,7 @@ exports.up = function (knex) {
       .notNullable()
       .references("id")
       .inTable("products")
-      .onDelete("CASCADE")
+      .onDelete("RESTRICT")
       .onUpdate("CASCADE");
 
     table.string("created_at", 64).notNullable();

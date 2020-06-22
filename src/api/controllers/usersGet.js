@@ -2,9 +2,10 @@ const User = require("../../db/models/users");
 
 const TABLE_NAME = "users";
 
+// GET all available users
 const getUsers = async (req, res) => {
   try {
-    const users = await User.get(TABLE_NAME);
+    const users = await User.getAll(TABLE_NAME);
     res.status(200).json(users);
   } catch ({ message }) {
     res.status(500).json({
@@ -14,6 +15,7 @@ const getUsers = async (req, res) => {
   }
 };
 
+//GET user by their id
 const getUserById = async (req, res) => {
   try {
     const { user, params } = req;
