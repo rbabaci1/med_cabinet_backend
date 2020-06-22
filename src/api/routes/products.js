@@ -11,5 +11,10 @@ router.get(
   validateId(TABLE_NAME),
   controller.getProductFullInfo
 );
+router.get(
+  "/:id/ratings",
+  validateId(TABLE_NAME),
+  controller.getProductRatings
+);
 
 module.exports = router;

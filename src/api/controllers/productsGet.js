@@ -28,8 +28,30 @@ const getProductFullInfo = async (req, res) => {
 
     res.status(200).json({ ...product, provider, flavors, effects });
   } catch ([message]) {
-    res.status(500).json({ reason: message });
+    res.status(500).json({
+      message: "The product details can't be retrieved at this moment",
+      reason: message,
+    });
   }
 };
 
-module.exports = { getProducts, getProductById, getProductFullInfo };
+const getProductRatings = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const ratings = await Product.getRatings(id);
+    res.status(200).json(ratings);
+  } catch ({ message }) {
+    res.status(500).json({
+      message: "The product ratings can't be retrieved at this moment",
+      reason: message,
+    });
+  }
+};
+
+module.exports = {
+  getProducts,
+  getProductById,
+  getProductFullInfo,
+  getProductRatings,
+};

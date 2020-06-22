@@ -22,7 +22,7 @@ const getUserById = (req, res) => {
 const getUserFullInfo = async (req, res) => {
   try {
     const { user, params } = req;
-    const products = await User.getProducts(params.id);
+    let products = await User.getProducts(params.id);
     const reviews = await User.getReviews(params.id);
 
     res.status(200).json({ ...user, products, reviews });

@@ -24,4 +24,16 @@ const getProvider = product_id => {
     .where({ product_id });
 };
 
-module.exports = { getProvider, getFlavors, getEffects };
+const getRatings = product_id => {
+  return db("ratings as r")
+    .select(
+      "r.product_id",
+      "r.rate",
+      "r.description",
+      "r.created_at",
+      "updated_at"
+    )
+    .where({ product_id });
+};
+
+module.exports = { getProvider, getFlavors, getEffects, getRatings };
