@@ -1,5 +1,8 @@
 const { getAll } = require("../../db/models/global.js");
-const { getDispensaryHours } = require("../../db/models/dispensaries");
+const {
+  getDispensaryHours,
+  getDispensaryProducts,
+} = require("../../db/models/dispensaries");
 
 const TABLE_NAME = "dispensaries";
 
@@ -17,11 +20,11 @@ const getDispensaries = async (req, res) => {
 
 const getDispensaryFullInfo = async (req, res) => {
   try {
-    const { dispensary } = req.dispensary;
+    const { dispensary } = req;
     const business_hours = await getDispensaryHours(dispensary.id);
-    // const dispensaryProducts = await getDispensaryProducts(id)
+    const products = await getDispensaryProducts(dispensary.id);
 
-    res.status(200).json({ ...dispensary, business_hours });
+    res.status(200).json({ ...dispensary, business_hours, products });
   } catch ({ message }) {
     res.status(500).json({
       message: "The dispensary details can't be retrieved at this moment",

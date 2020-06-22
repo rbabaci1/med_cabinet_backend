@@ -23,9 +23,9 @@ const getUserFullInfo = async (req, res) => {
   try {
     const { user, params } = req;
     let products = await User.getProducts(params.id);
-    const reviews = await User.getReviews(params.id);
+    const written_reviews = await User.getReviews(params.id);
 
-    res.status(200).json({ ...user, products, reviews });
+    res.status(200).json({ ...user, products, written_reviews });
   } catch ({ message }) {
     res.status(500).json({
       message: "The user details can't be retrieved at this moment.",
