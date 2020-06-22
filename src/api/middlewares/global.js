@@ -2,7 +2,13 @@ const { getBy } = require("../../db/models/global");
 
 const validateId = tableName => async (req, res, next) => {
   const entity =
-    tableName === "users" ? "user" : tableName === "products" ? "product" : "";
+    tableName === "users"
+      ? "user"
+      : tableName === "products"
+      ? "product"
+      : "flavors"
+      ? "flavor"
+      : "";
 
   try {
     const { id } = req.params;
