@@ -1,11 +1,10 @@
-const { getAll } = require("../../db/models/global");
 const User = require("../../db/models/users");
 
 const TABLE_NAME = "users";
 
 const getUsers = async (req, res) => {
   try {
-    const users = await getAll(TABLE_NAME);
+    const users = await User.get(TABLE_NAME);
     res.status(200).json(users);
   } catch ({ message }) {
     res.status(500).json({
