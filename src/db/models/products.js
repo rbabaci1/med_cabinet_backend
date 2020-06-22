@@ -26,13 +26,7 @@ const getProvider = product_id => {
 
 const getRatings = product_id => {
   return db("ratings as r")
-    .select(
-      "r.product_id",
-      "r.rate",
-      "r.description",
-      "r.created_at",
-      "updated_at"
-    )
+    .select("r.rate", "r.description", "r.created_at", "updated_at")
     .where({ product_id });
 };
 
