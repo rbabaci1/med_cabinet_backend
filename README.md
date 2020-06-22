@@ -37,13 +37,10 @@ Returns an array of JSON objects.
         "username": "abumpass086",
         "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
     },
-    
     // ... etc
 ]
 ```
-
 --------------------------------
-
 #### **GET** */api/products*
 
 Return an array of objects of **ALL** products created by **ALL** dispensaries.
@@ -71,10 +68,52 @@ Response: `res.body`
         "created_at": "2020-04-03 02:01:24",
         "dispensary_id": 3      // the dispensary provider id
     },
+    // ... etc.
+]
+```
+--------------------------------
+#### **GET** */api/flavors*
+
+Return an array of objects of **ALL** flavors.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+[
+    {
+        "id": 1,                // this is the flavor id#
+        "flavor": "Earth"       
+    }
+    // ... etc.
+]
+```
+--------------------------------
+#### **GET** */api/effects*
+
+Return an array of objects of **ALL** effects.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+[
+    {   
+        "id": 1,     // this is the effect id#
+        "effect": "Relaxed",
+        "effect_type": "positive"
+    },
     
     // ... etc.
 ]
 ```
+--------------------------------
 
 ### 2. Access single item
 
@@ -98,7 +137,7 @@ Response: `res.body`
         "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
 },
 ```
-
+--------------------------------
 #### **GET** */api/products/:id*
 
 Returns a single product via the **product's** `:id` URL param.
@@ -125,7 +164,7 @@ Response: `res.body`
      "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
      "dispensary_id": 5, 
       
-     "provider": {       // a nested object that represents the product dispensary provider
+     "dispensay": {       // a nested object that represents the product dispensary provider
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
         "name": "Demizz-95",
         "address": "8017 Pleasure Trail",
@@ -157,6 +196,59 @@ Response: `res.body`
     "ratings": false       // this is the product ratings 0-5 (if product has not ratings, value is ```false```)
 },
 ```
+--------------------------------
+#### **GET** */api/dispensaries/:id*
+
+Returns a single dispensary via the **dispensaries's** `:id` URL param.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+{
+    "id": 2,        // this the dispensary id#
+    "name": "Devify-45",
+    "address": "112 Division Trail",
+    "city": "Pasadena",
+    "state": "California",
+    "postal_code": "91117",
+    "phone_number": "(626) 3250079",
+    "email": "bcongreve1@wp.com",
+    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",      // dispensary logo image
+    "has_delivery": 1,      // 0 === false, 1 === true
+    "created_at": "2020-06-16 02:01:24",        // this is the date when the dispensary was created
+    
+    "business_hours": [     // a nested array that represents the dispensray operating hours
+        {
+            "day_of_week": 0,       // [0 === Monday] --> [6 === Sunday]
+            "open_time": "08:30 AM",
+            "close_time": "7:45 PM"
+        },
+        // ... etc
+    ],
+    "products": [       // a nested array that represents all the dispensary product
+        {
+            "id": 6,              // this is the id# of the product (NOT DISPENSARY)
+            "strain_name": "Alien Rock Candy",
+            "strain_category": "Pre-rolls",
+            "strain_type": "Indica",
+            "avg_thc": 33.23,          // percentage
+            "avg_cbd": 16.41,          // percentage
+            "price": 17.24,            // $
+            "price_unit": "gram",
+            "description": "From Sonoma County comes Alaska Thunder Grape ...",
+            "img_url": "https:// ...",      // this is the product image
+            "is_available": 0,              // 0 === false, 1 === true
+            "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
+            "dispensary_id": 2         // this the dispensary provider id#
+    },
+        // .. etc
+    ]
+```
+--------------------------------
 
 ### 2. Access all products of single user
 #### **GET** */api/:id/products*
@@ -186,7 +278,6 @@ Response: `res.body`
         "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
         "dispensary_id": 5         // this the dispensary provider id#
     },
-    
     // ... etc.
 ]
 ```
