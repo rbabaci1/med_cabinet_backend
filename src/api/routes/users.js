@@ -1,12 +1,13 @@
 const router = require("express").Router();
 
-const controller = require("../controllers/usersGet");
+const getController = require("../controllers/usersGet");
+const postController = require("../controllers/usersPost");
 const { validateId } = require("../middlewares/global");
 const TABLE_NAME = "users";
 
-router.get("/", controller.getUsers);
-router.get("/:id", validateId(TABLE_NAME), controller.getUserById);
+router.get("/", getController.getUsers);
+router.get("/:id", validateId(TABLE_NAME), getController.getUserById);
 
-router.post("/", controller.registerUser);
+router.post("/", postController.registerUser);
 
 module.exports = router;
