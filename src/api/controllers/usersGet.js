@@ -1,5 +1,5 @@
 const { getAll } = require("../../db/models/global");
-const User = require("../../db/models/user");
+const User = require("../../db/models/users");
 
 const TABLE_NAME = "users";
 
@@ -18,7 +18,7 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const { user, params } = req;
-    let products = await User.getProducts(params.id);
+    const products = await User.getProducts(params.id);
     const written_reviews = await User.getReviews(params.id);
 
     res.status(200).json({ ...user, products, written_reviews });

@@ -1,4 +1,4 @@
-const db = require("../../db/dbConfig");
+const db = require("../dbConfig");
 
 const getDispensaryHours = dispensary_id => {
   return db("dispensaries_hours as d_h")

@@ -18,7 +18,7 @@ const getDispensaries = async (req, res) => {
   }
 };
 
-const getDispensaryFullInfo = async (req, res) => {
+const getDispensaryById = async (req, res) => {
   try {
     const { dispensary } = req;
     const business_hours = await getDispensaryHours(dispensary.id);
@@ -33,4 +33,4 @@ const getDispensaryFullInfo = async (req, res) => {
   }
 };
 
-module.exports = { getDispensaries, getDispensaryFullInfo };
+module.exports = { getDispensaries, getDispensaryById };
