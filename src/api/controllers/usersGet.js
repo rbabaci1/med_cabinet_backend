@@ -15,11 +15,7 @@ const getUsers = async (req, res) => {
   }
 };
 
-const getUserById = (req, res) => {
-  res.status(200).json(req.user);
-};
-
-const getUserFullInfo = async (req, res) => {
+const getUserById = async (req, res) => {
   try {
     const { user, params } = req;
     let products = await User.getProducts(params.id);
@@ -34,4 +30,4 @@ const getUserFullInfo = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, getUserFullInfo };
+module.exports = { getUsers, getUserById };
