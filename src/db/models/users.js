@@ -1,5 +1,15 @@
 const db = require("../dbConfig");
-const { getFlavors, getEffects } = require("../../db/models/products");
+
+const get = async () => {
+  return db("users as u").select(
+    "u.id",
+    "u.firstName",
+    "u.lastName",
+    "u.email",
+    "u.username",
+    "u.created_at"
+  );
+};
 
 const getProducts = async user_id => {
   return db("users_products as u_p")
@@ -21,4 +31,4 @@ const getReviews = user_id => {
     .where({ user_id });
 };
 
-module.exports = { getProducts, getReviews };
+module.exports = { get, getProducts, getReviews };
