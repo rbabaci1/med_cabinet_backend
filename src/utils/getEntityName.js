@@ -12,3 +12,5 @@ const getEntityName = tableName => {
       return "dispensary";
   }
 };
+
+module.exports = getEntityName;

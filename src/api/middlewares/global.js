@@ -1,21 +1,8 @@
 const { getBy } = require("../../db/models/global");
+const getEntityName = require("../../utils/getEntityName");
 
 const validateId = tableName => async (req, res, next) => {
-  let entity;
-  switch (tableName) {
-    case "users":
-      entity = "user";
-  }
-  const entity =
-    tableName === "users"
-      ? "user"
-      : tableName === "products"
-      ? "product"
-      : "flavors"
-      ? "flavor"
-      : "effects"
-      ? "effect"
-      : "";
+  const entity = getEntityName(tableName);
 
   try {
     const { id } = req.params;
