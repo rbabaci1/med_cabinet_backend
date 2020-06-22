@@ -37,10 +37,11 @@ Response: `res.data`
         "description": "From Sonoma County comes Alaska Thunder Grape ...",
         "img_url": "https:// ...",
         "is_available": 1,
-        "created_at": "2019-09-09 02:01:24"
+        "created_at": "2019-09-09 02:01:24",
+        "dispensary_id": 3       // the dispensary provider id
     },
     {
-        "id": 2,                // this is the id of the product
+        "id": 2,                // this is the id of the product 
         "strain_name": "African",
         "strain_category": "Cartridges",
         "strain_type": "hybrid",
@@ -51,7 +52,8 @@ Response: `res.data`
         "description": "rapidly becoming a Colorado cannabis staple ...",
         "img_url": "https:// ..",
         "is_available": 0,
-        "created_at": "2020-04-03 02:01:24"
+        "created_at": "2020-04-03 02:01:24",
+        "dispensary_id": 3      // the dispensary provider id
     },
     
     // ... etc.
