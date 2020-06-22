@@ -11,5 +11,10 @@ router.get(
   validateId(TABLE_NAME),
   controller.getProductProvider
 );
+router.get(
+  "/:id/flavors_effects",
+  validateId(TABLE_NAME),
+  controller.getProductFlavorsEffects
+);
 
 module.exports = router;

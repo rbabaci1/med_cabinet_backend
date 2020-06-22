@@ -1,5 +1,6 @@
 const { getAll } = require("../../db/models/global");
 const Product = require("../../db/models/products");
+const Provider = require("../../db/models/dispensaries");
 
 const TABLE_NAME = "products";
 
@@ -21,10 +22,11 @@ const getProductById = (req, res) => {
 
 const getProductProvider = async (req, res) => {
   try {
-    const { product } = req;
-    const [provider = false] = await Product.getProvider(product.dispensary_id);
+    const { dispensary_id } = req.product;
+    const [provider = false] = await Product.getProvider(dispensary_id);
+    const business_hours = await Provider.getDispensaryHours(dispensary_id);
 
-    res.status(200).json(provider);
+    res.status(200).json({ ...provider, business_hours });
   } catch ([message]) {
     res.status(500).json({
       message: "The product provider details can't be retrieved at this moment",
