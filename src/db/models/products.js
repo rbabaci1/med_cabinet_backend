@@ -16,12 +16,11 @@ const getEffects = product_id => {
     .where({ product_id });
 };
 
-const getProvider = product_id => {
-  return db("products_dispensaries as p_d")
-    .join("products as p", "p_d.product_id", "p.id")
-    .join("dispensaries as d", "p_d.dispensary_id", "d.id")
+const getProvider = dispensary_id => {
+  return db("products as p")
+    .join("dispensaries as d", "p.dispensary_id", "d.id")
     .select("d.*")
-    .where({ product_id });
+    .where({ dispensary_id });
 };
 
 const getRatings = product_id => {

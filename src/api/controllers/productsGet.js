@@ -18,7 +18,7 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const { product, params } = req;
-    const [provider = false] = await Product.getProvider(params.id);
+    const [provider = false] = await Product.getProvider(product.dispensary_id);
     const [ratings = false] = await Product.getRatings(params.id);
     const flavors = await Product.getFlavors(params.id);
     const effects = await Product.getEffects(params.id);
