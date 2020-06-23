@@ -1,11 +1,11 @@
-const User = require("../../db/models/users");
+const Users = require("../../db/models/users");
 
 const TABLE_NAME = "users";
 
 // GET all available users
 const getUsers = async (req, res) => {
   try {
-    const users = await User.getAll(TABLE_NAME);
+    const users = await Users.get(TABLE_NAME);
     res.status(200).json(users);
   } catch ({ message }) {
     res.status(500).json({
@@ -17,8 +17,8 @@ const getUsers = async (req, res) => {
 // GET all details about a user
 const getUserById = async ({ user }, res) => {
   try {
-    const products = await User.getProducts(user.id);
-    const reviews = await User.getReviews(user.id);
+    const products = await Users.getProducts(user.id);
+    const reviews = await Users.getReviews(user.id);
 
     res.status(200).json({ ...user, products, reviews });
   } catch ({ message }) {

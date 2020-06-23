@@ -4,7 +4,6 @@ const getController = require("../controllers/usersGet");
 const postController = require("../controllers/usersPost");
 const { validateId } = require("../middlewares/global");
 const validateUserInfo = require("../middlewares/validateUserInfo");
-const validateDispensaryInfo = require("../middlewares/validateDispensaryInfo");
 
 const TABLE_NAME = "users";
 
