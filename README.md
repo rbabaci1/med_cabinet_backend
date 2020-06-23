@@ -12,11 +12,61 @@ Installing
 6. populate database with dummy/seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 8000.
 
+## **Authentication Routes**
 
-## Base URL
+### 1. Access a single user details
 
-https://best-med-cabinet.herokuapp.com
+#### **GET** */api/users/:id*
 
+Returns a single user via the **user's** `:id` URL param.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+{
+    "id": 1,    // user id#
+    "first_name": "Aguste",
+    "last_name": "Bumpass",
+    "email": "hkimm2@vistaprint.com",
+    "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
+    
+     "products": [       // a nested array that represents all the dispensary products
+        {
+            "id": 6,              // this is the id# of the product (NOT DISPENSARY)
+            "strain_name": "Alien Rock Candy",
+            "strain_category": "Pre-rolls",
+            "strain_type": "Indica",
+            "avg_thc": 33.23,          // percentage
+            "avg_cbd": 16.41,          // percentage
+            "price": 17.24,            // $
+            "price_unit": "gram",      // gram/piece
+            "description": "From Sonoma County comes Alaska Thunder Grape ...",
+            "img_url": "https:// ...",      // this is the product image
+            "is_available": 0,              // 0 === false, 1 === true
+            "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
+            "dispensary_id": 2         // this the dispensary provider id#
+        },
+        // .. etc
+    ]
+    "reviews": [
+        {
+            "product_id": 13,
+            "rate": 3,
+            "description": "Radiation Therapy, Respiratory System, Beam Radiation",
+            "created_at": "2020-05-11 00:32:20",
+            "updated_at": "2019-08-22 11:37:00"
+        },
+        // ..etc
+    ]
+}
+```
+
+
+--------------------------------
 ### 1. General Routes
 
 #### **GET** */api/users*
@@ -38,7 +88,6 @@ Returns an array of JSON objects.
         "id": 1,    // user id#
         "firstName": "Aguste",
         "lastName": "Bumpass",
-        "email": "abumpass0@businessinsider.com",
         "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
     },
     // ... etc
@@ -62,7 +111,9 @@ Response: `res.body`
         "strain_name": "African",
         "strain_category": "Cartridges",
         "strain_type": "hybrid",
-        "avg_thc": 5.61,      // percentage
+        "flavors": "Earthy,Sweet,Citrus",           
+        "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
+        "avg_thc": 23.21,      // percentage
         "avg_cbd": 31.31,     // percentage
         "price": 7.91,        // $
         "price_unit": "gram",   // gram/piece
@@ -76,100 +127,9 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-#### **GET** */api/flavors*
 
-Return an array of objects of **ALL** flavors.
+### 2. Access a signle Item
 
-Request: `req.body`
-
-```
-// N/A
-```
-Response: `res.body`
-```
-[
-    {
-        "id": 1,                // this is the flavor id#
-        "flavor": "Earth"       
-    }
-    // ... etc.
-]
-```
---------------------------------
-#### **GET** */api/effects*
-
-Return an array of objects of **ALL** effects.
-
-Request: `req.body`
-
-```
-// N/A
-```
-Response: `res.body`
-```
-[
-    {   
-        "id": 1,     // this is the effect id#
-        "effect": "Relaxed",
-        "effect_type": "positive"
-    },
-    
-    // ... etc.
-]
-```
---------------------------------
-
-### 2. Access single item
-
-#### **GET** */api/users/:id*
-
-Returns a single user via the **user's** `:id` URL param.
-
-Request: `req.body`
-
-```
-// N/A
-```
-Response: `res.body`
-```
-{
-    "id": 1,    // user id#
-    "first_name": "Aguste",
-    "last_name": "Bumpass",
-    "email": "abumpass0@businessinsider.com",
-    "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
-        
-    "products": [       // a nested array that represents the user products
-        {   
-            "id": 1,                // this is the product id#
-            "strain_name": "African",
-            "strain_category": "Cartridges",
-            "strain_type": "hybrid",
-            "avg_thc": 5.61,      // percentage
-            "avg_cbd": 31.31,     // percentage
-            "price": 7.91,        // $
-            "price_unit": "gram",   // gram/piece
-            "description": "rapidly becoming a Colorado cannabis staple ...",
-            "img_url": "https:// ..",       // this is the product image
-            "is_available": 0,              // 0 === false, 1 === true
-            "created_at": "2020-04-03 02:01:24",
-            "dispensary_id": 3      // the dispensary provider id#
-        },
-        // ... etc.
-    ],
-    "reviews": [         // a nested array that represents the review written by the user
-        {
-            "product_id": 1    // the product id# (NOT REVIEW)
-            "rate": 5,      //  [0 - 5]
-            "description": "Removal of Infusion Device from Cervical Vertebral Disc, Percutaneous Endoscopic Approach",
-            "created_at": "2020-01-01 12:01:18",        // this is the date when the rating was written 
-            "updated_at": "2019-08-22 11:37:00"         // this is the date when the rating was updated
-        },
-        // ... etc 
-    ]
-},
-```
---------------------------------
 #### **GET** */api/products/:id*
 
 Returns a single product via the **product's** `:id` URL param.
@@ -186,6 +146,8 @@ Response: `res.body`
     "strain_name": "African",
     "strain_category": "Cartridges",
     "strain_type": "hybrid",
+    "flavors": "Earthy,Sweet,Citrus",           
+    "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
     "avg_thc": 5.61,         // percentage
     "avg_cbd": 31.31,        // percentage
     "price": 7.91,           // $
@@ -209,21 +171,6 @@ Response: `res.body`
         "created_at": "2019-08-10 02:01:24"     // this is the date when the dispensary was created
     },
     
-     "flavors": [       // a nested array that represents the product flavors
-        {
-            "id": 8,    // flavor id#
-            "flavor": "Flowery"
-        }
-        // ... etc
-     ],
-    "effects": [        // a nested array that represents the product effects
-        {
-            "id": 8,    // effect id#
-            "effect": "Talkative",
-            "effect_type": "positive"
-        }
-        // ... etc
-    ],
     "reviews":[      // a nested array that represents the product reviews written by users
          {
             "user_id": 1    // the user id# (NOT REVIEW)
