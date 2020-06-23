@@ -8,6 +8,9 @@ const {
 const random1 = arr => arr[Math.floor(Math.random() * arr.length)];
 const random2 = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+const getProductsFlavors = products => {};
+const getProductsEffects = products => {};
+
 const removeEffectsAndFlavors = obj => {
   const keys = Object.keys(obj);
   let newObj = {};
