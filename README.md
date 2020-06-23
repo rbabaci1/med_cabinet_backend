@@ -3,13 +3,13 @@
 ## **Local Server Installation**
 For developing and testing purposes, please follow the instructions below to install a version to your local machine.
 
-Installing
+#### Installing:
 1. donwload/clone backend repo 
 2. navigate to cloned repo & cd src/
 3. install dependencies on your console: `npm i`
 4. isntall knex globally: `npm i -g knex`
 5. construct a copy of the data base in console: `knex migrate:latest`
-6. populate database with dummy/seeded data: `knex seed:run`
+6. populate database with seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 8000.
 
 ## **Authentication Routes**
@@ -41,7 +41,7 @@ Response: `res.body`
   },
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
 }
-    // password not returned, but is stored encrypted on database
+  // password not returned, but is stored encrypted on database
 ```
 
 ### 3. Access a single user details
