@@ -26,7 +26,10 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-  } catch (error) {}
+    res.status(200).json({ message: "made it!" });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 module.exports = { registerUser, loginUser };

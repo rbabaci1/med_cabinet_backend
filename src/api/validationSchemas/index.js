@@ -24,4 +24,4 @@ const dispensarySchema = Joi.object({
   has_delivery: Joi.boolean().required(),
 });
 
-module.exports = { signupSchema, dispensarySchema };
+module.exports = { signupSchema, loginSchema, dispensarySchema };
