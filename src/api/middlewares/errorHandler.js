@@ -3,6 +3,6 @@ module.exports = (error, req, res, next) => {
     statusCode: error.statusCode || 500,
     type: error.name,
     message: error.message,
-    stack_trace: error.stack,
+    stackTrace: error.stack,
   });
 };

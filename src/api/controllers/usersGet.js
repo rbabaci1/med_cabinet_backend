@@ -1,7 +1,7 @@
 const Users = require("../../db/models/users");
 
 // GET all details about a user
-const getUserById = async ({ user }, res) => {
+const getUserById = async ({ user }, res, next) => {
   try {
     const products = await Users.getProducts(user.id);
     const reviews = await Users.getReviews(user.id);
@@ -10,11 +10,8 @@ const getUserById = async ({ user }, res) => {
     res
       .status(200)
       .json({ id, firstName, lastName, email, created_at, products, reviews });
-  } catch ({ message }) {
-    res.status(500).json({
-      message: "The user details can't be retrieved at this moment.",
-      reason: message,
-    });
+  } catch (next) {
+    next(error);
   }
 };
 

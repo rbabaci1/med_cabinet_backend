@@ -16,11 +16,8 @@ const validateId = tableName => async (req, res, next) => {
         message: `The ${entity} with the specified ID does not exist.`,
       });
     }
-  } catch ({ message }) {
-    res.status(500).json({
-      message: `Could not retrieve the ${entity} now.`,
-      reason: message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 

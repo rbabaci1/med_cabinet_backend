@@ -17,11 +17,8 @@ const registerUser = async (req, res) => {
     const createdUser = removeObjKey(insertedUser, "password");
 
     res.status(201).json({ success: true, createdUser, token });
-  } catch ({ message }) {
-    res.status(500).json({
-      message: "An error occurred while inserting to the database.",
-      reason: message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -30,10 +27,10 @@ const loginUser = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await getBy("users", { email });
 
-    if (user && bcrypt.compare(password, user.password)) {
+    if (user && bcrypt.compareSync(password, user.password)) {
       const token = generateToken(user);
       res.status(200).json({
-        message: "Welcome to best med cabinet in the world!",
+        message: "Welcome to best med-cabinet in the world!",
         user,
         token,
       });
@@ -41,10 +38,6 @@ const loginUser = async (req, res, next) => {
       res.status(401).json({ message: "Invalid credentials. Try again?" });
     }
   } catch (error) {
-    // res.status(500).json({
-    //   message: "An error occurred while authenticating the user.",
-    //   reason: message,
-    // });
     next(error);
   }
 };
