@@ -12,6 +12,11 @@ For developing and testing purposes, please follow the instructions below to ins
 6. populate database with seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 5000.
 
+## Usage:
+
+### Base URL
+https://best-med-cabinet.herokuapp.com
+
 ## **Authentication Routes**
 
 ### 1. User Registration
@@ -122,11 +127,11 @@ Response: `res.body`
     ]
 }
 ```
-
-
 --------------------------------
 
-### 1. General Routes
+## **General Routes**
+
+### 1. GET all products
 
 #### **GET** */api/products*
 
@@ -162,7 +167,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 2. Access a signle Item
+### 2. GET a single product
 
 #### **GET** */api/products/:id*
 
@@ -218,6 +223,9 @@ Response: `res.body`
 },
 ```
 --------------------------------
+
+### 3. GET a single dispensary
+
 #### **GET** */api/dispensaries/:id*
 
 Returns a single dispensary via the **dispensaries's** `:id` URL param.
