@@ -1,5 +1,5 @@
 const { getBy } = require("../../db/models/global");
-const getEntityName = require("../../utils/getEntityName");
+const getEntityName = require("../../helpers/getEntityName");
 
 const validateId = tableName => async (req, res, next) => {
   const entity = getEntityName(tableName);

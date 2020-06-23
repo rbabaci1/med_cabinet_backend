@@ -8,50 +8,6 @@ const {
 const random1 = arr => arr[Math.floor(Math.random() * arr.length)];
 const random2 = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-// re-organize
-const getProductsFlavors = () => {
-  let flavors = [];
-  let newFlavors = [];
-
-  products.forEach(p => {
-    flavors.push(p.flavors.split(","));
-  });
-
-  flavors.forEach(f => {
-    newFlavors.push({ flavor: JSON.stringify(f) });
-  });
-
-  return newFlavors;
-};
-// re-organize
-const getProductsEffects = () => {
-  let effects = [];
-  let newEffects = [];
-
-  products.forEach(p => {
-    effects.push(p.effects.split(","));
-  });
-
-  effects.forEach(f => {
-    newEffects.push({ effect: JSON.stringify(f) });
-  });
-
-  return newEffects;
-};
-
-const removeEffectsAndFlavors = obj => {
-  const keys = Object.keys(obj);
-  let newObj = {};
-
-  keys.forEach(key => {
-    if (key !== "effects" && key !== "flavors") {
-      newObj[key] = obj[key];
-    }
-  });
-
-  return newObj;
-};
-
 const generateProducts = () => {
   return products.map(p => {
     p.strain_category = random1(strain_categories) || strain_categories[0];
@@ -82,4 +38,4 @@ const generateProducts = () => {
   });
 };
 
-module.exports = { generateProducts, getProductsFlavors, getProductsEffects };
+module.exports = { generateProducts };

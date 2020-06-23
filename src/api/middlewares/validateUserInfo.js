@@ -1,5 +1,5 @@
 const { userSchema } = require("../validationSchemas");
-const formatError = require("../../utils/formatError");
+const formatError = require("../../helpers/formatError");
 
 const validateUserInfo = (req, res, next) => {
   const result = userSchema.validate(req.body);

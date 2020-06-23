@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 
 const User = require("../../db/models/users");
-const now = require("../../utils/getLocalDateTime");
+const now = require("../../helpers/getLocalDateTime");
 
 const registerUser = async (req, res) => {
   try {
