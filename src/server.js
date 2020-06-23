@@ -12,6 +12,7 @@ server.use(helmet());
 server.use(cors());
 
 server.use("/api/users", route.users);
+server.use("/api/auth", route.auth);
 server.use("/api/products", route.products);
 server.use("/api/dispensaries", route.dispensaries);
 
