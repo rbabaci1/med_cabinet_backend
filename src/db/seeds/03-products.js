@@ -36,5 +36,9 @@ exports.seed = function (knex) {
     .then(() => knex("products").insert(slices._27))
     .then(() => knex("products").insert(slices._28))
     .then(() => knex("products").insert(slices._29))
-    .then(() => knex("products").insert(slices._30));
+    .then(() => knex("products").insert(slices._30))
+    .then(() => knex("products").insert(slices._31))
+    .then(() => knex("products").insert(slices._32))
+    .then(() => knex("products").insert(slices._33))
+    .then(() => knex("products").insert(slices._34));
 };

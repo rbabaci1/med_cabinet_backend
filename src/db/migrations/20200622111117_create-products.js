@@ -4,6 +4,8 @@ exports.up = function (knex) {
     table.string("strain_name", 64).notNullable();
     table.string("strain_category", 64).notNullable();
     table.string("strain_type", 64).notNullable();
+    table.string("flavors").notNullable();
+    table.string("effects").notNullable();
     table.decimal("avg_thc", null).notNullable();
     table.decimal("avg_cbd", null).notNullable();
     table.decimal("price", null).notNullable();

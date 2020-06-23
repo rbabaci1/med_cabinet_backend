@@ -8,6 +8,7 @@ const {
 const random1 = arr => arr[Math.floor(Math.random() * arr.length)];
 const random2 = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+// re-organize
 const getProductsFlavors = () => {
   let flavors = [];
   let newFlavors = [];
@@ -22,7 +23,7 @@ const getProductsFlavors = () => {
 
   return newFlavors;
 };
-
+// re-organize
 const getProductsEffects = () => {
   let effects = [];
   let newEffects = [];
@@ -77,7 +78,7 @@ const generateProducts = () => {
     p.price_unit = random1(price_units);
     p.is_available = random1([true, false]);
 
-    return removeEffectsAndFlavors(p);
+    return p;
   });
 };
 
