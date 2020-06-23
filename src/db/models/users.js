@@ -1,5 +1,5 @@
 const db = require("../dbConfig");
-const getBy = require("../../db/models/global");
+const { getBy } = require("../../db/models/global");
 
 const get = async () => {
   return db("users as u").select(
@@ -32,9 +32,9 @@ const getReviews = user_id => {
     .where({ user_id });
 };
 
-const create = newUser => {
-  const [id] = db("users").insert(newUser, "id");
-  return getBy({ id });
+const create = async newUser => {
+  const [id] = await db("users").insert(newUser, "id");
+  return getBy("users", { id });
 };
 
 module.exports = { get, getProducts, getReviews, create };
