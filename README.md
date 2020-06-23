@@ -3,7 +3,7 @@
 ## **Local Server Installation**
 For developing and testing purposes, please follow the instructions below to install a version to your local machine.
 
-#### Installing:
+#### Installation:
 1. donwload/clone backend repo 
 2. navigate to cloned repo & cd src/
 3. install dependencies on your console: `npm i`
