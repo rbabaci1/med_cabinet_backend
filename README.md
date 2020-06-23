@@ -12,6 +12,11 @@ Installing
 6. populate database with dummy/seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 8000.
 
+
+## Base URL
+
+https://best-med-cabinet.herokuapp.com
+
 ### 1. General Routes
 
 #### **GET** */api/users*
