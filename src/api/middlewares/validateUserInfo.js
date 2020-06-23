@@ -1,4 +1,5 @@
 const { userSchema } = require("../validationSchemas");
+const formatError = require("../../utils/formatError");
 
 const validateUserInfo = (req, res, next) => {
   const result = userSchema.validate(req.body);
@@ -6,7 +7,7 @@ const validateUserInfo = (req, res, next) => {
   if (!result.error) {
     next();
   } else {
-    res.status(400).json({ error: result.error });
+    res.status(400).json(error);
   }
 };
 

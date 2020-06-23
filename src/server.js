@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 const route = require("./api/routes");
+const errorHandler = require("./api/middlewares/errorHandler");
 
 const server = express();
 
@@ -19,5 +20,7 @@ server.use("/api/dispensaries", route.dispensaries);
 server.get("/", (req, res) => {
   res.status(200).json({ message: "*** API is up! ***" });
 });
+
+server.use(errorHandler);
 
 module.exports = server;
