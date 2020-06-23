@@ -24,4 +24,9 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser };
+const loginUser = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+
+module.exports = { registerUser, loginUser };
