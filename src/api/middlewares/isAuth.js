@@ -4,17 +4,22 @@ const { JWT_SECRET } = require("../../config");
 
 module.exports = (req, res, next) => {
   try {
-    const { authorization } = req.headers;
-    const { token } = authorization ? authorization : null;
+    const token = req.headers.authorization;
 
     if (token) {
       jwt.verify(token, JWT_SECRET, (error, decodedToken) => {
         if (error) {
+          error.statusCode = 401;
+          error.message = "Invalid credentials. Try again?";
           next(error);
         } else {
-          console.log(decodedToken);
           next();
         }
+      });
+    } else {
+      next({
+        statusCode: 401,
+        message: "User token is not included in the headers.",
       });
     }
   } catch (error) {
