@@ -1,5 +1,5 @@
 const sliceData = require("../../helpers/sliceProductsSeedData");
-const { generateProducts } = require("../../helpers/dbSeedHelpers");
+const { generateProducts } = require("../../helpers/generateProductsSeed");
 
 const products = generateProducts();
 const slices = sliceData(products);

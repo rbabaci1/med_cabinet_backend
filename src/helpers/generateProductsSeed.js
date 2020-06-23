@@ -15,7 +15,7 @@ const generateProducts = () => {
     p.avg_cbd = random2(5, 40);
     p.price = random2(5, 50);
     p.created_at = "2019-10-17 08:11:20";
-    p.dispensary_id = random2(1, 5);
+    p.dispensary_id = random2(1, 30);
 
     p.img_url =
       p.strain_category === "Flower"
