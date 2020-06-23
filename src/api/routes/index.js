@@ -1,7 +1,5 @@
-const users = require("./users");
+const auth = require("./auth");
 const products = require("./products");
-const flavors = require("./flavors");
-const effects = require("./effects");
 const dispensaries = require("./dispensaries");
 
-module.exports = { users, products, flavors, effects, dispensaries };
+module.exports = { auth, products, dispensaries };

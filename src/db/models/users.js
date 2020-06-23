@@ -1,12 +1,11 @@
 const db = require("../dbConfig");
+const { getBy } = require("../../db/models/global");
 
-const getAll = async () => {
+const get = async () => {
   return db("users as u").select(
     "u.id",
-    "u.first_name",
-    "u.last_name",
-    "u.email",
-    "u.username",
+    "u.firstName",
+    "u.lastName",
     "u.created_at"
   );
 };
@@ -31,4 +30,9 @@ const getReviews = user_id => {
     .where({ user_id });
 };
 
-module.exports = { getAll, getProducts, getReviews };
+const create = async newUser => {
+  const [id] = await db("users").insert(newUser, "id");
+  return getBy("users", { id });
+};
+
+module.exports = { get, getProducts, getReviews, create };

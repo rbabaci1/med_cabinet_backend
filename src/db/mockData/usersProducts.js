@@ -1,13 +1,13 @@
 module.exports = [
   {
     user_id: 1,
-    product_id: 65,
+    product_id: 15,
     created_at: "2020-02-01 02:06:17",
     updated_at: "2020-04-24 19:40:18",
   },
   {
     user_id: 1,
-    product_id: 62,
+    product_id: 32,
     created_at: "2020-05-02 20:43:39",
     updated_at: "2019-07-21 20:38:50",
   },
@@ -31,7 +31,7 @@ module.exports = [
   },
   {
     user_id: 3,
-    product_id: 69,
+    product_id: 49,
     created_at: "2020-04-20 05:14:50",
     updated_at: "2019-08-08 19:09:48",
   },
@@ -55,7 +55,7 @@ module.exports = [
   },
   {
     user_id: 4,
-    product_id: 52,
+    product_id: 50,
     created_at: "2019-06-29 19:03:16",
     updated_at: "2019-10-07 15:46:15",
   },

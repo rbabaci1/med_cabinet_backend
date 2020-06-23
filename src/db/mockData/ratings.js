@@ -1,7 +1,7 @@
 module.exports = [
   {
     user_id: 1,
-    product_id: 97,
+    product_id: 7,
     rate: 5,
     description:
       "Restriction of Carina with Extraluminal Device, Open Approach",
@@ -37,7 +37,7 @@ module.exports = [
   },
   {
     user_id: 3,
-    product_id: 73,
+    product_id: 13,
     rate: 3,
     description: "Radiation Therapy, Respiratory System, Beam Radiation",
     created_at: "2020-05-11 00:32:20",
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     user_id: 3,
-    product_id: 87,
+    product_id: 17,
     rate: 4,
     description:
       "Restriction of Left Common Iliac Vein with Extraluminal Device, Percutaneous Approach",
@@ -54,7 +54,7 @@ module.exports = [
   },
   {
     user_id: 3,
-    product_id: 81,
+    product_id: 41,
     rate: 3,
     description: "Drainage of Right Upper Leg Muscle, Percutaneous Approach",
     created_at: "2020-01-17 21:11:16",
@@ -62,7 +62,7 @@ module.exports = [
   },
   {
     user_id: 4,
-    product_id: 71,
+    product_id: 31,
     rate: 3,
     description:
       "Motor Function Treatment of Integumentary System - Upper Back / Upper Extremity using Assistive, Adaptive, Supportive or Protective Equipment",
@@ -80,7 +80,7 @@ module.exports = [
   },
   {
     user_id: 5,
-    product_id: 62,
+    product_id: 42,
     rate: 5,
     description:
       "Revision of External Fixation Device in Right Metatarsal, Percutaneous Endoscopic Approach",

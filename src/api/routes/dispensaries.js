@@ -1,11 +1,15 @@
 const router = require("express").Router();
 
-const controller = require("../controllers/dispensariesGet");
+const getController = require("../controllers/dispensariesGet");
+const postController = require("../controllers/dispensaryPost");
 const { validateId } = require("../middlewares/global");
+const validateDispensaryInfo = require("../middlewares/validateDispensaryInfo");
 
 const TABLE_NAME = "dispensaries";
 
-router.get("/", controller.getDispensaries);
-router.get("/:id", validateId(TABLE_NAME), controller.getDispensaryById);
+router.get("/", getController.getDispensaries);
+router.get("/:id", validateId(TABLE_NAME), getController.getDispensaryById);
+
+router.post("/", validateDispensaryInfo, postController.createDispensary);
 
 module.exports = router;

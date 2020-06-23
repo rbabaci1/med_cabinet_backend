@@ -1,35 +1,26 @@
 const { getAll } = require("../../db/models/global.js");
-const {
-  getDispensaryHours,
-  getDispensaryProducts,
-} = require("../../db/models/dispensaries");
+
+const Dispensary = require("../../db/models/dispensaries");
 
 const TABLE_NAME = "dispensaries";
 
-const getDispensaries = async (req, res) => {
+const getDispensaries = async (req, res, next) => {
   try {
     const dispensaries = await getAll(TABLE_NAME);
     res.status(200).json(dispensaries);
-  } catch ({ message }) {
-    res.status(500).json({
-      message: "The dispensaries list can't be retrieved at this moment",
-      reason: message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 
-const getDispensaryById = async (req, res) => {
+const getDispensaryById = async ({ dispensary }, res, next) => {
   try {
-    const { dispensary } = req;
-    const business_hours = await getDispensaryHours(dispensary.id);
-    const products = await getDispensaryProducts(dispensary.id);
+    const business_hours = await Dispensary.getBusinessHours(dispensary.id);
+    const products = await Dispensary.getProducts(dispensary.id);
 
     res.status(200).json({ ...dispensary, business_hours, products });
-  } catch ({ message }) {
-    res.status(500).json({
-      message: "The dispensary details can't be retrieved at this moment",
-      reason: message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 

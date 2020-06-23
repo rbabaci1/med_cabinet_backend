@@ -1,5 +1,5 @@
 const { getBy } = require("../../db/models/global");
-const getEntityName = require("../../utils/getEntityName");
+const getEntityName = require("../../helpers/getEntityName");
 
 const validateId = tableName => async (req, res, next) => {
   const entity = getEntityName(tableName);
@@ -16,11 +16,8 @@ const validateId = tableName => async (req, res, next) => {
         message: `The ${entity} with the specified ID does not exist.`,
       });
     }
-  } catch ({ message }) {
-    res.status(500).json({
-      message: `Could not retrieve the ${entity} now.`,
-      reason: message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 
