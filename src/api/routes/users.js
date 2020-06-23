@@ -9,6 +9,11 @@ const TABLE_NAME = "users";
 
 router.get("/", getController.getUsers);
 router.get("/:id", validateId(TABLE_NAME), getController.getUserById);
+router.get(
+  "/:id/products",
+  validateId(TABLE_NAME),
+  getController.getUserProducts
+);
 
 router.post("/", validateUserInfo, postController.registerUser);
 

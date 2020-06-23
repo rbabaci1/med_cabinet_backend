@@ -14,19 +14,24 @@ const getUsers = async (req, res) => {
     });
   }
 };
-// GET all details about a user
-const getUserById = async ({ user }, res) => {
+
+// GET all products of a user
+const getUserProducts = async ({ user }, res) => {
   try {
     const products = await Users.getProducts(user.id);
-    const reviews = await Users.getReviews(user.id);
 
-    res.status(200).json({ ...user, products, reviews });
+    res.status(200).json(products);
   } catch ({ message }) {
     res.status(500).json({
-      message: "The user details can't be retrieved at this moment.",
+      message: "The user products can't be retrieved at this moment.",
       reason: message,
     });
   }
 };
 
-module.exports = { getUsers, getUserById };
+// GET all details about a user
+const getUserById = async ({ user }, res) => {
+  res.status(200).json(user);
+};
+
+module.exports = { getUsers, getUserById, getUserProducts };
