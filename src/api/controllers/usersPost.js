@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
     const createdUser = await User.create({ ...user, password: hash });
     const token = generateToken(createdUser);
 
-    res.status(201).json({ success: true, created: { ...createdUser }, token });
+    res.status(201).json({ success: true, createdUser, token });
   } catch ({ message }) {
     res.status(500).json({
       message: "An error occurred while inserting to the database.",
