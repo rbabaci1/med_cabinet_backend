@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const validateId = require("../middlewares/global");
 const getController = require("../controllers/productsGet");
+const postController = require("../controllers/productsPost");
 const TABLE_NAME = "products";
 
 router.get("/", getController.getProducts);
