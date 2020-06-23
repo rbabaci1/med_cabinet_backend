@@ -1,4 +1,4 @@
-const removeObjKey = (obj, keyName) => {
+module.exports = (obj, keyName) => {
   const keys = Object.keys(obj);
   let newObj = {};
 
@@ -10,5 +10,3 @@ const removeObjKey = (obj, keyName) => {
 
   return Object.freeze(newObj);
 };
-
-module.exports = removeObjKey;
