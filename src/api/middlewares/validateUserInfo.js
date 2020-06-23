@@ -1,7 +1,7 @@
 const { userSchema } = require("../validationSchemas");
 const formatError = require("../../helpers/formatError");
 
-const validateUserInfo = (req, res, next) => {
+module.exports = (req, res, next) => {
   const result = userSchema.validate(req.body);
 
   if (!result.error) {
@@ -10,5 +10,3 @@ const validateUserInfo = (req, res, next) => {
     res.status(400).json(formatError(result.error));
   }
 };
-
-module.exports = validateUserInfo;
