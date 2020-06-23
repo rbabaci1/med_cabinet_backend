@@ -11,6 +11,8 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
+// todo: expose most files with index.js
+
 // server.use("/api/users", route.users);
 server.use("/api/auth", route.auth);
 server.use("/api/products", route.products);

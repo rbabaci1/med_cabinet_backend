@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 
 const now = require("../../helpers/getLocalDateTime");
+const generateToken = require("../../helpers/generateToken.js");
 const { SALT_ROUNDS } = require("../../config");
 const User = require("../../db/models/users");
 
@@ -10,9 +11,9 @@ const registerUser = async (req, res) => {
     const hash = bcrypt.hashSync(user.password, parseInt(SALT_ROUNDS));
 
     const createdUser = await User.create({ ...user, password: hash });
-    // generate a token if Front End redirecting to home page after signup
+    const token = generateToken(createdUser);
 
-    res.status(201).json({ success: true, created: { ...createdUser } });
+    res.status(201).json({ success: true, created: { ...createdUser }, token });
   } catch ({ message }) {
     res.status(500).json({
       message: "An error occurred while inserting to the database.",
