@@ -3,7 +3,7 @@ const router = require("express").Router();
 const getController = require("../controllers/usersGet");
 const postController = require("../controllers/usersPost");
 const { validateId } = require("../middlewares/global");
-const validateUserInfo = require("../middlewares/users");
+const validateUserInfo = require("../middlewares/validateUserInfo");
 
 const TABLE_NAME = "users";
 
