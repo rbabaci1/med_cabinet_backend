@@ -1,8 +1,8 @@
-const { userSchema } = require("../validationSchemas");
+const { signupSchema } = require("../validationSchemas");
 const formatError = require("../../helpers/formatError");
 
-module.exports = (req, res, next) => {
-  const result = userSchema.validate(req.body);
+const validateSignup = (req, res, next) => {
+  const result = signupSchema.validate(req.body);
 
   if (!result.error) {
     next();
@@ -10,3 +10,7 @@ module.exports = (req, res, next) => {
     res.status(400).json(formatError(result.error));
   }
 };
+
+const validateLogin = (req, res, next) => {};
+
+module.exports = { validateSignup, validateLogin };

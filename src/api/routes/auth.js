@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const validateUserDuplication = require("../middlewares/validateUserDuplication");
-const validateUserInfo = require("../middlewares/validateUserInfo");
+const User = require("../middlewares/validateUserInfo");
 const { validateId } = require("../middlewares/global");
 const getController = require("../controllers/usersGet");
 const postController = require("../controllers/usersPost");
@@ -12,10 +12,10 @@ router.get("/users/:id", validateId(TABLE_NAME), getController.getUserById);
 
 router.post(
   "/register",
-  validateUserInfo,
+  User.validateSignup,
   validateUserDuplication,
   postController.registerUser
 );
-router.post("/login", validateUserInfo, postController.loginUser);
+router.post("/login", User.validateLogin, postController.loginUser);
 
 module.exports = router;

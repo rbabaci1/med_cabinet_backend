@@ -1,6 +1,6 @@
 const Joi = require("@hapi/joi");
 
-const userSchema = Joi.object({
+const signupSchema = Joi.object({
   firstName: Joi.string().min(3).required(),
   lastName: Joi.string().min(3).required(),
   email: Joi.string().email().required(),
@@ -19,4 +19,4 @@ const dispensarySchema = Joi.object({
   has_delivery: Joi.boolean().required(),
 });
 
-module.exports = { userSchema, dispensarySchema };
+module.exports = { signupSchema, dispensarySchema };
