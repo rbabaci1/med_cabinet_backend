@@ -31,8 +31,8 @@ Returns an array of JSON objects.
 [
     {
         "id": 1,    // user id#
-        "first_name": "Aguste",
-        "last_name": "Bumpass",
+        "firstName": "Aguste",
+        "lastName": "Bumpass",
         "email": "abumpass0@businessinsider.com",
         "username": "abumpass086",
         "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
@@ -200,7 +200,7 @@ Response: `res.body`
         "city": "New York City",
         "state": "New York",
         "postal_code": "10039",
-        "phone_number": "(212) 9963639",
+        "phone_number": "(212) 996-3639",
         "email": "wbains4@bloglovin.com",
         "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image
         "has_delivery": 1,      // 0 === false, 1 === true
@@ -253,7 +253,7 @@ Response: `res.body`
     "city": "Pasadena",
     "state": "California",
     "postal_code": "91117",
-    "phone_number": "(626) 3250079",
+    "phone_number": "(626) 325-0079",
     "email": "bcongreve1@wp.com",
     "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",      // dispensary logo image
     "has_delivery": 1,      // 0 === false, 1 === true
