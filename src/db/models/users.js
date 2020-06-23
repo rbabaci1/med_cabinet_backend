@@ -6,7 +6,6 @@ const get = async () => {
     "u.id",
     "u.firstName",
     "u.lastName",
-    "u.email",
     "u.created_at"
   );
 };
