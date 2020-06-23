@@ -67,33 +67,9 @@ Response: `res.body`
 
 
 --------------------------------
+
 ### 1. General Routes
 
-#### **GET** */api/users*
-
-Returns an array of objects of **ALL** users created.
-
-Request: `req.body`
-
-```
-// N/A
-```
-Response: `res.data`
-
-Returns an array of JSON objects.
-
-```
-[
-    {
-        "id": 1,    // user id#
-        "firstName": "Aguste",
-        "lastName": "Bumpass",
-        "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
-    },
-    // ... etc
-]
-```
---------------------------------
 #### **GET** */api/products*
 
 Return an array of objects of **ALL** products created by **ALL** dispensaries.
