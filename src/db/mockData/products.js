@@ -1,5 +1,3 @@
-
-
 let products = [
   {
     strain_name: "100-Og",
@@ -21122,9 +21120,6 @@ let products = [
       "Zoom Pie (also known as Zombie Pie) is a heavy indica-dominant strain that blends the potency of Blue Zombie with the flavor and color of Cherry Pie. This combination yields blue and purple foliage that reeks of tart cherries and pungent skunky fuel. It is known to stimulate appetite while imbuing the consumer with a heady euphoria (presumably from the recessive African landrace, Durban Poison, nestled in Cherry Pie). Enjoy this strain as a means to crush stress, physical discomfort, and depression. But be aware, this strain will apply sedative effects to the body when dosed heavily. This strain was bred by Tank aka gansettfinest of NICE LLC.",
   },
 ];
-
-
-
 const strain_categories = [
   "Flower",
   "Edibles",
@@ -21134,12 +21129,7 @@ const strain_categories = [
   "Pre-rolls",
   "Hemp CBD",
 ];
-
-
 const price_units = ["gram", "piece"];
-
-
-
 const flowers = [
   "https://cdn.pixabay.com/photo/2016/09/06/04/59/green-1648353__480.jpg",
   "https://cdn.pixabay.com/photo/2017/04/21/09/12/marijuana-2248066__480.jpg",
@@ -21147,49 +21137,42 @@ const flowers = [
   "https://cdn.pixabay.com/photo/2017/03/25/19/57/marijuana-2174302__480.jpg",
   "https://cdn.pixabay.com/photo/2017/03/17/20/22/cannabis-2152604__480.jpg",
 ];
-
 const cartridges = [
   "https://aph-uploads-production.s3.amazonaws.com/uploads/photo/photo/42311/square_grid_CA_OCT_2019_FREECANNABISCO_WHITEWIDOWVAPE-1-628495.jpg",
   "https://cbdvapejuice.net/wp-content/uploads/2019/02/freetheleaf_strawberry_lemonade_1.jpg",
   "https://cbdvapejuice.net/wp-content/uploads/2018/11/pinnacle_hemp_trainwreck_1.jpg",
   "https://cartridgeshoponline.com/wp-content/uploads/2019/06/honey-vapes-3.jpg",
 ];
-
 const edibles = [
   "https://images.unsplash.com/photo-1585145447748-fa970ee37281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1560999448-1288f5c62468?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1579911098456-20bfe6e4b234?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1587920951705-5e2ddf954c49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
 ];
-
 const vapes = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_zXj9llDeF8ur8OUYwwkFhVKPySJtcf2EefTecKYIurxtJKXf&usqp=CAU",
   "https://www.extractlabs.com/wp-content/uploads/2020/04/tanks_cat_2.jpg",
   "https://www.webthoughtspot.org/wp-content/uploads/2020/01/Guide-To-Stealth-Vaping-A.jpg",
   "https://www.greenwellnesslife.com/wp-content/uploads/2018/02/social-cbd-vape-pen-relax.jpg",
 ];
-
 const concentrates = [
   "https://cdn.pixabay.com/photo/2018/08/06/15/08/cannabis-3587706__480.jpg",
   "https://cdn.pixabay.com/photo/2019/12/02/15/58/cannabis-concentrate-4667992__480.jpg",
   "https://cdn.pixabay.com/photo/2017/02/16/19/38/cbd-oil-2072210__480.png",
   "https://cdn.pixabay.com/photo/2019/08/21/22/36/cbd-4422125__480.jpg",
 ];
-
 const pre_rolls = [
   "https://images.unsplash.com/photo-1576106651185-85a266351c49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1517773015382-e8a6414bbe50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1555959304-4cfdc80a15d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
   "https://images.unsplash.com/photo-1542326594-17ee0e5acd56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
 ];
-
 const cbd = [
   "https://cdn.pixabay.com/photo/2019/09/13/21/31/cbd-4474903__480.jpg",
   "https://cdn.pixabay.com/photo/2019/09/11/21/23/cbd-4469987__480.jpg",
   "https://cdn.pixabay.com/photo/2019/10/17/17/53/cbd-4557418__480.jpg",
   "https://cdn.pixabay.com/photo/2018/12/27/23/51/cbd-3898656__480.png",
 ];
-
 const images = {
   flowers,
   cartridges,

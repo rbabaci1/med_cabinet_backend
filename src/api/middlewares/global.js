@@ -1,7 +1,7 @@
 const { getBy } = require("../../db/models/global");
 const getEntityName = require("../../helpers/getEntityName");
 
-const validateId = tableName => async (req, res, next) => {
+module.exports = tableName => async (req, res, next) => {
   const entity = getEntityName(tableName);
 
   try {
@@ -20,5 +20,3 @@ const validateId = tableName => async (req, res, next) => {
     next(error);
   }
 };
-
-module.exports = { validateId };

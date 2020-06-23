@@ -15,8 +15,8 @@ const getDispensaries = async (req, res, next) => {
 
 const getDispensaryById = async ({ dispensary }, res, next) => {
   try {
-    const business_hours = await Dispensary.getBusinessHours(dispensary.id);
     const products = await Dispensary.getProducts(dispensary.id);
+    const business_hours = await Dispensary.getBusinessHours(dispensary.id);
 
     res.status(200).json({ ...dispensary, business_hours, products });
   } catch (error) {

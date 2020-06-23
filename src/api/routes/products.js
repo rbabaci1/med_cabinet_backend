@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
+const validateId = require("../middlewares/global");
 const controller = require("../controllers/productsGet");
-const { validateId } = require("../middlewares/global");
 const TABLE_NAME = "products";
 
 router.get("/", controller.getProducts);

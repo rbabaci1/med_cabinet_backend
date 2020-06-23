@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
+const validateId = require("../middlewares/global");
+const validateDispensaryInfo = require("../middlewares/validateDispensaryInfo");
 const getController = require("../controllers/dispensariesGet");
 const postController = require("../controllers/dispensaryPost");
-const { validateId } = require("../middlewares/global");
-const validateDispensaryInfo = require("../middlewares/validateDispensaryInfo");
 
 const TABLE_NAME = "dispensaries";
 
