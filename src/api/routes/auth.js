@@ -2,8 +2,8 @@ const router = require("express").Router();
 
 const validateUserDuplication = require("../middlewares/validateUserDuplication");
 const isAuth = require("../middlewares/isAuth");
+const validateId = require("../middlewares/global");
 const User = require("../middlewares/validateUserInfo");
-const { validateId } = require("../middlewares/global");
 const getController = require("../controllers/usersGet");
 const postController = require("../controllers/usersPost");
 
