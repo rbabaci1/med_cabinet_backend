@@ -16,5 +16,6 @@ router.post(
   validateUserDuplication,
   postController.registerUser
 );
+router.post("/login", validateUserInfo, postController.loginUser);
 
 module.exports = router;
