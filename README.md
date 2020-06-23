@@ -23,10 +23,10 @@ Request: `req.body`
 
 ```
 {
-  firstName: "test1",        // String Required, 3 characters minimum.
-  lastName: "test2"!         // String Required, 3 characters minimum.
-  email: "hello@gmail.com"   // String Required, valid email address.
-  password: "welcome"        // String Required, 6 characters minimum.
+  firstName: "test1",        // String Required, must be 3 characters minimum.
+  lastName: "test2"!         // String Required, must be 3 characters minimum.
+  email: "hello@gmail.com"   // String Required, must be a valid email address.
+  password: "welcome"        // String Required, must be 6 characters minimum.
 }
 ```
 Response: `res.body`
@@ -42,6 +42,34 @@ Response: `res.body`
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
 }
   // password not returned, but is stored encrypted on database
+```
+
+### 2. User Login
+#### **POST** */api/auth/login*
+
+Authenticates user's credentials. Returns JSON object with personalized welcome message, token and user info.
+
+Request: `req.body`
+
+```
+{
+  email: "hello@gmail.com"   // String Required, must be a valid email address.
+  password: "welcome"        // String Required, must be 6 characters minimum.
+}
+```
+Response: `res.body`
+```
+{
+  "message": ""Welcome to best med-cabinet in the world!"",
+  "logged_user": {
+    "id": 1,
+    "firstName": "test1",
+    "lastName": "test2",
+    "email": "hello@gmail.com"
+    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
+}
 ```
 
 ### 3. Access a single user details
