@@ -12,11 +12,14 @@ const registerUser = async (req, res) => {
     const user = { ...req.body, created_at: now() };
     const hash = bcrypt.hashSync(user.password, parseInt(SALT_ROUNDS));
 
-    const insertedUser = await User.create({ ...user, password: hash });
-    const token = generateToken(insertedUser);
-    const createdUser = removeObjKey(insertedUser, "password");
+    const createdUser = await User.create({ ...user, password: hash });
+    const token = generateToken(createdUser);
 
-    res.status(201).json({ success: true, createdUser, token });
+    res.status(201).json({
+      success: true,
+      createdUser: removeObjKey(createdUser, "password"),
+      token,
+    });
   } catch (error) {
     next(error);
   }
@@ -29,9 +32,10 @@ const loginUser = async (req, res, next) => {
 
     if (user && bcrypt.compareSync(password, user.password)) {
       const token = generateToken(user);
+
       res.status(200).json({
         message: "Welcome to best med-cabinet in the world!",
-        user,
+        logged_user: removeObjKey(user, "password"),
         token,
       });
     } else {
