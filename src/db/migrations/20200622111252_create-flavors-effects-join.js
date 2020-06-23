@@ -7,7 +7,6 @@ exports.up = function (knex) {
     .createTable("effects", table => {
       table.increments();
       table.string("effect", 64).notNullable();
-      table.string("effect_type", 64).notNullable();
     })
     .createTable("products_flavors", table => {
       table

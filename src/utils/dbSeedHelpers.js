@@ -23,14 +23,20 @@ const getProductsFlavors = () => {
   return newFlavors;
 };
 
-// const getProductsEffects = () => {
-//   const effects = [];
+const getProductsEffects = () => {
+  let effects = [];
+  let newEffects = [];
 
-//   products.forEach(p => {
-//     effects.push(p.effects.split(","));
-//   });
-//   return effects.flat();
-// };
+  products.forEach(p => {
+    effects.push(p.effects.split(","));
+  });
+
+  effects.forEach(f => {
+    newEffects.push({ effect: JSON.stringify(f) });
+  });
+
+  return newEffects;
+};
 
 const removeEffectsAndFlavors = obj => {
   const keys = Object.keys(obj);
@@ -75,4 +81,4 @@ const generateProducts = () => {
   });
 };
 
-module.exports = { generateProducts, getProductsFlavors };
+module.exports = { generateProducts, getProductsFlavors, getProductsEffects };
