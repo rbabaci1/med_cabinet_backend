@@ -1,4 +1,4 @@
-const generatePairs = require("../mockData/productsFlavors");
+const generatePairs = require("../../utils/generateProductsFlavorsJoins");
 const sliceData = require("../../utils/sliceProductsSeedData");
 
 const productsFlavors = generatePairs();

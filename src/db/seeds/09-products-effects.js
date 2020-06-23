@@ -1,4 +1,4 @@
-const generatePairs = require("../mockData/productsEffects");
+const generatePairs = require("../../utils/generateProductsEffectsJoins");
 const sliceData = require("../../utils/sliceProductsSeedData");
 
 const productsEffects = generatePairs();
