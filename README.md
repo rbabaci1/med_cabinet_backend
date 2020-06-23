@@ -39,7 +39,6 @@ Returns an array of JSON objects.
         "firstName": "Aguste",
         "lastName": "Bumpass",
         "email": "abumpass0@businessinsider.com",
-        "username": "abumpass086",
         "created_at": "2019-11-04 02:01:24"  // this is the date when the user was created
     },
     // ... etc
@@ -138,7 +137,6 @@ Response: `res.body`
     "first_name": "Aguste",
     "last_name": "Bumpass",
     "email": "abumpass0@businessinsider.com",
-    "username": "abumpass086",
     "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
         
     "products": [       // a nested array that represents the user products
@@ -196,7 +194,6 @@ Response: `res.body`
     "img_url": "https:// ..",     // this is the product image
     "is_available": 0,            // 0 === false, 1 === true
     "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
-    "dispensary_id": 5, 
       
     "provider": {       // a nested object that represents the product dispensary provider info
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
