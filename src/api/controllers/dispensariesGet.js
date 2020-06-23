@@ -1,4 +1,5 @@
 const { getAll } = require("../../db/models/global.js");
+
 const Dispensary = require("../../db/models/dispensaries");
 
 const TABLE_NAME = "dispensaries";

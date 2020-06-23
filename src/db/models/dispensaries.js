@@ -1,7 +1,24 @@
 const db = require("../dbConfig");
 
 const getProducts = dispensary_id => {
-  return db("products").where({ dispensary_id });
+  return db("products as p")
+    .select(
+      "p.id",
+      "p.strain_name",
+      "p.strain_category",
+      "p.strain_type",
+      "p.flavors",
+      "p.effects",
+      "p.avg_thc",
+      "p.avg_cbd",
+      "p.price",
+      "p.price_unit",
+      "p.description",
+      "p.img_url",
+      "p.is_available",
+      "p.created_at"
+    )
+    .where({ dispensary_id });
 };
 
 const getBusinessHours = dispensary_id => {
