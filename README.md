@@ -66,12 +66,12 @@ Response: `res.body`
         "avg_thc": 5.61,      // percentage
         "avg_cbd": 31.31,     // percentage
         "price": 7.91,        // $
-        "price_unit": "gram",
+        "price_unit": "gram",   // gram/piece
         "description": "rapidly becoming a Colorado cannabis staple ...",
         "img_url": "https:// ..",       // this is the product image
         "is_available": 0,              // 0 === false, 1 === true
         "created_at": "2020-04-03 02:01:24",
-        "dispensary_id": 3      // the dispensary provider id
+        "dispensary_id": 3      // the dispensary provider id#
     },
     // ... etc.
 ]
@@ -150,12 +150,12 @@ Response: `res.body`
             "avg_thc": 5.61,      // percentage
             "avg_cbd": 31.31,     // percentage
             "price": 7.91,        // $
-            "price_unit": "gram",
+            "price_unit": "gram",   // gram/piece
             "description": "rapidly becoming a Colorado cannabis staple ...",
             "img_url": "https:// ..",       // this is the product image
             "is_available": 0,              // 0 === false, 1 === true
             "created_at": "2020-04-03 02:01:24",
-            d"dispensary_id": 3      // the dispensary provider id
+            d"dispensary_id": 3      // the dispensary provider id#
         },
         // ... etc.
     ],
@@ -191,7 +191,7 @@ Response: `res.body`
     "avg_thc": 5.61,         // percentage
     "avg_cbd": 31.31,        // percentage
     "price": 7.91,           // $
-    "price_unit": "gram",
+    "price_unit": "gram",    // gram/piece
     "description": "rapidly becoming a Colorado cannabis staple ...",
     "img_url": "https:// ..",     // this is the product image
     "is_available": 0,            // 0 === false, 1 === true
@@ -281,7 +281,7 @@ Response: `res.body`
             "avg_thc": 33.23,          // percentage
             "avg_cbd": 16.41,          // percentage
             "price": 17.24,            // $
-            "price_unit": "gram",
+            "price_unit": "gram",      // gram/piece
             "description": "From Sonoma County comes Alaska Thunder Grape ...",
             "img_url": "https:// ...",      // this is the product image
             "is_available": 0,              // 0 === false, 1 === true
@@ -315,7 +315,7 @@ Response: `res.body`
         "avg_thc": 33.23,          // percentage
         "avg_cbd": 16.41,          // percentage
         "price": 17.24,            // $
-        "price_unit": "gram",
+        "price_unit": "gram",      // gram/piece
         "description": "From Sonoma County comes Alaska Thunder Grape ...",
         "img_url": "https:// ...",      // this is the product image
         "is_available": 0,              // 0 === false, 1 === true
