@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (token) {
-      jwt.verify(token, JWT_SECRET, (error, decodedToken) => {
+      jwt.verify(token, JWT_SECRET, error => {
         if (error) {
           error.statusCode = 401;
           error.message = "Invalid credentials. Try again?";
