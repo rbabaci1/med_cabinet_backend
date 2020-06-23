@@ -8,8 +8,29 @@ const {
 const random1 = arr => arr[Math.floor(Math.random() * arr.length)];
 const random2 = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const getProductsFlavors = products => {};
-const getProductsEffects = products => {};
+const getProductsFlavors = () => {
+  let flavors = [];
+  let newFlavors = [];
+
+  products.forEach(p => {
+    flavors.push(p.flavors.split(","));
+  });
+
+  flavors.forEach(f => {
+    newFlavors.push({ flavor: JSON.stringify(f) });
+  });
+
+  return newFlavors;
+};
+
+// const getProductsEffects = () => {
+//   const effects = [];
+
+//   products.forEach(p => {
+//     effects.push(p.effects.split(","));
+//   });
+//   return effects.flat();
+// };
 
 const removeEffectsAndFlavors = obj => {
   const keys = Object.keys(obj);
@@ -54,4 +75,4 @@ const generateProducts = () => {
   });
 };
 
-module.exports = { generateProducts };
+module.exports = { generateProducts, getProductsFlavors };
