@@ -11,7 +11,7 @@ const TABLE_NAME = "users";
 router.get("/users/:id", validateId(TABLE_NAME), getController.getUserById);
 
 router.post(
-  "/",
+  "/register",
   validateUserInfo,
   validateUserDuplication,
   postController.registerUser
