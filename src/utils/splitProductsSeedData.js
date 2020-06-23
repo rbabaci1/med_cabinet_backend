@@ -1,4 +1,4 @@
-const { generateProducts } = require("../../utils/dbSeedHelpers");
+const { generateProducts } = require("./dbSeedHelpers");
 
 const products = generateProducts();
 
@@ -33,15 +33,35 @@ const _28 = products.slice(2160, 2240);
 const _29 = products.slice(2240, 2320);
 const _30 = products.slice(2320);
 
-// const secondHalf = products.splice(49);
-
-exports.seed = function (knex) {
-  return knex("products")
-    .del()
-    .then(function () {
-      return knex("products").insert(one);
-    });
-  // .then(function () {
-  //   return knex("products").insert(secondHalf);
-  // });
+module.exports = {
+  _1,
+  _2,
+  _3,
+  _4,
+  _5,
+  _6,
+  _7,
+  _8,
+  _9,
+  _10,
+  _11,
+  _12,
+  _13,
+  _14,
+  _15,
+  _16,
+  _17,
+  _18,
+  _19,
+  _20,
+  _21,
+  _22,
+  _23,
+  _24,
+  _25,
+  _26,
+  _27,
+  _28,
+  _29,
+  _30,
 };
