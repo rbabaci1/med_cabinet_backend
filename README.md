@@ -14,7 +14,37 @@ Installing
 
 ## **Authentication Routes**
 
-### 1. Access a single user details
+### 1. User Registration
+#### **POST** */api/auth/register*
+
+Registers a new user account on database.
+
+Request: `req.body`
+
+```
+{
+  firstName: "test1",        // String Required, 3 characters minimum.
+  lastName: "test2"!         // String Required, 3 characters minimum.
+  email: "hello@gmail.com"   // String Required, valid email address.
+  password: "welcome"        // String Required, 6 characters minimum.
+}
+```
+Response: `res.body`
+```
+{
+  "success": true,      // user registered successfully
+  "createdUser": {
+    "id": 1,
+    "firstName": "test1",
+    "lastName": "test2",
+    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
+}
+    // password not returned, but is stored encrypted on database
+```
+
+### 3. Access a single user details
 
 #### **GET** */api/auth/users/:id*
 
@@ -47,7 +77,7 @@ Response: `res.body`
             "description": "From Sonoma County comes Alaska Thunder Grape ...",
             "img_url": "https:// ...",      // this is the product image
             "is_available": 0,              // 0 === false, 1 === true
-            "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
+            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created
             "dispensary_id": 2         // this the dispensary provider id#
         },
         // .. etc
@@ -57,8 +87,8 @@ Response: `res.body`
             "product_id": 13,
             "rate": 3,
             "description": "Radiation Therapy, Respiratory System, Beam Radiation",
-            "created_at": "2020-05-11 00:32:20",
-            "updated_at": "2019-08-22 11:37:00"
+            "created_at": "2020-05-11 00:32:20",    // this is the date&time when the product was written
+            "updated_at": "2019-08-22 11:37:00"     // this is the date&time when the product was updated
         },
         // ..etc
     ]
@@ -96,7 +126,7 @@ Response: `res.body`
         "description": "rapidly becoming a Colorado cannabis staple ...",
         "img_url": "https:// ..",       // this is the product image
         "is_available": 0,              // 0 === false, 1 === true
-        "created_at": "2020-04-03 02:01:24",
+        "created_at": "2020-04-03 02:01:24",    // this is the date&time when the product was created
         "dispensary_id": 3      // the dispensary provider id#
     },
     // ... etc.
@@ -131,7 +161,7 @@ Response: `res.body`
     "description": "rapidly becoming a Colorado cannabis staple ...",
     "img_url": "https:// ..",     // this is the product image
     "is_available": 0,            // 0 === false, 1 === true
-    "created_at": "2020-04-03 02:01:24",     // this is the date when the product was created
+    "created_at": "2020-04-03 02:01:24",     // this is the date&time when the product was created
       
     "provider": {       // a nested object that represents the product dispensary provider info
         "id": 5,        // this is the dispensary id# (NOT PRODUCT)
@@ -144,7 +174,7 @@ Response: `res.body`
         "email": "wbains4@bloglovin.com",
         "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image
         "has_delivery": 1,      // 0 === false, 1 === true
-        "created_at": "2019-08-10 02:01:24"     // this is the date when the dispensary was created
+        "created_at": "2019-08-10 02:01:24"     // this is the date&time when the dispensary was created
     },
     
     "reviews":[      // a nested array that represents the product reviews written by users
@@ -152,8 +182,8 @@ Response: `res.body`
             "user_id": 1    // the user id# (NOT REVIEW)
             "rate": 5,      //  [0 - 5]
             "description": "Removal of Infusion Device from Cervical Vertebral Disc, Percutaneous Endoscopic Approach",
-            "created_at": "2020-01-01 12:01:18",        // this is the date when the rating was written 
-            "updated_at": "2019-08-22 11:37:00"         // this is the date when the rating was updated
+            "created_at": "2020-01-01 12:01:18",        // this is the date&time when the review was recieved 
+            "updated_at": "2019-08-22 11:37:00"         // this is the date&time when the product was updated
          },
         // ... etc
     ]      
@@ -182,7 +212,7 @@ Response: `res.body`
     "email": "bcongreve1@wp.com",
     "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",      // dispensary logo image
     "has_delivery": 1,      // 0 === false, 1 === true
-    "created_at": "2020-06-16 02:01:24",        // this is the date when the dispensary was created
+    "created_at": "2020-06-16 02:01:24",        // this is the date&time when the dispensary was created
     
     "business_hours": [     // a nested array that represents the dispensary operating hours
         {
@@ -205,7 +235,7 @@ Response: `res.body`
             "description": "From Sonoma County comes Alaska Thunder Grape ...",
             "img_url": "https:// ...",      // this is the product image
             "is_available": 0,              // 0 === false, 1 === true
-            "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
+            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created
             "dispensary_id": 2         // this the dispensary provider id#
         },
         // .. etc
