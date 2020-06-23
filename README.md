@@ -16,7 +16,7 @@ Installing
 
 ### 1. Access a single user details
 
-#### **GET** */api/users/:id*
+#### **GET** */api/auth/users/:id*
 
 Returns a single user via the **user's** `:id` URL param.
 
