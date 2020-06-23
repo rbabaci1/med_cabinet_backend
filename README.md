@@ -7,10 +7,10 @@ For developing and testing purposes, please follow the instructions below to ins
 1. donwload/clone backend repo 
 2. navigate to cloned repo & cd src/
 3. install dependencies on your console: `npm i`
-4. isntall knex globally: `npm i -g knex`
+4. install knex globally: `npm i -g knex`
 5. construct a copy of the data base in console: `knex migrate:latest`
 6. populate database with seeded data: `knex seed:run`
-7. run the server: `npm run server`. Server port default is 8000.
+7. run the server: `npm run server`. Server port default is 5000.
 
 ## **Authentication Routes**
 
