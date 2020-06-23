@@ -1,12 +1,13 @@
 const bcrypt = require("bcrypt");
 
-const User = require("../../db/models/users");
 const now = require("../../helpers/getLocalDateTime");
+const { SALT_ROUNDS } = require("../../config");
+const User = require("../../db/models/users");
 
 const registerUser = async (req, res) => {
   try {
     const user = { ...req.body, created_at: now() };
-    const hash = bcrypt.hashSync(user.password, 10);
+    const hash = bcrypt.hashSync(user.password, parseInt(SALT_ROUNDS));
 
     const createdUser = await User.create({ ...user, password: hash });
     // generate a token if Front End redirecting to home page after signup
