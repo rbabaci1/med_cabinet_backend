@@ -4,8 +4,8 @@
 For developing and testing purposes, please follow the instructions below to install a version to your local machine.
 
 Installing
-1. donwload/clone backend repo
-2. navigate to cloned repo
+1. donwload/clone backend repo 
+2. navigate to cloned repo & cd src/
 3. install dependencies on your console: `npm i`
 4. isntall knex globally: `npm i -g knex`
 5. construct a copy of the data base in console: `knex migrate:latest`
