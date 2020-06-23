@@ -3,8 +3,8 @@ const db = require("../dbConfig");
 const getAll = async () => {
   return db("users as u").select(
     "u.id",
-    "u.first_name",
-    "u.last_name",
+    "u.firstName",
+    "u.lastName",
     "u.email",
     "u.username",
     "u.created_at"

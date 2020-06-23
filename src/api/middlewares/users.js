@@ -3,7 +3,7 @@ const { userSchema } = require("../validationSchemas");
 const validateUserInfo = (req, res, next) => {
   const result = userSchema.validate(req.body);
 
-  if (!result) {
+  if (!result.error) {
     next();
   } else {
     res.status(400).json({ error: result.error });
