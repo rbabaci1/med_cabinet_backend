@@ -3,7 +3,7 @@
 ## **Local Server Installation**
 For developing and testing purposes, please follow the instructions below to install a version to your local machine.
 
-#### Installation:
+### Installation:
 1. donwload/clone backend repo 
 2. navigate to cloned repo & cd src/
 3. install dependencies on your console: `npm i`
@@ -12,9 +12,9 @@ For developing and testing purposes, please follow the instructions below to ins
 6. populate database with seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 5000.
 
-## Usage:
+## Usage
 
-### Base URL
+### Base URL:
 https://best-med-cabinet.herokuapp.com
 
 ## **Authentication Routes**
