@@ -7,7 +7,7 @@ const validateUserInfo = (req, res, next) => {
   if (!result.error) {
     next();
   } else {
-    res.status(400).json(error);
+    res.status(400).json(formatError(result.error));
   }
 };
 
