@@ -155,7 +155,7 @@ Response: `res.body`
             "img_url": "https:// ..",       // this is the product image
             "is_available": 0,              // 0 === false, 1 === true
             "created_at": "2020-04-03 02:01:24",
-            d"dispensary_id": 3      // the dispensary provider id#
+            "dispensary_id": 3      // the dispensary provider id#
         },
         // ... etc.
     ],
@@ -292,38 +292,4 @@ Response: `res.body`
     ]
 }
 ```
---------------------------------
-
-### 2. Access all products of a single user
-#### **GET** */api/:id/products*
-
-Returns all products for a single user, via the **user's** `:id` URL param.
-
-Request: `req.body`
-
-```
-// N/A
-```
-Response: `res.body`
-```
-[
-    {
-        "id": 27,              // this is the id# of the product (NOT USER)
-        "strain_name": "Alien Rock Candy",
-        "strain_category": "Pre-rolls",
-        "strain_type": "Indica",
-        "avg_thc": 33.23,          // percentage
-        "avg_cbd": 16.41,          // percentage
-        "price": 17.24,            // $
-        "price_unit": "gram",      // gram/piece
-        "description": "From Sonoma County comes Alaska Thunder Grape ...",
-        "img_url": "https:// ...",      // this is the product image
-        "is_available": 0,              // 0 === false, 1 === true
-        "created_at": "2020-06-02 03:57:40",      // this is the date when the product was created
-        "dispensary_id": 5         // this the dispensary provider id#
-    },
-    // ... etc.
-]
-```
-
 --------------------------------
