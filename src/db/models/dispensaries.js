@@ -35,7 +35,7 @@ const create = async newDispensary => {
 };
 
 const insertBusinessHours = businessHours => {
-  return db("dispensaries_hours").insert(businessHours, "id");
+  return db("dispensaries_hours").insert(businessHours);
 };
 
 module.exports = { getProducts, getBusinessHours, create, insertBusinessHours };
