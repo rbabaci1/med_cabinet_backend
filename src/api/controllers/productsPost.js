@@ -1,5 +1,4 @@
 const { default: Axios } = require("axios");
-const fetch = require("node-fetch");
 
 const { getBy } = require("../../db/models/global");
 
