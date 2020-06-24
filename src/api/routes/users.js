@@ -5,4 +5,6 @@ const validateUserCartInfo = require("../middlewares/validateUserCartInfo");
 
 router.post("/cart", validateUserCartInfo, User.addToCart);
 
+router.patch("/:id", User.updateUserInfo);
+
 module.exports = router;
