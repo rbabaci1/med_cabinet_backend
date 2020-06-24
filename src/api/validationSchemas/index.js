@@ -49,6 +49,8 @@ const productSchema = Joi.object({
   strain_name: Joi.string().required(),
   strain_category: Joi.string().required(),
   strain_type: Joi.string().required(),
+  flavors: Joi.array().items(Joi.string()).required(),
+  effects: Joi.array().items(Joi.string()).required(),
   avg_thc: Joi.number().required(),
   avg_cbd: Joi.number().required(),
   price: Joi.number().required(),

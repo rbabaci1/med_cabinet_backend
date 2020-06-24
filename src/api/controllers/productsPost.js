@@ -1,6 +1,8 @@
 const { default: Axios } = require("axios");
 
 const { getBy } = require("../../db/models/global");
+const Product = require("../../db/models/products");
+const now = require("../../helpers/getLocalDateTime");
 
 const TABLE_NAME = "products";
 
@@ -20,7 +22,12 @@ const getRecommendations = async (req, res, next) => {
 
 const createProduct = async (req, res, next) => {
   try {
-    res.status(201).json({ message: "made it" });
+    const flavors = req.body.flavors.toString();
+    const effects = req.body.effects.toString();
+    const product = { ...req.body, flavors, effects, created_at: now() };
+
+    const createdProduct = await Product.create(product);
+    res.status(201).json({ success: true, createdProduct });
   } catch (error) {
     next(error);
   }
