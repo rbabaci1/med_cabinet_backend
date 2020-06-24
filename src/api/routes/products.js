@@ -1,10 +1,17 @@
 const router = require("express").Router();
 
 const validateId = require("../middlewares/global");
-const controller = require("../controllers/productsGet");
+const validateProductInfo = require("../middlewares/validateProductInfo");
+const validateReviewInfo = require("../middlewares/validateReviewInfo");
+const getController = require("../controllers/productsGet");
+const postController = require("../controllers/productsPost");
 const TABLE_NAME = "products";
 
-router.get("/", controller.getProducts);
-router.get("/:id", validateId(TABLE_NAME), controller.getProductById);
+router.get("/", getController.getProducts);
+router.get("/:id", validateId(TABLE_NAME), getController.getProductById);
+
+router.post("/create", validateProductInfo, postController.createProduct);
+router.post("/recommendations", postController.getRecommendations);
+router.post("/review", validateReviewInfo, postController.createReview);
 
 module.exports = router;

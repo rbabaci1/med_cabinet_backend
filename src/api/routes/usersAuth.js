@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const validateUserDuplication = require("../middlewares/validateUserDuplication");
+const validateUserDuplicates = require("../middlewares/validateUserDuplicates");
 const isAuth = require("../middlewares/isAuth");
 const validateId = require("../middlewares/global");
 const User = require("../middlewares/validateUserInfo");
@@ -19,7 +19,7 @@ router.get(
 router.post(
   "/register",
   User.validateSignup,
-  validateUserDuplication,
+  validateUserDuplicates,
   postController.registerUser
 );
 router.post("/login", User.validateLogin, postController.loginUser);

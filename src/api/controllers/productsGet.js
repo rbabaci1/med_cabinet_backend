@@ -7,7 +7,15 @@ const TABLE_NAME = "products";
 // GET all available products
 const getProducts = async (req, res, next) => {
   try {
-    const products = await getAll(TABLE_NAME);
+    const { limit } = req.query;
+    let products;
+
+    if (limit) {
+      products = await Product.getNumOfProducts(limit);
+    } else {
+      products = await getAll(TABLE_NAME);
+    }
+
     res.status(200).json(products);
   } catch (error) {
     next(error);

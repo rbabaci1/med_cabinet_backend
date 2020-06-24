@@ -1,4 +1,5 @@
 const db = require("../dbConfig");
+const { getBy } = require("./global");
 
 const getProducts = dispensary_id => {
   return db("products as p")
@@ -28,4 +29,13 @@ const getBusinessHours = dispensary_id => {
     .where({ dispensary_id });
 };
 
-module.exports = { getProducts, getBusinessHours };
+const create = async newDispensary => {
+  const [id] = await db("dispensaries").insert(newDispensary, "id");
+  return getBy("dispensaries", { id });
+};
+
+const insertBusinessHours = businessHours => {
+  return db("dispensaries_hours").insert(businessHours);
+};
+
+module.exports = { getProducts, getBusinessHours, create, insertBusinessHours };

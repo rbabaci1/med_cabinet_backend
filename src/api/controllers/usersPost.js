@@ -46,4 +46,14 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const addToCart = async (req, res, next) => {
+  try {
+    const cartItem = { ...req.body, created_at: now(), updated_at: now() };
+    await User.addToCart(cartItem);
+    res.status(201).json({ success: true, addedProduct: req.product });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { registerUser, loginUser, addToCart };
