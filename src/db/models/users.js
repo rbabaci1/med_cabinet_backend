@@ -39,4 +39,15 @@ const createReview = newReview => {
   return db("ratings").insert(newReview);
 };
 
-module.exports = { get, getProducts, getReviews, create, createReview };
+const addToCart = userProductIds => {
+  return db("users_products").insert(userProductIds);
+};
+
+module.exports = {
+  get,
+  getProducts,
+  getReviews,
+  create,
+  createReview,
+  addToCart,
+};

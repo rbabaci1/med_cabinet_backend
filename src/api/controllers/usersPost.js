@@ -59,7 +59,10 @@ const createReview = async (req, res, next) => {
 
 const addToCart = async (req, res, next) => {
   try {
-  } catch (error) {}
+    res.status(201).json({ message: "Made it" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = { registerUser, loginUser, createReview, addToCart };
