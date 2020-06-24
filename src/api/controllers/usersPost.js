@@ -48,7 +48,10 @@ const loginUser = async (req, res, next) => {
 
 const createReview = async (req, res, next) => {
   try {
-    res.status(200).json({ message: "made it" });
+    const review = { ...req.body, created_at: now(), updated_at: now() };
+
+    await User.createReview(review);
+    res.status(201).json({ success: true, createdReview: review });
   } catch (error) {
     next(error);
   }

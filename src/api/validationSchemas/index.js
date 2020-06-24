@@ -39,6 +39,7 @@ const dispensarySchema = Joi.object({
 });
 
 const reviewSchema = Joi.object({
+  user_id: Joi.number().min(1).required(),
   product_id: Joi.number().min(1).required(),
   rate: Joi.number().min(1).max(5).required(),
   description: Joi.string().min(10).required(),
