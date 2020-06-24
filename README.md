@@ -78,7 +78,6 @@ Response: `res.body`
 ```
 
 ### 3. Access a single user with all details
-
 #### **GET** */api/auth/users/:id*
 
 Returns a single user via the **user's** `:id` URL param.
@@ -134,7 +133,6 @@ Response: `res.body`
 ## **DS Recommendations Route**
 
 ### 1. GET products recommendations
-
 #### **POST** */api/products/recommendations*
 
 Returns an array of objects of **ALL** products recommended based on user input
@@ -172,7 +170,6 @@ Response: `res.body`
 ## **General Routes**
 
 ### 1. GET all products
-
 #### **GET** */api/products*
 
 Returns an array of objects of **ALL** products
@@ -207,7 +204,6 @@ Response: `res.body`
 ```
 
 ### 2. GET a limited number of products
-
 #### **GET** */api/products/?limit=2*
 
 Returns an array of objects of products with the limit **query** specified as the max number.
@@ -235,7 +231,6 @@ Response: `res.body`
 --------------------------------
 
 ### 3. GET a single product
-
 #### **GET** */api/products/:id*
 
 Returns a single product via the **product's** `:id` URL param.
@@ -292,7 +287,6 @@ Response: `res.body`
 --------------------------------
 
 ### 4. GET a single dispensary
-
 #### **GET** */api/dispensaries/:id*
 
 Returns a single dispensary via the **dispensaries's** `:id` URL param.
@@ -347,8 +341,45 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 4. Post a User review about a product
+### 6. POST a Product to the User's Cart
+#### **POST** */api/users/cart*
 
+Returns object of the added **Product**.
+
+Request: `req.body`
+
+```
+{
+    "user_id": 3,
+    "product_id: 50
+}
+```
+Response: `res.body`
+```
+{
+    "success": true,
+    "addedProduct": {
+        "id": 50
+        "strain_name": "Afgoo",
+        "strain_category": "Concentrates",
+        "strain_type": "indica",
+        "flavors": "Sweet,Pine,Woody",
+        "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
+        "avg_thc": 37,
+        "avg_cbd": 36,
+        "price": 33,
+        "price_unit": "gram",
+        "description": "Afgoo, also known as Afgooey ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2019-10-17 08:11:20",
+        "dispensary_id": 20
+    }
+}
+```
+--------------------------------
+
+### 6. Post a User review about a product
 #### **POST** */api/products/review*
 
 Returns object of the created **Review**.
@@ -379,7 +410,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 4. Post a Dispensary
+### 7. Post a Dispensary
 
 #### **POST** */api/dispensaries*
 
