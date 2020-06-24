@@ -319,9 +319,9 @@ Response: `res.body`
     
     "business_hours": [     // a nested array that represents the dispensary operating hours
         {
-            "day_of_week": 0,       // [0 === Monday] --> [6 === Sunday]
-            "open_time": "08:30 AM",
-            "close_time": "7:45 PM"
+            "day_of_week": 0,         // [0 === Monday] --> [6 === Sunday]
+            "open_time": "08:30 AM",  // or "closed"
+            "close_time": "7:45 PM"   // or "closed"
         },
         // ... etc
     ],
@@ -377,3 +377,62 @@ Response: `res.body`
     }
 }
 ```
+--------------------------------
+
+### 4. Post a Dispensary
+
+#### **POST** */api/dispensaries*
+
+Returns object of the created **Dispensary**
+
+Request: `req.body`
+
+```
+{
+    "name": "Smokland",
+    "address": "1514 Alice st",
+    "city": "Oakland",
+    "state": "California",
+    "postal_code": "94612",
+    "phone_number": "(510) 325-0079",
+    "email": "oakland101@wp.com",
+    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
+    "has_delivery": true,
+    
+    "dispensary_hours": [       // Array of 7 objects Required
+        {
+          "day_of_week": 0,           // (Monday)
+          "open_time": "09:00 AM",    // Same format required || "closed"
+          "close_time": "09:00 PM"    // Same format required || "closed"
+        },
+        {
+          "day_of_week": 1,           // (Tuesday)
+          "open_time": "09:00 AM",
+          "close_time": "08:00 PM"
+        },
+        // ... --> "day_of_week": 6,  (Sunday)
+    ]
+}
+```
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdDispensary": {
+        "id": 31,
+        "name": "Smokland",
+        "address": "1514 Alice st",
+        "city": "Oakland",
+        "state": "California",
+        "postal_code": "94612",
+        "phone_number": "(510) 325-0079",
+        "email": "oakland101@wp.com",
+        "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
+        "has_delivery": 1,
+        "created_at": "2020-06-24 15:13:17",
+        
+        // dispensary hours not returned but is stored on Database
+    }
+}
+--------------------------------
+
