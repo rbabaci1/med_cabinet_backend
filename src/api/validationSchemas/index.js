@@ -45,4 +45,23 @@ const reviewSchema = Joi.object({
   description: Joi.string().min(10).required(),
 });
 
-module.exports = { signupSchema, loginSchema, dispensarySchema, reviewSchema };
+const productSchema = Joi.object({
+  strain_name: Joi.string().required(),
+  strain_category: Joi.string().required(),
+  strain_type: Joi.string().required(),
+  avg_thc: Joi.number().required(),
+  avg_cbd: Joi.number().required(),
+  price_unit: Joi.string().required(),
+  description: Joi.string().min(10).required(),
+  image_url: Joi.string().required(),
+  is_available: Joi.boolean().required(),
+  dispensary_id: Joi.number().required(),
+});
+
+module.exports = {
+  signupSchema,
+  loginSchema,
+  dispensarySchema,
+  reviewSchema,
+  productSchema,
+};

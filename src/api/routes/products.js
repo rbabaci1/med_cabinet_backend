@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const validateId = require("../middlewares/global");
+const validateProductInfo = require("../middlewares/validateProductInfo");
 const getController = require("../controllers/productsGet");
 const postController = require("../controllers/productsPost");
 const TABLE_NAME = "products";

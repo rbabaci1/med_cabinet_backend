@@ -18,4 +18,9 @@ const getRecommendations = async (req, res, next) => {
   }
 };
 
-module.exports = { getRecommendations };
+const createProduct = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+module.exports = { getRecommendations, createProduct };
