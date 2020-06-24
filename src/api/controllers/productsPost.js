@@ -13,6 +13,7 @@ const getRecommendations = async (req, res, next) => {
       "https://medicabi.herokuapp.com/send",
       userInfo
     );
+    console.log(recommendations);
   } catch (error) {
     next(error);
   }
