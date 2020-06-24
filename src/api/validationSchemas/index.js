@@ -51,9 +51,10 @@ const productSchema = Joi.object({
   strain_type: Joi.string().required(),
   avg_thc: Joi.number().required(),
   avg_cbd: Joi.number().required(),
+  price: Joi.number().required(),
   price_unit: Joi.string().required(),
   description: Joi.string().min(10).required(),
-  image_url: Joi.string().required(),
+  img_url: Joi.string().required(),
   is_available: Joi.boolean().required(),
   dispensary_id: Joi.number().required(),
 });

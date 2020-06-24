@@ -1,4 +1,5 @@
 const db = require("../dbConfig");
+const { getBy } = require("./global");
 
 const getNumOfProducts = limit => db("products").limit(limit);
 
@@ -18,4 +19,9 @@ const getReviews = product_id => {
     .where({ product_id });
 };
 
-module.exports = { getNumOfProducts, getDispensary, getReviews };
+const create = async product => {
+  const [id] = await db("products").insert(product, "id");
+  return getBy("products", { id });
+};
+
+module.exports = { getNumOfProducts, getDispensary, getReviews, create };

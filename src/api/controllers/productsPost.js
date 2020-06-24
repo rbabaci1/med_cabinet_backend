@@ -20,7 +20,10 @@ const getRecommendations = async (req, res, next) => {
 
 const createProduct = async (req, res, next) => {
   try {
-  } catch (error) {}
+    res.status(201).json({ message: "made it" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = { getRecommendations, createProduct };
