@@ -341,7 +341,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 6. POST a Product to the User's Cart
+### 6. Add a Product to the User's Cart
 #### **POST** */api/users/cart*
 
 Returns object of the added **Product**.
@@ -379,7 +379,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 6. Post a User review about a product
+### 6. Create a User review about a product
 #### **POST** */api/products/review*
 
 Returns object of the created **Review**.
@@ -410,8 +410,56 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 7. Post a Dispensary
+### 7. Create a Product
+#### **POST** */api/products/create*
 
+Returns object of the created **Review**.
+
+Request: `req.body`
+
+```
+{         
+  "strain_name": "Alien Rock Candy",
+  "strain_category": "Pre-rolls",
+  "strain_type": "Indica",
+  "flavors": ["mango", "banana"],   // Array of strings Required
+  "effects": ["focus", "dancing"],  // Array of strings Required
+  "avg_thc": 33.23,          
+  "avg_cbd": 16.41,          
+  "price": 17.24,            
+  "price_unit": "gram",    
+  "description": "From Sonoma County comes Alaska Thunder Grape ...",
+  "img_url": "https:// ...",     
+  "is_available": true,                 
+  "dispensary_id": 19    
+}
+```
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdProduct": {
+        "id": 2352,
+        "strain_name": "Alien Rock Candy",
+        "strain_category": "Pre-rolls",
+        "strain_type": "Indica",
+        "flavors": "mango,banana",
+        "effects": "focus,dancing",
+        "avg_thc": 33.23,
+        "avg_cbd": 16.41,
+        "price": 17.24,
+        "price_unit": "gram",
+        "description": "From Sonoma County comes Alaska Thunder Grape ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2020-06-24 15:31:43",
+        "dispensary_id": 19
+    }
+}
+```
+--------------------------------
+
+### 8. Create a Dispensary
 #### **POST** */api/dispensaries*
 
 Returns object of the created **Dispensary**
