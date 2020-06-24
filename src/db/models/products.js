@@ -1,5 +1,9 @@
 const db = require("../dbConfig");
 
+const getNumOfProducts = limit => {
+  db("products").limit(limit);
+};
+
 const getDispensary = id => {
   return db("dispensaries").where({ id }).first();
 };
@@ -16,4 +20,4 @@ const getReviews = product_id => {
     .where({ product_id });
 };
 
-module.exports = { getDispensary, getReviews };
+module.exports = { getNumOfProducts, getDispensary, getReviews };

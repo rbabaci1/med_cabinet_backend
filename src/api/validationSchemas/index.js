@@ -12,6 +12,7 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
+// todo validate business hours
 const day = Joi.object().keys({
   day_of_week: Joi.number().required(),
   open_time: Joi.string().required(),
