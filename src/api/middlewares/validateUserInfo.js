@@ -4,6 +4,7 @@ const {
   userUpdateSchema,
 } = require("../validationSchemas");
 const formatError = require("../../helpers/formatError");
+const { getBy } = require("../../db/models/global");
 
 const validateSignup = (req, res, next) => {
   const result = signupSchema.validate(req.body);
@@ -25,11 +26,17 @@ const validateLogin = (req, res, next) => {
   }
 };
 
-const validateUserInfo = (req, res, next) => {
+const validateUserInfo = async (req, res, next) => {
+  const { id } = req.params;
   const result = userUpdateSchema.validate(req.body);
 
   if (!result.error) {
-    next();
+    const user = await getBy("users", { id });
+    if (!user) {
+      res.status(404).json({ message: "The specified user id is not valid." });
+    } else {
+      next();
+    }
   } else {
     res.status(400).json(formatError(result.error));
   }
