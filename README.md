@@ -346,3 +346,34 @@ Response: `res.body`
 }
 ```
 --------------------------------
+
+### 4. Post a User review about a product
+
+#### **POST** */api/products/review*
+
+Returns object of the created **Review**.
+
+Request: `req.body`
+
+```
+{
+    "user_id": 5,
+    "product_id": 2000,
+    "rate": 4,    //  [0 - 5]
+    "description": "Radiation Therapy, Respiratory System, Beam Radiation"   
+}
+```
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdReview": {
+        "user_id": 5,
+        "product_id": 2000,
+        "rate": 4,
+        "description": "Radiation Therapy, Respiratory System, Beam Radiation",
+        "created_at": "2020-06-24 15:08:01",
+        "updated_at": "2020-06-24 15:08:01"
+    }
+}
+```
