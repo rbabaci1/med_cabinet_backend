@@ -135,7 +135,7 @@ Response: `res.body`
 
 #### **GET** */api/products*
 
-Return an array of objects of **ALL** products created by **ALL** dispensaries.
+Returns an array of objects of **ALL** products
 
 Request: `req.body`
 
@@ -165,9 +165,59 @@ Response: `res.body`
     // ... etc.
 ]
 ```
+
+### 1. GET a limited number of products
+
+#### **GET** */api/products/?limit=2*
+
+Returns an array of objects of products with the limit **query** specified as the max number.
+
+Request: `req.body`
+
+```
+// N/A
+```
+Response: `res.body`
+```
+[
+    {
+        "id": 1,                // this is the product id#
+        "strain_name": "African",
+        "strain_category": "Cartridges",
+        "strain_type": "hybrid",
+        "flavors": "Earthy,Sweet,Citrus",           
+        "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
+        "avg_thc": 23.21,      // percentage
+        "avg_cbd": 31.31,     // percentage
+        "price": 7.91,        // $
+        "price_unit": "gram",   // gram/piece
+        "description": "rapidly becoming a Colorado cannabis staple ...",
+        "img_url": "https:// ..",       // this is the product image
+        "is_available": 0,              // 0 === false, 1 === true
+        "created_at": "2020-04-03 02:01:24",    // this is the date&time when the product was created
+        "dispensary_id": 3      // the dispensary provider id#
+    },
+    {
+        "id": 2,                // this is the product id#
+        "strain_name": "Samara",
+        "strain_category": "Flower",
+        "strain_type": "hybrid",
+        "flavors": "Earthy,Sweet,Mango",           
+        "effects": "Creative,Energetic,Relaxed",
+        "avg_thc": 33.21,      // percentage
+        "avg_cbd": 21.31,     // percentage
+        "price": 27.91,        // $
+        "price_unit": "gram",   // gram/piece
+        "description": "rapidly becoming a Colorado cannabis staple ...",
+        "img_url": "https:// ..",       // this is the product image
+        "is_available": 1,              // 0 === false, 1 === true
+        "created_at": "2020-05-03 02:01:24",    // this is the date&time when the product was created
+        "dispensary_id": 7      // the dispensary provider id#
+    },
+]
 --------------------------------
 
-### 2. GET a single product
+### 3. GET a single product
 
 #### **GET** */api/products/:id*
 
@@ -203,7 +253,7 @@ Response: `res.body`
         "city": "New York City",
         "state": "New York",
         "postal_code": "10039",
-        "phone_number": "(212) 996-3639",
+        "phone_number": "212-996-3639",
         "email": "wbains4@bloglovin.com",
         "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image
         "has_delivery": 1,      // 0 === false, 1 === true
@@ -224,7 +274,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 3. GET a single dispensary
+### 4. GET a single dispensary
 
 #### **GET** */api/dispensaries/:id*
 
