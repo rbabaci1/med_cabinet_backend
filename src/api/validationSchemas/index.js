@@ -12,6 +12,12 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
+const userUpdateSchema = Joi.object({
+  firstName: Joi.string().min(3).required(),
+  lastName: Joi.string().min(3).required(),
+  email: Joi.string().email().required(),
+});
+
 // dispensary body validation
 const timeRegex = Joi.string().pattern(
   new RegExp("^((\\d{2}:\\d{2} (AM|PM))|(closed))$")
@@ -69,6 +75,7 @@ const cartSchema = Joi.object({
 module.exports = {
   signupSchema,
   loginSchema,
+  userUpdateSchema,
   dispensarySchema,
   reviewSchema,
   productSchema,

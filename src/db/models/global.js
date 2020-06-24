@@ -4,8 +4,9 @@ const getAll = tableName => db(tableName);
 
 const getBy = (tableName, filter) => db(tableName).where(filter).first();
 
-const update = (tableName, changes, id) => {
-  return db(tableName).where({ id }).update(changes);
+const update = async (tableName, changes, id) => {
+  await db(tableName).update(changes).where({ id });
+  return getBy(tableName, { id });
 };
 
 module.exports = { getAll, getBy, update };
