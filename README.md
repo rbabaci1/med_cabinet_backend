@@ -77,7 +77,7 @@ Response: `res.body`
 }
 ```
 
-### 3. Access a single user details
+### 3. Access a single user with all details
 
 #### **GET** */api/auth/users/:id*
 
