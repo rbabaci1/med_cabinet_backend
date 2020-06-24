@@ -58,7 +58,7 @@ const productSchema = Joi.object({
   description: Joi.string().min(10).required(),
   img_url: Joi.string().required(),
   is_available: Joi.boolean().required(),
-  dispensary_id: Joi.number().required(),
+  dispensary_id: Joi.number().min(1).required(),
 });
 
 const cartSchema = Joi.object({
