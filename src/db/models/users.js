@@ -35,4 +35,8 @@ const create = async newUser => {
   return getBy("users", { id });
 };
 
-module.exports = { get, getProducts, getReviews, create };
+const createReview = newReview => {
+  return db("ratings").insert(newReview);
+};
+
+module.exports = { get, getProducts, getReviews, create, createReview };

@@ -46,9 +46,12 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-const createReview = async (req, res) => {
+const createReview = async (req, res, next) => {
   try {
-  } catch (error) {}
+    res.status(200).json({ message: "made it" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = { registerUser, loginUser, createReview };

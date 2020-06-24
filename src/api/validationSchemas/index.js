@@ -18,7 +18,7 @@ const timeRegex = Joi.string().pattern(
 );
 
 const day = Joi.object().keys({
-  day_of_week: Joi.number().required(),
+  day_of_week: Joi.number().min(0).max(6).required(),
   open_time: timeRegex.required(),
   close_time: timeRegex.required(),
 });
@@ -39,8 +39,8 @@ const dispensarySchema = Joi.object({
 });
 
 const reviewSchema = Joi.object({
-  product_id: Joi.number().required(),
-  rate: Joi.number().required(),
+  product_id: Joi.number().min(1).required(),
+  rate: Joi.number().min(1).max(5).required(),
   description: Joi.string().min(10).required(),
 });
 
