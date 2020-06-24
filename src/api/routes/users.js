@@ -1,10 +1,12 @@
 const router = require("express").Router();
 
-const User = require("../controllers/usersPost");
+const UserPost = require("../controllers/usersPost");
+const UserPut = require("../controllers/usersPut");
 const validateUserCartInfo = require("../middlewares/validateUserCartInfo");
+const { validateUserInfo } = require("../middlewares/validateUserInfo");
 
-router.post("/cart", validateUserCartInfo, User.addToCart);
+router.post("/cart", validateUserCartInfo, UserPost.addToCart);
 
-router.patch("/:id", User.updateUserInfo);
+router.put("/:id", validateUserInfo, UserPut.updateUserInfo);
 
 module.exports = router;
