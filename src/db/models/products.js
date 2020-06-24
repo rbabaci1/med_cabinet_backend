@@ -1,8 +1,6 @@
 const db = require("../dbConfig");
 
-const getNumOfProducts = limit => {
-  db("products").limit(limit);
-};
+const getNumOfProducts = limit => db("products").limit(limit);
 
 const getDispensary = id => {
   return db("dispensaries").where({ id }).first();
