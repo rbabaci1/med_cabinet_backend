@@ -12,12 +12,17 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
-// todo validate business hours
+// dispensary body validation
+const timeRegex = Joi.string().pattern(
+  new RegExp("^((\\d{2}:\\d{2} (AM|PM))|(closed))$")
+);
+
 const day = Joi.object().keys({
   day_of_week: Joi.number().required(),
-  open_time: Joi.string().required(),
-  close_time: Joi.string().required(),
+  open_time: timeRegex.required(),
+  close_time: timeRegex.required(),
 });
+
 const dispensarySchema = Joi.object({
   name: Joi.string().min(3).required(),
   address: Joi.string().min(3).required(),
@@ -30,8 +35,7 @@ const dispensarySchema = Joi.object({
   email: Joi.string().email().required(),
   logo_url: Joi.string().min(10).required(),
   has_delivery: Joi.boolean().required(),
-  // todo validate
-  dispensary_hours: Joi.array().length(7).items(day).required(),
+  dispensary_hours: Joi.array().length(7).items(day),
 });
 
 module.exports = { signupSchema, loginSchema, dispensarySchema };

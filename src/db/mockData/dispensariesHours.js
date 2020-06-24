@@ -2,8 +2,8 @@ module.exports = [
   {
     dispensary_id: 1,
     day_of_week: 0,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
   {
     dispensary_id: 1,
@@ -38,8 +38,8 @@ module.exports = [
   {
     dispensary_id: 1,
     day_of_week: 6,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
 
   {
@@ -75,27 +75,27 @@ module.exports = [
   {
     dispensary_id: 2,
     day_of_week: 5,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
   {
     dispensary_id: 2,
     day_of_week: 6,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
 
   {
     dispensary_id: 3,
     day_of_week: 0,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
   {
     dispensary_id: 3,
     day_of_week: 1,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
   {
     dispensary_id: 3,
@@ -137,8 +137,8 @@ module.exports = [
   {
     dispensary_id: 4,
     day_of_week: 1,
-    open_time: "",
-    close_time: "",
+    open_time: "closed",
+    close_time: "closed",
   },
   {
     dispensary_id: 4,
