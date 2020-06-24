@@ -8,5 +8,6 @@ const { validateUserInfo } = require("../middlewares/validateUserInfo");
 router.post("/cart", validateUserCartInfo, UserPost.addToCart);
 
 router.put("/:id", validateUserInfo, UserPut.updateUserInfo);
+router.put("/:id/review", validateReview, UserPut.updateUserReview);
 
 module.exports = router;
