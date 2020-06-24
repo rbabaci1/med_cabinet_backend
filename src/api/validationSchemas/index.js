@@ -61,10 +61,16 @@ const productSchema = Joi.object({
   dispensary_id: Joi.number().required(),
 });
 
+const cartSchema = Joi.object({
+  user_id: Joi.number().min(1).required(),
+  product_id: Joi.number().min(1).required(),
+});
+
 module.exports = {
   signupSchema,
   loginSchema,
   dispensarySchema,
   reviewSchema,
   productSchema,
+  cartSchema,
 };

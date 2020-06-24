@@ -57,4 +57,9 @@ const createReview = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser, createReview };
+const addToCart = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+module.exports = { registerUser, loginUser, createReview, addToCart };
