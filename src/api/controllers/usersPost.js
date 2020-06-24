@@ -59,7 +59,9 @@ const createReview = async (req, res, next) => {
 
 const addToCart = async (req, res, next) => {
   try {
-    res.status(201).json({ message: "Made it" });
+    const cartItem = { ...req.body, created_at: now(), updated_at: now() };
+    await User.addToCart(cartItem);
+    res.status(201).json({ success: true, addedProduct: req.product });
   } catch (error) {
     next(error);
   }
