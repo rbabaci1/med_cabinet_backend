@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const { getBy } = require("../../db/models/global");
 const Product = require("../../db/models/products");
 
@@ -7,13 +9,10 @@ const getRecommendations = async (req, res, next) => {
   try {
     const userInfo = req.body;
 
-    const rawResponse = await fetch("https://medicabi.herokuapp.com/send", {
-      method: "POST",
-      body: userInfo,
-    });
-    const recommendations = await rawResponse.json();
-
-    console.log(recommendations);
+    const recommendations = await axios.post(
+      "https://medicabi.herokuapp.com/send",
+      userInfo
+    );
   } catch (error) {
     next(error);
   }

@@ -18,7 +18,9 @@ const dispensarySchema = Joi.object({
   city: Joi.string().min(3).required(),
   state: Joi.string().min(2).required(),
   postal_code: Joi.string().min(3).required(),
-  phone_number: Joi.string().min(10).required(),
+  phone_number: Joi.string()
+    .pattern(new RegExp("^(\\d{3}) \\d{3}-$\\d{4}$"))
+    .required(),
   email: Joi.string().email().required(),
   logo_url: Joi.string().min(10).required(),
   has_delivery: Joi.boolean().required(),
