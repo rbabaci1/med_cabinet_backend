@@ -44,4 +44,4 @@ const reviewSchema = Joi.object({
   description: Joi.string().min(10).required(),
 });
 
-module.exports = { signupSchema, loginSchema, dispensarySchema };
+module.exports = { signupSchema, loginSchema, dispensarySchema, reviewSchema };
