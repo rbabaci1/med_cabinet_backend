@@ -2,9 +2,8 @@ const { route } = require("./usersAuth");
 
 const router = require("express").Router();
 
-router.post("/review", async (req, res) => {
-  try {
-  } catch (error) {}
-});
+const User = require("../controllers/usersPost");
+
+router.post("/review", User.createReview);
 
 module.exports = router;

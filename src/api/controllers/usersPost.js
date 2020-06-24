@@ -46,4 +46,9 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const createReview = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+
+module.exports = { registerUser, loginUser, createReview };

@@ -38,4 +38,10 @@ const dispensarySchema = Joi.object({
   dispensary_hours: Joi.array().length(7).items(day),
 });
 
+const reviewSchema = Joi.object({
+  product_id: Joi.number().required(),
+  rate: Joi.number().required(),
+  description: Joi.string().min(10).required(),
+});
+
 module.exports = { signupSchema, loginSchema, dispensarySchema };
