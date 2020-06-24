@@ -10,10 +10,10 @@ module.exports = async (req, res, next) => {
     const product = await getBy("products", { id: req.body.product_id });
 
     if (!user) {
-      res.status(401).json({ message: "The specified user_id is not valid." });
+      res.status(404).json({ message: "The specified user_id is not valid." });
     } else if (!product) {
       res
-        .status(401)
+        .status(404)
         .json({ message: "The specified product_id is not valid." });
     } else {
       next();
