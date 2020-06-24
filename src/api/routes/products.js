@@ -8,5 +8,5 @@ const TABLE_NAME = "products";
 router.get("/", getController.getProducts);
 router.get("/:id", validateId(TABLE_NAME), getController.getProductById);
 
-// router.post("/recommendations", postController.getRecommendations);
+router.post("/recommendations", postController.getRecommendations);
 module.exports = router;
