@@ -86,7 +86,9 @@ Returns a single user via the **user's** `:id` URL param.
 Request: `req.body`
 
 ```
-// N/A
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
 ```
 Response: `res.body`
 ```
@@ -125,6 +127,44 @@ Response: `res.body`
         },
         // ..etc
     ]
+}
+```
+--------------------------------
+
+## **DS Recommendations Route**
+
+### 1. GET products recommendations
+
+#### **POST** */api/products/recommendations*
+
+Returns an array of objects of **ALL** products recommended based on user input
+
+Request: `req.body`
+
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "User_strain", 
+    "Type": "Sativa",
+    "Effects": "Happy, energetic, and creative", 
+    "Flavor": "Sour, fruity, pineapple, citrus", 
+    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
+    I'm an artist and I find some herb helps my art."
+}
+```
+Response: `res.body`
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "Golden-Pineapple",
+    "Type": "hybrid",
+    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
+    "Flavor": "Pineapple,Tropical,Citrus",
+    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
+    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
+    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
+    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
+    it can be difficult to direct that focus effectively."
 }
 ```
 --------------------------------
@@ -183,36 +223,12 @@ Response: `res.body`
     {
         "id": 1,                // this is the product id#
         "strain_name": "African",
-        "strain_category": "Cartridges",
-        "strain_type": "hybrid",
-        "flavors": "Earthy,Sweet,Citrus",           
-        "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
-        "avg_thc": 23.21,      // percentage
-        "avg_cbd": 31.31,     // percentage
-        "price": 7.91,        // $
-        "price_unit": "gram",   // gram/piece
-        "description": "rapidly becoming a Colorado cannabis staple ...",
-        "img_url": "https:// ..",       // this is the product image
-        "is_available": 0,              // 0 === false, 1 === true
-        "created_at": "2020-04-03 02:01:24",    // this is the date&time when the product was created
-        "dispensary_id": 3      // the dispensary provider id#
+        // ... etc
     },
     {
         "id": 2,                // this is the product id#
         "strain_name": "Samara",
-        "strain_category": "Flower",
-        "strain_type": "hybrid",
-        "flavors": "Earthy,Sweet,Mango",           
-        "effects": "Creative,Energetic,Relaxed",
-        "avg_thc": 33.21,      // percentage
-        "avg_cbd": 21.31,     // percentage
-        "price": 27.91,        // $
-        "price_unit": "gram",   // gram/piece
-        "description": "rapidly becoming a Colorado cannabis staple ...",
-        "img_url": "https:// ..",       // this is the product image
-        "is_available": 1,              // 0 === false, 1 === true
-        "created_at": "2020-05-03 02:01:24",    // this is the date&time when the product was created
-        "dispensary_id": 7      // the dispensary provider id#
+        // ... etc
     },
 ]
 ```
