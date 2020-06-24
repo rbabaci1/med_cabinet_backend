@@ -166,7 +166,7 @@ Response: `res.body`
 ]
 ```
 
-### 1. GET a limited number of products
+### 2. GET a limited number of products
 
 #### **GET** */api/products/?limit=2*
 
@@ -215,6 +215,7 @@ Response: `res.body`
         "dispensary_id": 7      // the dispensary provider id#
     },
 ]
+```
 --------------------------------
 
 ### 3. GET a single product
