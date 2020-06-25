@@ -1,6 +1,7 @@
 const path = require("path");
 
-const { pgConnection } = require("./config");
+// const { pgConnection } = require("./config");
+const pgConnection = process.env.DATABASE_URL;
 
 module.exports = {
   development: {
