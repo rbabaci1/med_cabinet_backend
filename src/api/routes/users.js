@@ -18,4 +18,6 @@ router.delete(
   deleteController.removeCartItem
 );
 
+router.delete("/review", deleteController.removeReview);
+
 module.exports = router;
