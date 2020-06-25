@@ -1,14 +1,11 @@
-const { update } = require("../../db/models/global");
+const { remove } = require("../../db/models/global");
 
 const removeCartItem = async (req, res, next) => {
   try {
-    const changes = req.body;
-    const { id } = req.params;
+    const { product_id } = req.body;
 
-    const user = await update("users", changes, { id });
-    const updatedUser = removeObjKey(user, "password");
-
-    res.status(200).json({ success: true, updatedUser });
+    await remove("users_products", { product_id });
+    res.status(200).json({ message: "success", removedProduct: req.product });
   } catch (error) {
     next(error);
   }
