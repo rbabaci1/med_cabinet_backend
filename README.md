@@ -367,21 +367,21 @@ Response: `res.body`
 --------------------------------
 ## **DS Recommendations Endpoint**
 
-### 1. GET products recommendations
-#### **POST** */api/products/auth/recommendations*
+### 1. Get products recommendations
+#### **POST** */api/products/recommendations*
 
 Returns an array of objects of **ALL** products recommended based on user input
 
 Request: `req.body`
 ```
 {
-    "UserID": "dbkeyuser123",
-    "Strain": "User_strain",  // it's just a placeholder
-    "Type": "Sativa",
-    "Effects": "Happy, energetic, and creative", 
-    "Flavor": "Sour, fruity, pineapple, citrus", 
-    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
-    I'm an artist and I find some herb helps my art."
+    "UserID": "dbkeyuser123",   // Required
+    "Strain": "User_strain",    // placeholder Required
+    "Type": "Sativa",           // Required
+    "Effects": "Happy, energetic, and creative",    // Required
+    "Flavor": "Sour, fruity, pineapple, citrus",    // Required
+    "Description": "I'm bummed most the time.  I'm just looking to feel good,   // Required
+    and keep my creative juices flowing. I'm an artist and I find some herb helps my art."
 }
 ```
 
