@@ -211,51 +211,9 @@ Response: `res.body`
     ]
 }
 ```
-
 --------------------------------
-## **DS Recommendations Endpoint**
 
-### 7. GET products recommendations
-#### **POST** */api/products/auth/recommendations*
-
-Returns an array of objects of **ALL** products recommended based on user input
-
-Request: `req.body`
-```
-{
-    "UserID": "dbkeyuser123",
-    "Strain": "User_strain",  // it's just a placeholder
-    "Type": "Sativa",
-    "Effects": "Happy, energetic, and creative", 
-    "Flavor": "Sour, fruity, pineapple, citrus", 
-    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
-    I'm an artist and I find some herb helps my art."
-}
-```
-Request: `req.headers`
-```
-headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
-}
-```
-
-Response: `res.body`
-```
-{
-    "UserID": "dbkeyuser123",
-    "Strain": "Golden-Pineapple",
-    "Type": "hybrid",
-    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
-    "Flavor": "Pineapple,Tropical,Citrus",
-    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
-    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
-    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
-    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
-    it can be difficult to direct that focus effectively."
-}
-```
-
-### 8. Update User Info
+### 7. Update User Info
 #### **PUT** */api/users/:id*
 
 Returns the specified user with the new updates via the **user's** `:id` URL param.
@@ -290,7 +248,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 9. Update User's Review
+### 8. Update User's Review
 #### **PUT** */api/users/auth/:id/review*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
@@ -327,7 +285,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 10. Remove an item from the User's cart
+### 9. Remove an item from the User's cart
 #### **DELETE** */api/users/auth/cart*
 
 Returns an object of the removed item.
@@ -371,7 +329,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 11. Remove a User's Review
+### 10. Remove a User's Review
 #### **DELETE** */api/users/auth/cart*
 
 Returns an object of the removed product.
@@ -402,6 +360,49 @@ Response: `res.body`
         "created_at": "2020-02-16 20:17:36",
         "updated_at": "2019-08-22 11:37:00"
     }
+}
+```
+
+--------------------------------
+## **DS Recommendations Endpoint**
+
+### 1. GET products recommendations
+#### **POST** */api/products/auth/recommendations*
+
+Returns an array of objects of **ALL** products recommended based on user input
+
+Request: `req.body`
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "User_strain",  // it's just a placeholder
+    "Type": "Sativa",
+    "Effects": "Happy, energetic, and creative", 
+    "Flavor": "Sour, fruity, pineapple, citrus", 
+    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
+    I'm an artist and I find some herb helps my art."
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "Golden-Pineapple",
+    "Type": "hybrid",
+    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
+    "Flavor": "Pineapple,Tropical,Citrus",
+    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
+    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
+    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
+    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
+    it can be difficult to direct that focus effectively."
 }
 ```
 --------------------------------
