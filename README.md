@@ -48,6 +48,7 @@ Response: `res.body`
 }
   // password not returned, but is stored encrypted on database
 ```
+--------------------------------
 
 ### 2. User Login
 #### **POST** */api/auth/login*
@@ -76,19 +77,101 @@ Response: `res.body`
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
 }
 ```
+--------------------------------
 
-### 3. Access a single user with all details
-#### **GET** */api/auth/users/:id*
+### 3. Add a Product to the User's Cart
+#### **POST** */api/users/auth/cart*
 
-Returns a single user via the **user's** `:id` URL param.
+Returns object of the added **Product**.
 
 Request: `req.body`
-
+```
+{
+    "user_id": 3,
+    "product_id: 50
+}
+```
+Request: `req.headers`
 ```
 headers: {
   Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "addedProduct": {
+        "id": 50
+        "strain_name": "Afgoo",
+        "strain_category": "Concentrates",
+        "strain_type": "indica",
+        "flavors": "Sweet,Pine,Woody",
+        "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
+        "avg_thc": 37,
+        "avg_cbd": 36,
+        "price": 33,
+        "price_unit": "gram",
+        "description": "Afgoo, also known as Afgooey ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2019-10-17 08:11:20",
+        "dispensary_id": 20
+    }
+}
+```
+--------------------------------
+
+### 4. User writes a review about a product
+#### **POST** */api/users/auth/review*
+
+Returns object of the created **Review**.
+
+Request: `req.body`
+```
+{
+    "user_id": 5,
+    "product_id": 2000,
+    "rate": 4,    //  [0 - 5]
+    "description": "Radiation Therapy, Respiratory System, Beam Radiation"   
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdReview": {
+        "user_id": 5,
+        "product_id": 2000,
+        "rate": 4,
+        "description": "Radiation Therapy, Respiratory System, Beam Radiation",
+        "created_at": "2020-06-24 15:08:01",
+        "updated_at": "2020-06-24 15:08:01"
+    }
+}
+```
+--------------------------------
+
+### 5. Access a single user with all details
+#### **GET** */api/users/auth/:id*
+
+Returns a single user via the **user's** `:id` URL param.
+
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
 Response: `res.body`
 ```
 {
@@ -128,17 +211,16 @@ Response: `res.body`
     ]
 }
 ```
+
 --------------------------------
+## **DS Recommendations Endpoint**
 
-## **DS Recommendations Route**
-
-### 1. GET products recommendations
-#### **POST** */api/products/recommendations*
+### 7. GET products recommendations
+#### **POST** */api/products/auth/recommendations*
 
 Returns an array of objects of **ALL** products recommended based on user input
 
 Request: `req.body`
-
 ```
 {
     "UserID": "dbkeyuser123",
@@ -150,6 +232,13 @@ Request: `req.body`
     I'm an artist and I find some herb helps my art."
 }
 ```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
 Response: `res.body`
 ```
 {
@@ -163,6 +252,271 @@ Response: `res.body`
     providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
     active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
     it can be difficult to direct that focus effectively."
+}
+```
+
+### 8. Update User Info
+#### **PUT** */api/users/:id*
+
+Returns the specified user with the new updates via the **user's** `:id` URL param.
+
+Request: `req.body`
+```
+{
+  firstName: "updated first name",        
+  lastName: "test2"!         
+  email: "hello@gmail.com"   
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+  "success": true,      // user registered successfully
+  "updatedUser": {
+    "id": 1,
+    "firstName": "updated first name",
+    "lastName": "test2",
+    "email": "hello@gmail.com",
+    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
+  },
+}
+```
+--------------------------------
+
+### 9. Update User's Review
+#### **PUT** */api/users/auth/:id/review*
+
+Returns the specified review with the new updates via the **user's** `:id` URL param.
+
+Request: `req.body`
+```
+{
+    "user_id": 5,
+    "product_id": 42,
+    "rate": 4,
+    "description": "I figured it out!!"  // updated dispcription
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "updatedReview": {
+        "user_id": 5,
+        "product_id": 42,
+        "rate": 4,
+        "description": "I figured it out!!",
+        "created_at": "2020-02-16 20:17:36",
+        "updated_at": "2020-06-24 21:14:15"
+    }
+}
+```
+--------------------------------
+
+### 10. Remove an item from the User's cart
+#### **DELETE** */api/users/auth/cart*
+
+Returns an object of the removed item.
+
+Request: `req.body`
+```
+{
+    "user_id": 1,
+    "product_id": 23
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "message": "success",
+    "removedProduct": {
+        "id": 22,
+        "strain_name": "A-Train",
+        "strain_category": "Cartridges",
+        "strain_type": "hybrid",
+        "flavors": "Earthy,Woody,Citrus",
+        "effects": "Creative,Euphoric,Relaxed,Happy,Hungry",
+        "avg_thc": 40,
+        "avg_cbd": 37,
+        "price": 23,
+        "price_unit": "gram",
+        "description": "A-Train is a hybrid between Mazar ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2019-10-17 08:11:20",
+        "dispensary_id": 1
+    }
+}
+```
+--------------------------------
+
+### 11. Remove a User's Review
+#### **DELETE** */api/users/auth/cart*
+
+Returns an object of the removed product.
+
+Request: `req.body`
+```
+{
+    "user_id": 1,
+    "product_id": 23
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "message": "success",
+    "removedReview": {
+        "user_id": 5,
+        "product_id": 42,
+        "rate": 5,
+        "description": "Revision of External Fixation Device in Right Metatarsal, Percutaneous Endoscopic Approach",
+        "created_at": "2020-02-16 20:17:36",
+        "updated_at": "2019-08-22 11:37:00"
+    }
+}
+```
+--------------------------------
+
+## **Admin Routes**
+
+### 1. Create a Product
+#### **POST** */api/products/auth/create*
+
+Returns object of the created **Review**.
+
+Request: `req.body`
+
+```
+{         
+  "strain_name": "Alien Rock Candy",
+  "strain_category": "Pre-rolls",
+  "strain_type": "Indica",
+  "flavors": ["mango", "banana"],   // Array of strings Required
+  "effects": ["focus", "dancing"],  // Array of strings Required
+  "avg_thc": 33.23,          
+  "avg_cbd": 16.41,          
+  "price": 17.24,            
+  "price_unit": "gram",    
+  "description": "From Sonoma County comes Alaska Thunder Grape ...",
+  "img_url": "https:// ...",     
+  "is_available": true,                 
+  "dispensary_id": 19    
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdProduct": {
+        "id": 2352,
+        "strain_name": "Alien Rock Candy",
+        "strain_category": "Pre-rolls",
+        "strain_type": "Indica",
+        "flavors": "mango,banana",
+        "effects": "focus,dancing",
+        "avg_thc": 33.23,
+        "avg_cbd": 16.41,
+        "price": 17.24,
+        "price_unit": "gram",
+        "description": "From Sonoma County comes Alaska Thunder Grape ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2020-06-24 15:31:43",
+        "dispensary_id": 19
+    }
+}
+```
+--------------------------------
+
+### 2. Create a Dispensary
+#### **POST** */api/dispensaries*
+
+Returns an object of the created **Dispensary**
+
+Request: `req.body`
+
+```
+{
+    "name": "Smokland",
+    "address": "1514 Alice st",
+    "city": "Oakland",
+    "state": "California",
+    "postal_code": "94612",
+    "phone_number": "(510) 325-0079",
+    "email": "oakland101@wp.com",
+    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
+    "has_delivery": true,
+    
+    "dispensary_hours": [       // Array of 7 objects Required
+        {
+          "day_of_week": 0,           // (Monday)
+          "open_time": "09:00 AM",    // Same format required || "closed"
+          "close_time": "09:00 PM"    // Same format required || "closed"
+        },
+        {
+          "day_of_week": 1,           // (Tuesday)
+          "open_time": "09:00 AM",
+          "close_time": "08:00 PM"
+        },
+        // ... --> "day_of_week": 6,  (Sunday)
+    ]
+}
+```
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdDispensary": {
+        "id": 31,
+        "name": "Smokland",
+        "address": "1514 Alice st",
+        "city": "Oakland",
+        "state": "California",
+        "postal_code": "94612",
+        "phone_number": "(510) 325-0079",
+        "email": "oakland101@wp.com",
+        "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
+        "has_delivery": 1,
+        "created_at": "2020-06-24 15:13:17",
+        
+        // dispensary hours not returned but is stored on Database
+    }
 }
 ```
 --------------------------------
@@ -339,179 +693,3 @@ Response: `res.body`
     ]
 }
 ```
---------------------------------
-
-### 6. Add a Product to the User's Cart
-#### **POST** */api/users/cart*
-
-Returns object of the added **Product**.
-
-Request: `req.body`
-
-```
-{
-    "user_id": 3,
-    "product_id: 50
-}
-```
-Response: `res.body`
-```
-{
-    "success": true,
-    "addedProduct": {
-        "id": 50
-        "strain_name": "Afgoo",
-        "strain_category": "Concentrates",
-        "strain_type": "indica",
-        "flavors": "Sweet,Pine,Woody",
-        "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
-        "avg_thc": 37,
-        "avg_cbd": 36,
-        "price": 33,
-        "price_unit": "gram",
-        "description": "Afgoo, also known as Afgooey ...",
-        "img_url": "https:// ...",
-        "is_available": 1,
-        "created_at": "2019-10-17 08:11:20",
-        "dispensary_id": 20
-    }
-}
-```
---------------------------------
-
-### 6. Create a User review about a product
-#### **POST** */api/products/review*
-
-Returns object of the created **Review**.
-
-Request: `req.body`
-
-```
-{
-    "user_id": 5,
-    "product_id": 2000,
-    "rate": 4,    //  [0 - 5]
-    "description": "Radiation Therapy, Respiratory System, Beam Radiation"   
-}
-```
-Response: `res.body`
-```
-{
-    "success": true,
-    "createdReview": {
-        "user_id": 5,
-        "product_id": 2000,
-        "rate": 4,
-        "description": "Radiation Therapy, Respiratory System, Beam Radiation",
-        "created_at": "2020-06-24 15:08:01",
-        "updated_at": "2020-06-24 15:08:01"
-    }
-}
-```
---------------------------------
-
-### 7. Create a Product
-#### **POST** */api/products/create*
-
-Returns object of the created **Review**.
-
-Request: `req.body`
-
-```
-{         
-  "strain_name": "Alien Rock Candy",
-  "strain_category": "Pre-rolls",
-  "strain_type": "Indica",
-  "flavors": ["mango", "banana"],   // Array of strings Required
-  "effects": ["focus", "dancing"],  // Array of strings Required
-  "avg_thc": 33.23,          
-  "avg_cbd": 16.41,          
-  "price": 17.24,            
-  "price_unit": "gram",    
-  "description": "From Sonoma County comes Alaska Thunder Grape ...",
-  "img_url": "https:// ...",     
-  "is_available": true,                 
-  "dispensary_id": 19    
-}
-```
-Response: `res.body`
-```
-{
-    "success": true,
-    "createdProduct": {
-        "id": 2352,
-        "strain_name": "Alien Rock Candy",
-        "strain_category": "Pre-rolls",
-        "strain_type": "Indica",
-        "flavors": "mango,banana",
-        "effects": "focus,dancing",
-        "avg_thc": 33.23,
-        "avg_cbd": 16.41,
-        "price": 17.24,
-        "price_unit": "gram",
-        "description": "From Sonoma County comes Alaska Thunder Grape ...",
-        "img_url": "https:// ...",
-        "is_available": 1,
-        "created_at": "2020-06-24 15:31:43",
-        "dispensary_id": 19
-    }
-}
-```
---------------------------------
-
-### 8. Create a Dispensary
-#### **POST** */api/dispensaries*
-
-Returns object of the created **Dispensary**
-
-Request: `req.body`
-
-```
-{
-    "name": "Smokland",
-    "address": "1514 Alice st",
-    "city": "Oakland",
-    "state": "California",
-    "postal_code": "94612",
-    "phone_number": "(510) 325-0079",
-    "email": "oakland101@wp.com",
-    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
-    "has_delivery": true,
-    
-    "dispensary_hours": [       // Array of 7 objects Required
-        {
-          "day_of_week": 0,           // (Monday)
-          "open_time": "09:00 AM",    // Same format required || "closed"
-          "close_time": "09:00 PM"    // Same format required || "closed"
-        },
-        {
-          "day_of_week": 1,           // (Tuesday)
-          "open_time": "09:00 AM",
-          "close_time": "08:00 PM"
-        },
-        // ... --> "day_of_week": 6,  (Sunday)
-    ]
-}
-```
-Response: `res.body`
-```
-{
-    "success": true,
-    "createdDispensary": {
-        "id": 31,
-        "name": "Smokland",
-        "address": "1514 Alice st",
-        "city": "Oakland",
-        "state": "California",
-        "postal_code": "94612",
-        "phone_number": "(510) 325-0079",
-        "email": "oakland101@wp.com",
-        "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
-        "has_delivery": 1,
-        "created_at": "2020-06-24 15:13:17",
-        
-        // dispensary hours not returned but is stored on Database
-    }
-}
---------------------------------
-
