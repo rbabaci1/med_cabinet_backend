@@ -8,7 +8,7 @@ module.exports = {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: path.resolve(__dirname, "./db/med_cabinet.db"),
+      filename: "./db/med_cabinet.db",
     },
     migrations: {
       directory: "./db/migrations",
