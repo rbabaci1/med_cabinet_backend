@@ -48,6 +48,7 @@ Response: `res.body`
 }
   // password not returned, but is stored encrypted on database
 ```
+--------------------------------
 
 ### 2. User Login
 #### **POST** */api/auth/login*
@@ -76,8 +77,90 @@ Response: `res.body`
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
 }
 ```
+--------------------------------
 
-### 3. Access a single user with all details
+### 3. Add a Product to the User's Cart
+#### **POST** */api/users/auth/cart*
+
+Returns object of the added **Product**.
+
+Request: `req.body`
+```
+{
+    "user_id": 3,
+    "product_id: 50
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "addedProduct": {
+        "id": 50
+        "strain_name": "Afgoo",
+        "strain_category": "Concentrates",
+        "strain_type": "indica",
+        "flavors": "Sweet,Pine,Woody",
+        "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
+        "avg_thc": 37,
+        "avg_cbd": 36,
+        "price": 33,
+        "price_unit": "gram",
+        "description": "Afgoo, also known as Afgooey ...",
+        "img_url": "https:// ...",
+        "is_available": 1,
+        "created_at": "2019-10-17 08:11:20",
+        "dispensary_id": 20
+    }
+}
+```
+--------------------------------
+
+### 4. User writes a review about a product
+#### **POST** */api/users/auth/review*
+
+Returns object of the created **Review**.
+
+Request: `req.body`
+```
+{
+    "user_id": 5,
+    "product_id": 2000,
+    "rate": 4,    //  [0 - 5]
+    "description": "Radiation Therapy, Respiratory System, Beam Radiation"   
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "success": true,
+    "createdReview": {
+        "user_id": 5,
+        "product_id": 2000,
+        "rate": 4,
+        "description": "Radiation Therapy, Respiratory System, Beam Radiation",
+        "created_at": "2020-06-24 15:08:01",
+        "updated_at": "2020-06-24 15:08:01"
+    }
+}
+```
+--------------------------------
+
+### 5. Access a single user with all details
 #### **GET** */api/users/auth/:id*
 
 Returns a single user via the **user's** `:id` URL param.
@@ -130,8 +213,49 @@ Response: `res.body`
 ```
 
 --------------------------------
+## **DS Recommendations Endpoint**
 
-### 4. Update User Info
+### 7. GET products recommendations
+#### **POST** */api/products/auth/recommendations*
+
+Returns an array of objects of **ALL** products recommended based on user input
+
+Request: `req.body`
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "User_strain", 
+    "Type": "Sativa",
+    "Effects": "Happy, energetic, and creative", 
+    "Flavor": "Sour, fruity, pineapple, citrus", 
+    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
+    I'm an artist and I find some herb helps my art."
+}
+```
+Request: `req.headers`
+```
+headers: {
+  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+}
+```
+
+Response: `res.body`
+```
+{
+    "UserID": "dbkeyuser123",
+    "Strain": "Golden-Pineapple",
+    "Type": "hybrid",
+    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
+    "Flavor": "Pineapple,Tropical,Citrus",
+    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
+    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
+    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
+    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
+    it can be difficult to direct that focus effectively."
+}
+```
+
+### 8. Update User Info
 #### **PUT** */api/users/:id*
 
 Returns the specified user with the new updates via the **user's** `:id` URL param.
@@ -166,7 +290,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 5. Update User's Review
+### 9. Update User's Review
 #### **PUT** */api/users/auth/:id/review*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
@@ -203,7 +327,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 6. Remove an item from the User's cart
+### 10. Remove an item from the User's cart
 #### **DELETE** */api/users/auth/cart*
 
 Returns an object of the removed item.
@@ -247,7 +371,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 7. Remove a User's Review
+### 11. Remove a User's Review
 #### **DELETE** */api/users/auth/cart*
 
 Returns an object of the removed product.
@@ -281,132 +405,10 @@ Response: `res.body`
 }
 ```
 --------------------------------
-## **DS Recommendations Endpoint**
 
-### 8. GET products recommendations
-#### **POST** */api/products/auth/recommendations*
+## **Admin Routes**
 
-Returns an array of objects of **ALL** products recommended based on user input
-
-Request: `req.body`
-```
-{
-    "UserID": "dbkeyuser123",
-    "Strain": "User_strain", 
-    "Type": "Sativa",
-    "Effects": "Happy, energetic, and creative", 
-    "Flavor": "Sour, fruity, pineapple, citrus", 
-    "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
-    I'm an artist and I find some herb helps my art."
-}
-```
-Request: `req.headers`
-```
-headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
-}
-```
-
-Response: `res.body`
-```
-{
-    "UserID": "dbkeyuser123",
-    "Strain": "Golden-Pineapple",
-    "Type": "hybrid",
-    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
-    "Flavor": "Pineapple,Tropical,Citrus",
-    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
-    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
-    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
-    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
-    it can be difficult to direct that focus effectively."
-}
-```
-
---------------------------------
-
-### 6. Add a Product to the User's Cart
-#### **POST** */api/users/auth/cart*
-
-Returns object of the added **Product**.
-
-Request: `req.body`
-```
-{
-    "user_id": 3,
-    "product_id: 50
-}
-```
-Request: `req.headers`
-```
-headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
-}
-```
-
-Response: `res.body`
-```
-{
-    "success": true,
-    "addedProduct": {
-        "id": 50
-        "strain_name": "Afgoo",
-        "strain_category": "Concentrates",
-        "strain_type": "indica",
-        "flavors": "Sweet,Pine,Woody",
-        "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
-        "avg_thc": 37,
-        "avg_cbd": 36,
-        "price": 33,
-        "price_unit": "gram",
-        "description": "Afgoo, also known as Afgooey ...",
-        "img_url": "https:// ...",
-        "is_available": 1,
-        "created_at": "2019-10-17 08:11:20",
-        "dispensary_id": 20
-    }
-}
-```
---------------------------------
-
-### 6. User writes a review about a product
-#### **POST** */api/users/auth/review*
-
-Returns object of the created **Review**.
-
-Request: `req.body`
-```
-{
-    "user_id": 5,
-    "product_id": 2000,
-    "rate": 4,    //  [0 - 5]
-    "description": "Radiation Therapy, Respiratory System, Beam Radiation"   
-}
-```
-Request: `req.headers`
-```
-headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
-}
-```
-
-Response: `res.body`
-```
-{
-    "success": true,
-    "createdReview": {
-        "user_id": 5,
-        "product_id": 2000,
-        "rate": 4,
-        "description": "Radiation Therapy, Respiratory System, Beam Radiation",
-        "created_at": "2020-06-24 15:08:01",
-        "updated_at": "2020-06-24 15:08:01"
-    }
-}
-```
---------------------------------
-
-### 7. Create a Product
+### 1. Create a Product
 #### **POST** */api/products/auth/create*
 
 Returns object of the created **Review**.
@@ -462,7 +464,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 8. Create a Dispensary
+### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
 
 Returns an object of the created **Dispensary**
@@ -691,6 +693,3 @@ Response: `res.body`
     ]
 }
 ```
-
---------------------------------
-
