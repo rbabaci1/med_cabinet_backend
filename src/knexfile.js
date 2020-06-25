@@ -8,7 +8,7 @@ module.exports = {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: __dirname + "/src/db/med_cabinet.db",
+      filename: path.resolve(__dirname, "./db/med_cabinet.db"),
     },
     migrations: {
       directory: "./db/migrations",
@@ -27,7 +27,7 @@ module.exports = {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: __dirname + "/src/db/__testing__.db",
+      filename: path.resolve(__dirname, "./db/__testing__.db"),
     },
     migrations: {
       directory: "./db/migrations",
@@ -50,10 +50,10 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      directory: __dirname + "/src/db/migrations",
+      directory: path.resolve(__dirname, "./db/migrations"),
     },
     seeds: {
-      directory: __dirname + "/src/db/seeds",
+      directory: path.resolve(__dirname, "./db/seeds"),
     },
   },
 };
