@@ -161,7 +161,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 5. Access a single user with all details
+### 5. Access a single User with all Details
 #### **GET** */api/users/auth/:id*
 
 Returns a single user via the **user's** `:id` URL param.
@@ -182,7 +182,7 @@ Response: `res.body`
     "email": "hkimm2@vistaprint.com",
     "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
     
-     "products": [       // a nested array that represents all the dispensary products
+     "cart": [      // a nested array that represents all the products this user has in cart
         {
             "id": 6,              // this is the id# of the product (NOT DISPENSARY)
             "strain_name": "Alien Rock Candy",
@@ -200,7 +200,7 @@ Response: `res.body`
         },
         // .. etc
     ]
-    "reviews": [
+    "reviews": [    // a nested array that represents all the reviews written by this user
         {
             "product_id": 13,
             "rate": 3,
