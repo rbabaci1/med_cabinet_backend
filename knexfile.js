@@ -1,7 +1,4 @@
-const path = require("path");
-
-// const { pgConnection } = require("./config");
-// const pgConnection = process.env.DATABASE_URL;
+const pgConnection = process.env.DATABASE_URL;
 
 module.exports = {
   development: {
@@ -44,7 +41,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
+    connection: pgConnection,
     pool: {
       min: 2,
       max: 10,

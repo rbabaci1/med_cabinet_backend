@@ -1,16 +1,16 @@
 exports.up = function (knex) {
   return knex.schema.createTable("dispensaries", table => {
     table.increments();
-    table.string("name", 64).notNullable().unique();
-    table.string("address", 64).notNullable().unique();
-    table.string("city", 64).notNullable();
-    table.string("state", 64).notNullable();
-    table.string("postal_code", 64).notNullable();
-    table.string("phone_number", 64).notNullable();
-    table.string("email", 64).notNullable().unique();
-    table.string("logo_url", 64).notNullable();
+    table.string("name").notNullable().unique();
+    table.string("address").notNullable().unique();
+    table.string("city").notNullable();
+    table.string("state").notNullable();
+    table.string("postal_code").notNullable();
+    table.string("phone_number").notNullable();
+    table.string("email").notNullable().unique();
+    table.string("logo_url").notNullable();
     table.boolean("has_delivery").notNullable();
-    table.string("created_at", 64).notNullable();
+    table.string("created_at").notNullable();
   });
 };
 

@@ -18,8 +18,8 @@ exports.up = function (knex) {
       .onDelete("RESTRICT")
       .onUpdate("CASCADE");
 
-    table.string("created_at", 64).notNullable();
-    table.string("updated_at", 64).notNullable();
+    table.string("created_at").notNullable();
+    table.string("updated_at").notNullable();
 
     table.primary(["user_id", "product_id"]);
   });
