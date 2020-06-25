@@ -15,4 +15,15 @@ const getUserById = async ({ user }, res, next) => {
   }
 };
 
-module.exports = { getUserById };
+// GET User's cart products
+const getUserCart = async ({ user }, res, next) => {
+  try {
+    const cart = await Users.getProducts(user.id);
+
+    res.status(200).json({ user, cart });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getUserById, getUserCart };
