@@ -224,7 +224,7 @@ Request: `req.body`
 ```
 {
     "UserID": "dbkeyuser123",
-    "Strain": "User_strain", 
+    "Strain": "User_strain",  // it's just a placeholder
     "Type": "Sativa",
     "Effects": "Happy, energetic, and creative", 
     "Flavor": "Sour, fruity, pineapple, citrus", 
