@@ -16,7 +16,7 @@ const generateProducts = () => {
     p.price = random2(5, 50);
     p.created_at = "2019-10-17 08:11:20";
     p.dispensary_id = random2(1, 30);
-    p.description = p.description.slice(0, 254);
+    // p.description = p.description.slice(0, 254);
 
     p.img_url = "hello";
     p.strain_category === "Flower"
