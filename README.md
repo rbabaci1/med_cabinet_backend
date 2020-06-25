@@ -125,7 +125,7 @@ Response: `res.body`
 --------------------------------
 
 ### 4. User writes a review about a product
-#### **POST** */api/users/auth/review*
+#### **POST** */api/users/review*
 
 Returns object of the created **Review**.
 
@@ -161,8 +161,8 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 5. Access a single User with all Details
-#### **GET** */api/users/auth/:id*
+### 5. Access a single User with all Details (cart & reviews)
+#### **GET** */api/users/:id*
 
 Returns a single user via the **user's** `:id` URL param.
 
@@ -250,7 +250,7 @@ Response: `res.body`
 --------------------------------
 
 ### 8. Update User's Review
-#### **PUT** */api/users/auth/:id/review*
+#### **PUT** */api/users/review/:id*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
 
@@ -287,7 +287,7 @@ Response: `res.body`
 --------------------------------
 
 ### 9. Remove an item from the User's cart
-#### **DELETE** */api/users/auth/cart*
+#### **DELETE** */api/users/cart*
 
 Returns an object of the removed item.
 
@@ -331,7 +331,7 @@ Response: `res.body`
 --------------------------------
 
 ### 10. Remove a User's Review
-#### **DELETE** */api/users/auth/cart*
+#### **DELETE** */api/users/cart*
 
 Returns an object of the removed product.
 
@@ -405,7 +405,7 @@ Response: `res.body`
 ## **Admin Routes**
 
 ### 1. Create a Product
-#### **POST** */api/products/auth/create*
+#### **POST** */api/products/create*
 
 Returns object of the created **Review**.
 
