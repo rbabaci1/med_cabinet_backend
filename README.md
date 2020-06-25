@@ -34,6 +34,7 @@ Request: `req.body`
   password: "welcome"        // String Required, must be 6 characters minimum.
 }
 ```
+
 Response: `res.body`
 ```
 {
@@ -381,12 +382,6 @@ Request: `req.body`
     "Flavor": "Sour, fruity, pineapple, citrus", 
     "Description": "I'm bummed most the time.  I'm just looking to feel good, and keep my creative juices flowing. 
     I'm an artist and I find some herb helps my art."
-}
-```
-Request: `req.headers`
-```
-headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
