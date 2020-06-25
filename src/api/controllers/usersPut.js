@@ -28,7 +28,7 @@ const updateUserReview = async (req, res, next) => {
       const newReview = { ...review, ...changes, updated_at: now() };
 
       const updatedReview = await update("ratings", newReview, { user_id });
-      res.status(200).json(updatedReview);
+      res.status(200).json({ success: true, updatedReview });
     }
   } catch (error) {
     next(error);
