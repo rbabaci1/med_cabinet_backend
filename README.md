@@ -250,7 +250,7 @@ Response: `res.body`
 --------------------------------
 
 ### 8. Update User's Review
-#### **PUT** */api/users/:id/review*
+#### **PUT** */api/users/review/:id*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
 
