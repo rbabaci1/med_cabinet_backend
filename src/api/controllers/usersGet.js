@@ -1,5 +1,4 @@
 const Users = require("../../db/models/users");
-const removeObjKey = require("../../helpers/removeObjKey");
 
 // GET all details about a user
 const getUserById = async ({ user }, res, next) => {
@@ -16,16 +15,4 @@ const getUserById = async ({ user }, res, next) => {
   }
 };
 
-// GET User's cart products
-const getUserCart = async ({ user }, res, next) => {
-  try {
-    const customer = removeObjKey(user, "password");
-    const cart = await Users.getProducts(user.id);
-
-    res.status(200).json({ ...customer, cart });
-  } catch (error) {
-    next(error);
-  }
-};
-
-module.exports = { getUserById, getUserCart };
+module.exports = { getUserById };
