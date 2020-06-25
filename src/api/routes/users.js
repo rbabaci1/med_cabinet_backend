@@ -10,7 +10,11 @@ const { validateUserInfo } = require("../middlewares/validateUserInfo");
 router.post("/cart", validateUserCartInfo("POST"), postController.addToCart);
 
 router.put("/:id", validateUserInfo, putController.updateUserInfo);
-router.put("/:id/review", validateReviewInfo, putController.updateUserReview);
+router.put(
+  "/:id/review",
+  validateReviewInfo("POST"),
+  putController.updateUserReview
+);
 
 router.delete(
   "/cart",
@@ -18,6 +22,10 @@ router.delete(
   deleteController.removeCartItem
 );
 
-router.delete("/review", deleteController.removeReview);
+router.delete(
+  "/review",
+  validateReviewInfo("DELETE"),
+  deleteController.removeReview
+);
 
 module.exports = router;

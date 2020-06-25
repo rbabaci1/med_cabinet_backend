@@ -51,6 +51,11 @@ const reviewSchema = Joi.object({
   description: Joi.string().min(10).required(),
 });
 
+const deleteReviewSchema = Joi.object({
+  user_id: Joi.number().min(1).required(),
+  product_id: Joi.number().min(1).required(),
+});
+
 const productSchema = Joi.object({
   strain_name: Joi.string().required(),
   strain_category: Joi.string().required(),
@@ -67,6 +72,15 @@ const productSchema = Joi.object({
   dispensary_id: Joi.number().min(1).required(),
 });
 
+const productRecommendationSchema = Joi.object({
+  UserID: Joi.number().required(),
+  Strain: Joi.string().required(),
+  Type: Joi.string().required(),
+  Effects: Joi.string().required(),
+  Flavor: Joi.string().required(),
+  Description: Joi.string().required(),
+});
+
 const cartSchema = Joi.object({
   user_id: Joi.number().min(1).required(),
   product_id: Joi.number().min(1).required(),
@@ -78,6 +92,8 @@ module.exports = {
   userUpdateSchema,
   dispensarySchema,
   reviewSchema,
+  deleteReviewSchema,
   productSchema,
+  productRecommendationSchema,
   cartSchema,
 };
