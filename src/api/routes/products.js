@@ -12,7 +12,7 @@ router.get("/", getController.getProducts);
 router.get("/:id", validateId(TABLE_NAME), getController.getProductById);
 
 router.post(
-  "/auth/create",
+  "/create",
   isAuth,
   validateProductInfo,
   postController.createProduct

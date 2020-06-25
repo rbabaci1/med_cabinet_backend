@@ -13,7 +13,7 @@ module.exports = method => {
         const { product_id, user_id } = req.body;
         const user = await getBy("users", { id: user_id });
         const product = await getBy("products", { id: product_id });
-        const productExists = await getBy("users_products", {
+        const productExists = await getBy("users_carts", {
           user_id,
           product_id,
         });

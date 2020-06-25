@@ -12,7 +12,7 @@ router.get("/", getController.getDispensaries);
 router.get("/:id", validateId(TABLE_NAME), getController.getDispensaryById);
 
 router.post(
-  "/auth/",
+  "/",
   isAuth,
   validateDispensaryInfo,
   postController.createDispensary

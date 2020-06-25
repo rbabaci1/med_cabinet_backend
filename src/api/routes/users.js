@@ -12,42 +12,37 @@ const validateId = require("../middleware/global");
 
 const TABLE_NAME = "users";
 
-router.get(
-  "/auth/:id",
-  isAuth,
-  validateId(TABLE_NAME),
-  getController.getUserById
-);
+router.get("/:id", isAuth, validateId(TABLE_NAME), getController.getUserById);
 
 router.post(
-  "/auth/cart",
+  "/cart",
   isAuth,
   validateUserCartInfo("POST"),
   postController.addToCart
 );
 router.post(
-  "/auth/review",
+  "/review",
   isAuth,
   validateReviewInfo("POST"),
   postController.createReview
 );
 
-router.put("/auth/:id", isAuth, validateUserInfo, putController.updateUserInfo);
+router.put("/:id", isAuth, validateUserInfo, putController.updateUserInfo);
 router.put(
-  "/auth/:id/review",
+  "/review/:id",
   isAuth,
   validateReviewInfo("PUT"),
   putController.updateUserReview
 );
 
 router.delete(
-  "/auth/review",
+  "/review",
   isAuth,
   validateReviewInfo("DELETE"),
   deleteController.removeReview
 );
 router.delete(
-  "/auth/cart",
+  "/cart",
   isAuth,
   validateUserCartInfo("DELETE"),
   deleteController.removeCartItem
