@@ -24,11 +24,10 @@ module.exports = async (req, res, next) => {
           .status(404)
           .json({ message: "The specified dispensary_id is not valid." });
       } else if (productExists) {
-        res
-          .status(400)
-          .json(
-            "The specified product already exists under the same dispensary."
-          );
+        res.status(400).json({
+          message:
+            "The specified product already exists under the same dispensary.",
+        });
       } else {
         next();
       }
