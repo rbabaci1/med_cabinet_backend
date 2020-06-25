@@ -9,4 +9,8 @@ const update = async (tableName, changes, filter) => {
   return getBy(tableName, filter);
 };
 
-module.exports = { getAll, getBy, update };
+const remove = async (tableName, filter) => {
+  return db(tableName).delete().where(filter);
+};
+
+module.exports = { getAll, getBy, update, remove };
