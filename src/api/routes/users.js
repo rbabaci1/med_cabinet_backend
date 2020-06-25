@@ -17,15 +17,14 @@ router.put(
 );
 
 router.delete(
-  "/cart",
-  validateUserCartInfo("DELETE"),
-  deleteController.removeCartItem
-);
-
-router.delete(
   "/review",
   validateReviewInfo("DELETE"),
   deleteController.removeReview
+);
+router.delete(
+  "/cart",
+  validateUserCartInfo("DELETE"),
+  deleteController.removeCartItem
 );
 
 module.exports = router;
