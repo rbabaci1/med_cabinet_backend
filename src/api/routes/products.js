@@ -18,8 +18,7 @@ router.post(
   postController.createProduct
 );
 router.post(
-  "/auth/recommendations",
-  isAuth,
+  "/recommendations",
   validateProductRecommendationInfo,
   postController.getRecommendations
 );
