@@ -161,7 +161,7 @@ Response: `res.body`
 ```
 --------------------------------
 
-### 5. Access a single User with all Details
+### 5. Access a single User with all Details (cart & reviews)
 #### **GET** */api/users/auth/:id*
 
 Returns a single user via the **user's** `:id` URL param.
