@@ -11,9 +11,9 @@ const get = async () => {
 };
 
 const getProducts = async user_id => {
-  return db("users_products as u_p")
-    .join("users as u", "u_p.user_id", "u.id")
-    .join("products as p", "u_p.product_id", "p.id")
+  return db("users_carts as u_c")
+    .join("users as u", "u_c.user_id", "u.id")
+    .join("products as p", "u_c.product_id", "p.id")
     .select("p.*")
     .where({ user_id });
 };
@@ -36,7 +36,7 @@ const create = async newUser => {
 };
 
 const addToCart = userProductIds => {
-  return db("users_products").insert(userProductIds);
+  return db("users_carts").insert(userProductIds);
 };
 
 const createReview = newReview => {

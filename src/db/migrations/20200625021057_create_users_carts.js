@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  return knex.schema.createTable("users_products", table => {
+  return knex.schema.createTable("users_carts", table => {
     table
       .integer("user_id")
       .unsigned()
@@ -26,5 +26,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("users_products");
+  return knex.schema.dropTableIfExists("users_carts");
 };
