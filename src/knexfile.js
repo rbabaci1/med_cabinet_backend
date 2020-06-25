@@ -50,10 +50,10 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      directory: "./db/migrations",
+      directory: path.resolve(__dirname, "./db/migrations"),
     },
     seeds: {
-      directory: "./db/seeds",
+      directory: path.resolve(__dirname, "./db/seeds"),
     },
   },
 };
