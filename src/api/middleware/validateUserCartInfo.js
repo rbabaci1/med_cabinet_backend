@@ -1,13 +1,10 @@
-const { reviewSchema, deleteReviewSchema } = require("../validationSchemas");
+const { cartSchema } = require("../validationSchemas");
 const formatError = require("../../helpers/formatError");
 const { getBy } = require("../../db/models/global");
 
 module.exports = method => {
   return async (req, res, next) => {
-    const result =
-      method === "DELETE"
-        ? deleteReviewSchema.validate(req.body)
-        : reviewSchema.validate(req.body);
+    const result = cartSchema.validate(req.body);
 
     if (result.error) {
       res.status(400).json(formatError(result.error));
@@ -16,7 +13,7 @@ module.exports = method => {
         const { product_id, user_id } = req.body;
         const user = await getBy("users", { id: user_id });
         const product = await getBy("products", { id: product_id });
-        const reviewExists = await getBy("ratings", {
+        const productExists = await getBy("users_products", {
           user_id,
           product_id,
         });
@@ -29,19 +26,16 @@ module.exports = method => {
           res
             .status(404)
             .json({ message: "The specified product doesn't exist." });
-        } else if (reviewExists && method === "POST") {
+        } else if (productExists && method === "POST") {
           res
             .status(400)
-            .json({ message: "The specified review already exists." });
-        } else if (!reviewExists && method === "DELETE") {
+            .json({ message: "The specified product is already in the cart." });
+        } else if (!productExists && method === "DELETE") {
           res.status(404).json({
-            message: "The specified review doesn't exists.",
-          });
-        } else if (!reviewExists && method === "PUT") {
-          res.status(404).json({
-            message: "The specified review doesn't exists.",
+            message: "The specified product doesn't exists in the cart.",
           });
         } else {
+          req.product = product;
           next();
         }
       } catch (error) {

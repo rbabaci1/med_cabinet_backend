@@ -4,11 +4,11 @@ const getController = require("../controllers/usersGet");
 const postController = require("../controllers/usersPost");
 const putController = require("../controllers/usersPut");
 const deleteController = require("../controllers/usersDelete");
-const isAuth = require("../middlewares/isAuth");
-const validateUserCartInfo = require("../middlewares/validateUserCartInfo");
-const validateReviewInfo = require("../middlewares/validateReviewInfo");
-const { validateUserInfo } = require("../middlewares/validateUserInfo");
-const validateId = require("../middlewares/global");
+const isAuth = require("../middleware/isAuth");
+const validateUserCartInfo = require("../middleware/validateUserCartInfo");
+const validateReviewInfo = require("../middleware/validateReviewInfo");
+const { validateUserInfo } = require("../middleware/validateUserInfo");
+const validateId = require("../middleware/global");
 
 const TABLE_NAME = "users";
 

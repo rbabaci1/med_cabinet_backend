@@ -8,7 +8,7 @@ const getDispensary = id => {
 };
 
 const getReviews = product_id => {
-  return db("ratings as r")
+  return db("reviews as r")
     .select(
       "r.user_id",
       "r.rate",

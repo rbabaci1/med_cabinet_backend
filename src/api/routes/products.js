@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
-const validateId = require("../middlewares/global");
-const validateProductInfo = require("../middlewares/validateProductInfo");
-const validateProductRecommendationInfo = require("../middlewares/validateProductRecommendationInfo");
+const validateId = require("../middleware/global");
+const validateProductInfo = require("../middleware/validateProductInfo");
+const validateProductRecommendationInfo = require("../middleware/validateProductRecommendationInfo");
 const getController = require("../controllers/productsGet");
 const postController = require("../controllers/productsPost");
-const isAuth = require("../middlewares/isAuth");
+const isAuth = require("../middleware/isAuth");
 const TABLE_NAME = "products";
 
 router.get("/", getController.getProducts);

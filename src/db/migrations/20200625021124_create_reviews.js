@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  return knex.schema.createTable("ratings", table => {
+  return knex.schema.createTable("reviews", table => {
     table
       .integer("user_id")
       .unsigned()
@@ -28,5 +28,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("ratings");
+  return knex.schema.dropTableIfExists("reviews");
 };

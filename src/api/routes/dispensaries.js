@@ -1,8 +1,8 @@
 const router = require("express").Router();
 
-const validateId = require("../middlewares/global");
-const validateDispensaryInfo = require("../middlewares/validateDispensaryInfo");
-const isAuth = require("../middlewares/isAuth");
+const validateId = require("../middleware/global");
+const validateDispensaryInfo = require("../middleware/validateDispensaryInfo");
+const isAuth = require("../middleware/isAuth");
 const getController = require("../controllers/dispensariesGet");
 const postController = require("../controllers/dispensaryPost");
 

@@ -19,7 +19,7 @@ const getProducts = async user_id => {
 };
 
 const getReviews = user_id => {
-  return db("ratings as r")
+  return db("reviews as r")
     .select(
       "r.product_id",
       "r.rate",
@@ -40,7 +40,7 @@ const addToCart = userProductIds => {
 };
 
 const createReview = newReview => {
-  return db("ratings").insert(newReview);
+  return db("reviews").insert(newReview);
 };
 
 module.exports = {

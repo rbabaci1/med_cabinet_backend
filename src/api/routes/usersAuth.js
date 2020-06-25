@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const validateUserDuplicates = require("../middlewares/validateUserDuplicates");
-const User = require("../middlewares/validateUserInfo");
+const validateUserDuplicates = require("../middleware/validateUserDuplicates");
+const User = require("../middleware/validateUserInfo");
 const postController = require("../controllers/usersPost");
 
 router.post(

@@ -10,7 +10,7 @@ const getUserById = async ({ user }, res, next) => {
     res
       .status(200)
       .json({ id, firstName, lastName, email, created_at, products, reviews });
-  } catch (next) {
+  } catch (error) {
     next(error);
   }
 };
