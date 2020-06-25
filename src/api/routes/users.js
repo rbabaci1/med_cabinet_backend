@@ -18,6 +18,12 @@ router.get(
   validateId(TABLE_NAME),
   getController.getUserById
 );
+router.get(
+  "/auth/:id/cart",
+  isAuth,
+  validateId(TABLE_NAME),
+  getController.getUserCart
+);
 
 router.post(
   "/auth/cart",
@@ -25,7 +31,6 @@ router.post(
   validateUserCartInfo("POST"),
   postController.addToCart
 );
-
 router.post(
   "/auth/review",
   isAuth,
