@@ -24,14 +24,9 @@ const create = async product => {
   return getBy("products", { id });
 };
 
-const createReview = newReview => {
-  return db("ratings").insert(newReview);
-};
-
 module.exports = {
   getNumOfProducts,
   getDispensary,
   getReviews,
   create,
-  createReview,
 };

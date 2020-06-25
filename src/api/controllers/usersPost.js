@@ -56,4 +56,15 @@ const addToCart = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser, addToCart };
+const createReview = async (req, res, next) => {
+  try {
+    const review = { ...req.body, created_at: now(), updated_at: now() };
+
+    await User.createReview(review);
+    res.status(201).json({ success: true, createdReview: review });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { registerUser, loginUser, addToCart, createReview };

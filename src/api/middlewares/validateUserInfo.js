@@ -30,15 +30,20 @@ const validateUserInfo = async (req, res, next) => {
   const { id } = req.params;
   const result = userUpdateSchema.validate(req.body);
 
-  if (!result.error) {
-    const user = await getBy("users", { id });
-    if (!user) {
-      res.status(404).json({ message: "The specified user id is not valid." });
-    } else {
-      next();
-    }
-  } else {
+  if (result.error) {
     res.status(400).json(formatError(result.error));
+  } else {
+    try {
+      const user = await getBy("users", { id });
+
+      if (!user) {
+        res.status(404).json({ message: "The specified user doesn't exist." });
+      } else {
+        next();
+      }
+    } catch (error) {
+      next(error);
+    }
   }
 };
 
