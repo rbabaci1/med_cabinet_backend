@@ -1,5 +1,7 @@
 const path = require("path");
 
+const { pgConnection } = require("./config");
+
 module.exports = {
   development: {
     client: "sqlite3",
@@ -21,34 +23,36 @@ module.exports = {
   },
 
   testing: {
-    client: "pg",
+    client: "sqlite3",
+    useNullAsDefault: true,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
-    pool: {
-      min: 2,
-      max: 10,
+      filename: path.resolve(__dirname, "./db/__testing__.db"),
     },
     migrations: {
-      tableName: "knex_migrations",
+      directory: "./db/migrations",
+    },
+    seeds: {
+      directory: "./db/seeds",
+    },
+    pool: {
+      afterCreate: function (conn, done) {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
     },
   },
 
   production: {
     client: "pg",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
+    connection: pgConnection,
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      directory: "./db/migrations",
+    },
+    seeds: {
+      directory: "./db/seeds",
     },
   },
 };
