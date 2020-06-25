@@ -1,13 +1,14 @@
 const router = require("express").Router();
 
-const UserPost = require("../controllers/usersPost");
-const UserPut = require("../controllers/usersPut");
+const postController = require("../controllers/usersPost");
+const putController = require("../controllers/usersPut");
 const validateUserCartInfo = require("../middlewares/validateUserCartInfo");
+const validateReviewInfo = require("../middlewares/validateReviewInfo");
 const { validateUserInfo } = require("../middlewares/validateUserInfo");
 
-router.post("/cart", validateUserCartInfo, UserPost.addToCart);
+router.post("/cart", validateUserCartInfo, postController.addToCart);
 
-router.put("/:id", validateUserInfo, UserPut.updateUserInfo);
-router.put("/:id/review", validateReview, UserPut.updateUserReview);
+router.put("/:id", validateUserInfo, putController.updateUserInfo);
+router.put("/:id/review", validateReviewInfo, putController.updateUserReview);
 
 module.exports = router;
