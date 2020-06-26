@@ -2,8 +2,6 @@ const db = require("../dbConfig");
 const Product = require("./products");
 const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 
-beforeEach(() => cleanUpDatabase());
-
 const mockProduct = {
   strain_name: "Alien Rock Candy",
   strain_category: "Pre-rolls",
@@ -20,6 +18,8 @@ const mockProduct = {
   created_at: "2020-06-24 15:31:43",
   dispensary_id: 1,
 };
+
+beforeEach(() => cleanUpDatabase());
 
 describe("Products db models", () => {
   describe("getDispensary()", () => {
