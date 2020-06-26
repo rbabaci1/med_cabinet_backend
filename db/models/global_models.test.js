@@ -1,36 +1,26 @@
 const db = require("../dbConfig");
 const { getAll, getBy, update, remove } = require("./global");
+const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 
-const mockUser = {
-  firstName: "rabah",
-  lastName: "babaci",
-  email: "hello@gmail.com",
-  password: "hello",
-  created_at: "2020-06-23 11:41:40",
-};
+beforeEach(() => cleanUpDatabase());
 
 describe("global db models", () => {
-  beforeEach(async () => {
-    await db("users").truncate();
-    await db("users").insert(mockUser);
-  });
-
   describe("getAll()", () => {
     it("returns all entities of the specified tableName", async () => {
-      const [user] = await getAll("users");
+      const users = await getAll("users");
+      const origin = await db("users");
 
-      expect(user).toEqual({ id: 1, ...mockUser });
-      expect(user.lastName).toBe("babaci");
+      expect(users).toHaveLength(1);
+      expect(origin[0].firstName).toEqual(users[0].firstName);
     });
   });
 
   describe("getBy()", () => {
     it("returns a single entity of the specified tableName via the filter passed", async () => {
-      const user1 = await getBy("users", { id: 1 });
-      const user2 = await getBy("users", { id: 2 });
+      const user = await getBy("users", { id: 1 });
+      const origin = await db("users").where({ id: 1 }).first();
 
-      expect(user1.firstName).toBe("rabah");
-      expect(user2).toBeFalsy();
+      expect(origin.lastName).toEqual(user.lastName);
     });
   });
 
@@ -41,6 +31,8 @@ describe("global db models", () => {
         lastName: "bond",
         email: "james@bond.com",
       };
+      const user = await db("users").where({ id: 1 }).first();
+      expect(user.email).toBe("rbabaci1@gmail.com");
 
       await update("users", changes, { id: 1 });
       const updatedUser = await db("users").where({ id: 1 }).first();
