@@ -1,7 +1,5 @@
 const db = require("../dbConfig");
-const globals = require("./global");
-const { getAll } = require("./global");
-const { expectCt } = require("helmet");
+const { getAll, getBy, update, remove } = require("./global");
 
 describe("global db models", () => {
   describe("getAll()", () => {
@@ -11,6 +9,18 @@ describe("global db models", () => {
 
       expect(original).toEqual(users);
       expect(original.length).toEqual(users.length);
+    });
+  });
+
+  describe("getBy()", () => {
+    it("should return a single entity of the specified tableName and using the filter passed", async () => {
+      const original = await db("products").where({ id: 10 }).first();
+      const product1 = await getBy("products", { id: 10 });
+      const product2 = await getBy("products", { id: 99 });
+
+      expect(original).toEqual(product1);
+      expect(original.id).toEqual(product1.id);
+      expect(product2.id).toBe(99);
     });
   });
 });
