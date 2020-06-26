@@ -6,15 +6,14 @@ const { getBy } = require("../../db/models/global");
 
 const getRecommendations = async (req, res, next) => {
   try {
-    const { data } = await Axios.post(
+    const response = await Axios.post(
       "https://medicabi.herokuapp.com/send",
       req.body
     );
-    const fullProduct = await getBy("products", {
-      strain_name: data.Strain,
-    });
+    const { UserID, Strain: strain_name } = response.data;
+    const fullProduct = await getBy("products", { strain_name });
 
-    res.status(200).json(fullProduct);
+    res.status(200).json({ UserID, ...fullProduct });
   } catch (error) {
     next(error);
   }
