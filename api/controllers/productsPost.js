@@ -2,16 +2,19 @@ const { default: Axios } = require("axios");
 
 const Product = require("../../db/models/products");
 const now = require("../../helpers/getLocalDateTime");
+const { getBy } = require("../../db/models/global");
 
 const getRecommendations = async (req, res, next) => {
   try {
-    const data = req.body;
-
-    const response = await Axios.post(
+    const { data } = await Axios.post(
       "https://medicabi.herokuapp.com/send",
-      data
+      req.body
     );
-    res.status(200).json(response.data);
+    const fullProduct = await getBy("products", {
+      strain_name: data.Strain,
+    });
+
+    res.status(200).json(fullProduct);
   } catch (error) {
     next(error);
   }
