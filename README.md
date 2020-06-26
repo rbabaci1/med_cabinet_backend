@@ -29,7 +29,7 @@ Request: `req.body`
 ```
 {
   firstName: "test1",        // String Required, must be 3 characters minimum.
-  lastName: "test2"!         // String Required, must be 3 characters minimum.
+  lastName: "test2",         // String Required, must be 3 characters minimum.
   email: "hello@gmail.com"   // String Required, must be a valid email address.
   password: "welcome"        // String Required, must be 6 characters minimum.
 }
