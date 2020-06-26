@@ -57,12 +57,12 @@ const mockDispensaryHours = {
 };
 
 module.exports = async () => {
-  await db("users").truncate();
-  await db("dispensaries").truncate();
-  await db("products").truncate();
-  await db("users_carts").truncate();
-  await db("reviews").truncate();
   await db("dispensaries_hours").truncate();
+  await db("reviews").truncate();
+  await db("users_carts").truncate();
+  await db("products").truncate();
+  await db("dispensaries").truncate();
+  await db("users").truncate();
 
   await db("users").insert(mockUser);
   await db("dispensaries").insert(mockDispensary);

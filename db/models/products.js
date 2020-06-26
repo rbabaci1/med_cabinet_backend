@@ -1,8 +1,6 @@
 const db = require("../dbConfig");
 const { getBy } = require("./global");
 
-const getNumOfProducts = limit => db("products").limit(limit);
-
 const getDispensary = id => {
   return db("dispensaries").where({ id }).first();
 };
@@ -24,9 +22,4 @@ const create = async product => {
   return getBy("products", { id });
 };
 
-module.exports = {
-  getNumOfProducts,
-  getDispensary,
-  getReviews,
-  create,
-};
+module.exports = { getDispensary, getReviews, create };

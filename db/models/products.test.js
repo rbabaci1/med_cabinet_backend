@@ -23,21 +23,11 @@ beforeEach(() => cleanUpDatabase());
 
 describe("Products db models", () => {
   describe("getDispensary()", () => {
-    it("should return the specified dispensary", async () => {
+    it("should return the dispensary for the specified product", async () => {
       const original = await db("dispensaries").where({ id: 1 }).first();
       const dispensary = await Product.getDispensary(1);
 
       expect(original.address).toEqual(dispensary.address);
-    });
-  });
-
-  describe("getNumOfProducts()", () => {
-    it("should return a specified number of products", async () => {
-      const original = await db("products").limit(1);
-      const products = await Product.getNumOfProducts(1);
-
-      expect(original.length).toEqual(products.length);
-      expect(original[0].price).toEqual(products[0].price);
     });
   });
 

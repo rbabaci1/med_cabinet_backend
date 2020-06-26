@@ -12,7 +12,7 @@ const mockUser = {
   created_at: "2020-06-23 11:41:40",
 };
 
-const mockProduct = {
+const mockCartProduct = {
   user_id: 2,
   product_id: 1,
   created_at: "2020-06-23 11:41:40",
@@ -82,7 +82,7 @@ describe("users.js db models", () => {
       const cart = await db("users_carts");
       expect(cart).toHaveLength(1);
 
-      await User.addToCart(mockProduct);
+      await User.addToCart(mockCartProduct);
       expect(await db("users_carts")).toHaveLength(2);
     });
   });
