@@ -10,12 +10,12 @@ const mockUser = {
 };
 
 describe("global db models", () => {
-  describe("getAll()", () => {
-    beforeEach(async () => {
-      await db("users").truncate();
-      await db("users").insert(mockUser);
-    });
+  beforeEach(async () => {
+    await db("users").truncate();
+    await db("users").insert(mockUser);
+  });
 
+  describe("getAll()", () => {
     it("returns all entities of the specified tableName", async () => {
       const [user] = await getAll("users");
 
