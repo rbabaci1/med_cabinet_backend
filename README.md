@@ -380,16 +380,24 @@ Request: `req.body`
 Response: `res.body`
 ```
 {
-    "UserID": "dbkeyuser123",
-    "Strain": "Golden-Pineapple",
-    "Type": "hybrid",
-    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
-    "Flavor": "Pineapple,Tropical,Citrus",
-    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
-    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
-    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
-    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
-    it can be difficult to direct that focus effectively."
+    "UserID": 5,
+    "id": 2015,
+    "strain_name": "Strawberry-Mango-Haze",
+    "strain_category": "Pre-rolls",
+    "strain_type": "sativa",
+    "flavors": "Strawberry,Sweet,Mango",
+    "effects": "Happy,Euphoric,Uplifted,Focused,Energetic",
+    "avg_thc": 27,
+    "avg_cbd": 17,
+    "price": 6,
+    "price_unit": "gram",
+    "description": "Strawberry Mango Haze is a beautiful synergy of effects that just happen to be dressed in sweet,
+    fruity aromas. This strain achieves deep mental haziness and subtle degree of stimulation by combining Strawberry
+    Cough and Mango Haze. The “Haze” effects are",
+    "img_url": "https://images.unsplash.com/photo-1542326594-17ee0e5acd56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
+    "is_available": 1,
+    "created_at": "2019-10-17 08:11:20",
+    "dispensary_id": 3
 }
 ```
 --------------------------------
