@@ -49,7 +49,7 @@ Response: `res.body`
 }
   // password not returned, but is stored encrypted on database
 ```
---------------------------------
+
 ### 2. User Login
 #### **POST** */api/auth/login*
 
@@ -77,7 +77,6 @@ Response: `res.body`
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
 }
 ```
---------------------------------
 
 ### 3. Add a Product to the User's Cart
 #### **POST** */api/users/auth/cart*
@@ -121,7 +120,6 @@ Response: `res.body`
     }
 }
 ```
---------------------------------
 
 ### 4. User writes a review about a product
 #### **POST** */api/users/review*
@@ -158,7 +156,6 @@ Response: `res.body`
     }
 }
 ```
---------------------------------
 
 ### 5. Access a single User with all Details (cart & reviews)
 #### **GET** */api/users/:id*
@@ -211,9 +208,8 @@ Response: `res.body`
     ]
 }
 ```
---------------------------------
 
-### 7. Update User Info
+### 6. Update User Info
 #### **PUT** */api/users/:id*
 
 Returns the specified user with the new updates via the **user's** `:id` URL param.
@@ -246,9 +242,8 @@ Response: `res.body`
   },
 }
 ```
---------------------------------
 
-### 8. Update User's Review
+### 7. Update User's Review
 #### **PUT** */api/users/review/:id*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
@@ -283,9 +278,8 @@ Response: `res.body`
     }
 }
 ```
---------------------------------
 
-### 9. Remove an item from the User's cart
+### 8. Remove an item from the User's cart
 #### **DELETE** */api/users/cart*
 
 Returns an object of the removed item.
@@ -327,9 +321,8 @@ Response: `res.body`
     }
 }
 ```
---------------------------------
 
-### 10. Remove a User's Review
+### 9. Remove a User's Review
 #### **DELETE** */api/users/cart*
 
 Returns an object of the removed product.
@@ -362,7 +355,6 @@ Response: `res.body`
     }
 }
 ```
-
 --------------------------------
 ## **DS Recommendations Endpoint**
 
@@ -400,7 +392,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ## **Admin Routes**
 
 ### 1. Create a Product
@@ -409,7 +400,6 @@ Response: `res.body`
 Returns object of the created **Review**.
 
 Request: `req.body`
-
 ```
 {         
   "strain_name": "Alien Rock Candy",
@@ -457,7 +447,6 @@ Response: `res.body`
     }
 }
 ```
---------------------------------
 
 ### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
@@ -515,7 +504,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ## **General Routes**
 
 ### 1. GET all products
@@ -577,7 +565,6 @@ Response: `res.body`
     },
 ]
 ```
---------------------------------
 
 ### 3. GET a single product
 #### **GET** */api/products/:id*
@@ -633,7 +620,6 @@ Response: `res.body`
     ]      
 },
 ```
---------------------------------
 
 ### 4. GET a single dispensary
 #### **GET** */api/dispensaries/:id*
