@@ -19,19 +19,23 @@ module.exports = method => {
         });
 
         if (!user) {
-          res
-            .status(404)
-            .json({ message: "The specified user doesn't exist." });
+          res.status(404).json({
+            success: false,
+            message: "The specified user doesn't exist.",
+          });
         } else if (!product) {
-          res
-            .status(404)
-            .json({ message: "The specified product doesn't exist." });
+          res.status(404).json({
+            success: false,
+            message: "The specified product doesn't exist.",
+          });
         } else if (productExists && method === "POST") {
-          res
-            .status(400)
-            .json({ message: "The specified product is already in the cart." });
+          res.status(409).json({
+            success: false,
+            message: "The specified product is already in the cart.",
+          });
         } else if (!productExists && method === "DELETE") {
           res.status(404).json({
+            success: false,
             message: "The specified product doesn't exists in the cart.",
           });
         } else {

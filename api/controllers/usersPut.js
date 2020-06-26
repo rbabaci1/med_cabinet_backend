@@ -23,7 +23,10 @@ const updateUserReview = async (req, res, next) => {
     const review = await getBy("reviews", { user_id, product_id });
 
     if (!review) {
-      res.status(404).json({ message: "The specified review doesn't exist." });
+      res.status(404).json({
+        success: false,
+        message: "The specified review doesn't exist.",
+      });
     } else {
       const newReview = { ...review, ...changes, updated_at: now() };
 

@@ -18,8 +18,9 @@ module.exports = (req, res, next) => {
       });
     } else {
       next({
+        success: false,
         statusCode: 401,
-        message: "User token is not included in the headers.",
+        message: "User token must be included in the headers.",
       });
     }
   } catch (error) {

@@ -7,9 +7,9 @@ module.exports = async (req, res, next) => {
   if (!user) {
     next();
   } else {
-    res.status(500).json({
+    res.status(409).json({
       success: false,
-      error: "This email address is already being used.",
+      error: "This email is already registered. Try a different one?",
     });
   }
 };

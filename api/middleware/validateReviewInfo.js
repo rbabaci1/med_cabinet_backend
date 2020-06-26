@@ -22,23 +22,23 @@ module.exports = method => {
         });
 
         if (!user) {
-          res
-            .status(404)
-            .json({ message: "The specified user doesn't exist." });
-        } else if (!product) {
-          res
-            .status(404)
-            .json({ message: "The specified product doesn't exist." });
-        } else if (reviewExists && method === "POST") {
-          res
-            .status(400)
-            .json({ message: "The specified review already exists." });
-        } else if (!reviewExists && method === "DELETE") {
           res.status(404).json({
-            message: "The specified review doesn't exists.",
+            success: false,
+            message: "The specified user doesn't exist.",
           });
-        } else if (!reviewExists && method === "PUT") {
+        } else if (!product) {
           res.status(404).json({
+            success: false,
+            message: "The specified product doesn't exist.",
+          });
+        } else if (reviewExists && method === "POST") {
+          res.status(409).json({
+            success: false,
+            message: "This review already exists for the specified user.",
+          });
+        } else if (!reviewExists && method !== "POST") {
+          res.status(404).json({
+            success: false,
             message: "The specified review doesn't exists.",
           });
         } else {

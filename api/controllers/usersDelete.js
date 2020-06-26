@@ -20,18 +20,27 @@ const removeReview = async (req, res, next) => {
     const review = await getBy("reviews", { user_id, product_id });
 
     if (!user) {
-      res.status(404).json({ message: "The specified user_id is not valid." });
+      res
+        .status(404)
+        .json({
+          success: false,
+          message: "The specified user_id is not valid.",
+        });
     } else if (!product) {
       res
         .status(404)
-        .json({ message: "The specified product_id is not valid." });
+        .json({
+          success: false,
+          message: "The specified product_id is not valid.",
+        });
     } else if (!review) {
       res.status(404).json({
+        success: false,
         message: "The specified review doesn't exists .",
       });
     } else {
       await remove("reviews", { product_id });
-      res.status(200).json({ message: "success", removedReview: review });
+      res.status(200).json({ success: true, removedReview: review });
     }
   } catch (error) {
     next(error);

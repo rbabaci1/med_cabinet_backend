@@ -34,6 +34,7 @@ const loginUser = async (req, res, next) => {
       const token = generateToken(user);
 
       res.status(200).json({
+        success: true,
         message: "Welcome to best med-cabinet in the world!",
         logged_user: removeObjKey(user, "password"),
         token,

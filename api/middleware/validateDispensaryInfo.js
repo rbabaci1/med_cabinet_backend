@@ -13,9 +13,9 @@ module.exports = async (req, res, next) => {
       const dispensary = await getBy("dispensaries", { name });
 
       if (dispensary) {
-        res.status(400).json({
+        res.status(409).json({
           success: false,
-          message: "Dispensary name is already taken.",
+          message: "This dispensary email is already registered.",
         });
       } else {
         next();
