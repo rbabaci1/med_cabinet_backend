@@ -66,6 +66,7 @@ Request: `req.body`
 Response: `res.body`
 ```
 {
+  "success": true,
   "message": ""Welcome to best med-cabinet in the world!"",
   "logged_user": {
     "id": 1,
