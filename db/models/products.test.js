@@ -4,6 +4,23 @@ const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 
 beforeEach(() => cleanUpDatabase());
 
+const mockProduct = {
+  strain_name: "Alien Rock Candy",
+  strain_category: "Pre-rolls",
+  strain_type: "Indica",
+  flavors: "mango,banana",
+  effects: "focus,dancing",
+  avg_thc: 33.23,
+  avg_cbd: 16.41,
+  price: 17.24,
+  price_unit: "gram",
+  description: "From Sonoma County comes Alaska Thunder Grape ...",
+  img_url: "https:// ...",
+  is_available: true,
+  created_at: "2020-06-24 15:31:43",
+  dispensary_id: 1,
+};
+
 describe("Products db models", () => {
   describe("getDispensary()", () => {
     it("should return the specified dispensary", async () => {
@@ -38,6 +55,21 @@ describe("Products db models", () => {
       const reviews = await Product.getReviews(1);
 
       expect(original[0]).toMatchObject(reviews[0]);
+    });
+  });
+
+  describe("create()", () => {
+    it("should create the provided product", async () => {
+      expect(await db("products")).toHaveLength(1);
+
+      await Product.create(mockProduct);
+      expect(await db("products")).toHaveLength(2);
+    });
+
+    it("should return the product it created", async () => {
+      const createdProduct = await Product.create(mockProduct);
+
+      expect(mockProduct.img_url).toEqual(createdProduct.img_url);
     });
   });
 });
