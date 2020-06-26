@@ -29,7 +29,7 @@ Request: `req.body`
 ```
 {
   firstName: "test1",        // String Required, must be 3 characters minimum.
-  lastName: "test2"!         // String Required, must be 3 characters minimum.
+  lastName: "test2",         // String Required, must be 3 characters minimum.
   email: "hello@gmail.com"   // String Required, must be a valid email address.
   password: "welcome"        // String Required, must be 6 characters minimum.
 }
@@ -50,7 +50,6 @@ Response: `res.body`
   // password not returned, but is stored encrypted on database
 ```
 --------------------------------
-
 ### 2. User Login
 #### **POST** */api/auth/login*
 
@@ -79,7 +78,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ### 3. Add a Product to the User's Cart
 #### **POST** */api/users/auth/cart*
 
@@ -123,7 +121,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ### 4. User writes a review about a product
 #### **POST** */api/users/review*
 
@@ -160,7 +157,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ### 5. Access a single User with all Details (cart & reviews)
 #### **GET** */api/users/:id*
 
@@ -213,8 +209,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
-### 7. Update User Info
+### 6. Update User Info
 #### **PUT** */api/users/:id*
 
 Returns the specified user with the new updates via the **user's** `:id` URL param.
@@ -248,8 +243,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
-### 8. Update User's Review
+### 7. Update User's Review
 #### **PUT** */api/users/review/:id*
 
 Returns the specified review with the new updates via the **user's** `:id` URL param.
@@ -285,8 +279,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
-### 9. Remove an item from the User's cart
+### 8. Remove an item from the User's cart
 #### **DELETE** */api/users/cart*
 
 Returns an object of the removed item.
@@ -329,8 +322,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
-### 10. Remove a User's Review
+### 9. Remove a User's Review
 #### **DELETE** */api/users/cart*
 
 Returns an object of the removed product.
@@ -363,7 +355,7 @@ Response: `res.body`
     }
 }
 ```
-
+--------------------------------
 --------------------------------
 ## **DS Recommendations Endpoint**
 
@@ -388,20 +380,26 @@ Request: `req.body`
 Response: `res.body`
 ```
 {
-    "UserID": "dbkeyuser123",
-    "Strain": "Golden-Pineapple",
-    "Type": "hybrid",
-    "Effects": "Happy,Euphoric,Uplifted,Relaxed,Creative",
-    "Flavor": "Pineapple,Tropical,Citrus",
-    "Description": "Golden Pineapple is a hybrid cross between Golden Goat and Pineapple Kush that delivers creative, 
-    uplifting effects with a fruity, tropical flavor. Its aroma is remarkably similar to sour pineapple, 
-    providing a flavorful escape from stress, anxiety, and depression. Golden Pineapple’s engaged, 
-    active effects will give you the energy you need to keep going throughout your day, although in larger doses, 
-    it can be difficult to direct that focus effectively."
+    "UserID": 5,
+    "id": 2015,
+    "strain_name": "Strawberry-Mango-Haze",
+    "strain_category": "Pre-rolls",
+    "strain_type": "sativa",
+    "flavors": "Strawberry,Sweet,Mango",
+    "effects": "Happy,Euphoric,Uplifted,Focused,Energetic",
+    "avg_thc": 27,
+    "avg_cbd": 17,
+    "price": 6,
+    "price_unit": "gram",
+    "description": "Strawberry Mango Haze is a beautiful synergy ...",
+    "img_url": "https:// ...",
+    "is_available": 1,
+    "created_at": "2019-10-17 08:11:20",
+    "dispensary_id": 3
 }
 ```
 --------------------------------
-
+--------------------------------
 ## **Admin Routes**
 
 ### 1. Create a Product
@@ -410,7 +408,6 @@ Response: `res.body`
 Returns object of the created **Review**.
 
 Request: `req.body`
-
 ```
 {         
   "strain_name": "Alien Rock Candy",
@@ -459,7 +456,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
 ### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
 
@@ -516,7 +512,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-
+--------------------------------
 ## **General Routes**
 
 ### 1. GET all products
@@ -552,7 +548,7 @@ Response: `res.body`
     // ... etc.
 ]
 ```
-
+--------------------------------
 ### 2. GET a limited number of products
 #### **GET** */api/products/?limit=2*
 
@@ -579,7 +575,6 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-
 ### 3. GET a single product
 #### **GET** */api/products/:id*
 
@@ -635,7 +630,6 @@ Response: `res.body`
 },
 ```
 --------------------------------
-
 ### 4. GET a single dispensary
 #### **GET** */api/dispensaries/:id*
 
