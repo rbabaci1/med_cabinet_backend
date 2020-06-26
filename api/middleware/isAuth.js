@@ -4,7 +4,7 @@ const { JWT_SECRET } = require("../../config");
 
 module.exports = (req, res, next) => {
   try {
-    const token = req.headers.authorization;
+    const token = req.headers ? req.headers.authorization : false;
 
     if (token) {
       jwt.verify(token, JWT_SECRET, error => {

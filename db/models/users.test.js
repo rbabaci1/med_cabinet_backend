@@ -2,8 +2,6 @@ const db = require("../dbConfig");
 const User = require("./users");
 const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 
-beforeEach(() => cleanUpDatabase());
-
 const mockUser = {
   firstName: "test99",
   lastName: "test100",
@@ -29,6 +27,8 @@ const mockReview = {
 };
 
 describe("users.js db models", () => {
+  afterEach(() => cleanUpDatabase());
+
   describe("getProducts()", () => {
     it("should return all the products for the specified user via user id", async () => {
       const products = await User.getProducts(1);

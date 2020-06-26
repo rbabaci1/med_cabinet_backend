@@ -19,9 +19,9 @@ const mockProduct = {
   dispensary_id: 1,
 };
 
-beforeEach(() => cleanUpDatabase());
-
 describe("Products db models", () => {
+  afterEach(() => cleanUpDatabase());
+
   describe("getDispensary()", () => {
     it("should return the dispensary for the specified product", async () => {
       const original = await db("dispensaries").where({ id: 1 }).first();

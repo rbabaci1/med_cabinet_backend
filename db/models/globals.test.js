@@ -10,9 +10,9 @@ const mockUser = {
   created_at: "2020-06-23 11:41:40",
 };
 
-beforeEach(() => cleanUpDatabase());
-
 describe("global db models", () => {
+  afterEach(() => cleanUpDatabase());
+
   describe("getAll()", () => {
     it("returns all entities of the specified table", async () => {
       const users = await getAll("users");

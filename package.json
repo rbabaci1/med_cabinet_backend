@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "mock-express-request": "^0.2.2",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.0.0",
     "supertest": "^4.0.2"

@@ -24,14 +24,13 @@ const mockDispensaryHours = [
   },
 ];
 
-beforeEach(() => cleanUpDatabase());
-
 describe("dispensaries db models", () => {
+  afterEach(() => cleanUpDatabase());
+
   describe("getProducts()", () => {
     it("should return all products of the specified dispensary", async () => {
       const original = await db("products").where({ dispensary_id: 1 });
       const products = await Dispensary.getProducts(1);
-
       expect(original[0]).toMatchObject(products[0]);
     });
   });
