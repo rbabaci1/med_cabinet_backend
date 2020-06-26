@@ -5,6 +5,15 @@ const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 beforeEach(() => cleanUpDatabase());
 
 describe("Products db models", () => {
+  describe("getDispensary()", () => {
+    it("should return the specified dispensary", async () => {
+      const original = await db("dispensaries").where({ id: 1 }).first();
+      const dispensary = await Product.getDispensary(1);
+
+      expect(original.address).toEqual(dispensary.address);
+    });
+  });
+
   describe("getNumOfProducts()", () => {
     it("should return a specified number of products", async () => {
       const original = await db("products").limit(1);
