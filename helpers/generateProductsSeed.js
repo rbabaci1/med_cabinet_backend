@@ -18,20 +18,20 @@ const generateProducts = () => {
     p.dispensary_id = random2(1, 30);
     p.description = p.description.slice(0, 255);
 
-    p.img_url = "hello";
-    p.strain_category === "Flower"
-      ? random1(images.flowers)
-      : p.strain_category === "Edibles"
-      ? random1(images.edibles)
-      : p.strain_category === "Cartridges"
-      ? random1(images.cartridges)
-      : p.strain_category === "Vaping"
-      ? random1(images.vapes)
-      : p.strain_category === "Concentrates"
-      ? random1(images.concentrates)
-      : p.strain_category === "Pre-rolls"
-      ? random1(images.pre_rolls)
-      : random1(images.cbd);
+    p.img_url =
+      p.strain_category === "Flower"
+        ? random1(images.flowers)
+        : p.strain_category === "Edibles"
+        ? random1(images.edibles)
+        : p.strain_category === "Cartridges"
+        ? random1(images.cartridges)
+        : p.strain_category === "Vaping"
+        ? random1(images.vapes)
+        : p.strain_category === "Concentrates"
+        ? random1(images.concentrates)
+        : p.strain_category === "Pre-rolls"
+        ? random1(images.pre_rolls)
+        : random1(images.cbd);
     p.price_unit = random1(price_units);
     p.is_available = random1([true, false]);
 
