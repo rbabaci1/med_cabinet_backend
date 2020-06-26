@@ -50,7 +50,6 @@ Response: `res.body`
   // password not returned, but is stored encrypted on database
 ```
 --------------------------------
-
 ### 2. User Login
 #### **POST** */api/auth/login*
 
