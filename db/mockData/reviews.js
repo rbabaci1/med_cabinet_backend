@@ -12,11 +12,11 @@ module.exports = [
     user_id: 1,
     product_id: 27,
     rate: 2,
-    description: "Therapeutic Exercise Treatment of Circulatory System",
+    description:
+      "Therapeutic Exercise Treatment of Circulatory System - Lower Back / Lower Extremity using Physical Agents",
     created_at: "2020-05-13 00:32:28",
     updated_at: "2019-08-22 11:37:00",
   },
-
   {
     user_id: 2,
     product_id: 46,
@@ -65,7 +65,7 @@ module.exports = [
     product_id: 31,
     rate: 3,
     description:
-      "Motor Function Treatment of Integumentary System - Upper Back",
+      "Motor Function Treatment of Integumentary System - Upper Back / Upper Extremity using Assistive, Adaptive, Supportive or Protective Equipment",
     created_at: "2020-04-20 05:34:09",
     updated_at: "2019-08-22 11:37:00",
   },
@@ -73,7 +73,8 @@ module.exports = [
     user_id: 4,
     product_id: 15,
     rate: 2,
-    description: "Dilation of Right Peroneal Artery with Three Drug-eluting",
+    description:
+      "Dilation of Right Peroneal Artery with Three Drug-eluting Intraluminal Devices, Percutaneous Endoscopic Approach",
     created_at: "2020-01-28 11:39:14",
     updated_at: "2019-08-22 11:37:00",
   },
@@ -81,7 +82,8 @@ module.exports = [
     user_id: 5,
     product_id: 42,
     rate: 5,
-    description: "Revision of External Fixation Device in Right Metatarsal",
+    description:
+      "Revision of External Fixation Device in Right Metatarsal, Percutaneous Endoscopic Approach",
     created_at: "2020-02-16 20:17:36",
     updated_at: "2019-08-22 11:37:00",
   },
