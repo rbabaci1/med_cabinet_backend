@@ -11,7 +11,7 @@ exports.up = function (knex) {
     table.integer("price").notNullable();
     table.string("price_unit", 64).notNullable();
     table.string("description").notNullable();
-    table.string("img_url", 128).notNullable();
+    table.string("img_url").notNullable();
     table.boolean("is_available").notNullable();
     table.string("created_at", 64).notNullable();
     table
