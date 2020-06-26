@@ -48,4 +48,14 @@ describe("global db models", () => {
       expect(updatedUser.email).toBe("james@bond.com");
     });
   });
+
+  describe("remove()", () => {
+    it("removes the specified entity via the filter", async () => {
+      const success = await remove("users", { id: 1 });
+      const user = await db("users").where({ id: 1 }).first();
+
+      expect(success).toBe(1);
+      expect(user).toBeFalsy();
+    });
+  });
 });
