@@ -6,7 +6,7 @@ const putController = require("../controllers/usersPut");
 const deleteController = require("../controllers/usersDelete");
 const isAuth = require("../middleware/isAuth");
 const validateUserCartInfo = require("../middleware/validateUserCartInfo");
-const validateReviewInfo = require("../middleware/validateReviewInfo");
+const validateUserReviewInfo = require("../middleware/validateUserReviewInfo");
 const { validateUserUpdateInfo } = require("../middleware/validateUserInfo");
 const validateId = require("../middleware/global");
 
@@ -23,7 +23,7 @@ router.post(
 router.post(
   "/review",
   isAuth,
-  validateReviewInfo("POST"),
+  validateUserReviewInfo("POST"),
   postController.createReview
 );
 
@@ -34,23 +34,23 @@ router.put(
   putController.updateUserInfo
 );
 router.put(
-  "/review/:id",
+  "/:user_id/review/:product_id",
   isAuth,
-  validateReviewInfo("PUT"),
+  validateUserReviewInfo("PUT"),
   putController.updateUserReview
 );
 
 router.delete(
-  "/review",
-  isAuth,
-  validateReviewInfo("DELETE"),
-  deleteController.removeReview
-);
-router.delete(
-  "/cart",
+  "/:user_id/cart/:product_id",
   isAuth,
   validateUserCartInfo("DELETE"),
   deleteController.removeCartItem
+);
+router.delete(
+  "/:user_id/review/:product_id",
+  isAuth,
+  validateUserReviewInfo("DELETE"),
+  deleteController.removeReview
 );
 
 module.exports = router;

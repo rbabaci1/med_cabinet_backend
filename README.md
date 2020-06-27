@@ -25,29 +25,28 @@ https://best-med-cabinet.herokuapp.com
 Registers a new user account on database.
 
 Request: `req.body`
-
 ```
 {
-  firstName: "test1",        // String Required, must be 3 characters minimum.
-  lastName: "test2",         // String Required, must be 3 characters minimum.
-  email: "hello@gmail.com"   // String Required, must be a valid email address.
-  password: "welcome"        // String Required, must be 6 characters minimum.
+    firstName: "test1",        // String Required, must be 3 characters minimum.
+    lastName: "test2",         // String Required, must be 3 characters minimum.
+    email: "hello@gmail.com"   // String Required, must be a valid email address.
+    password: "welcome"        // String Required, must be 6 characters minimum.
 }
 ```
 
 Response: `res.body`
 ```
 {
-  "success": true,      // user registered successfully
-  "createdUser": {
-    "id": 1,
-    "firstName": "test1",
-    "lastName": "test2",
-    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
+    "success": true,      // user registered successfully.
+    "createdUser": {
+        "id": 1,
+        "firstName": "test1",
+        "lastName": "test2",
+        "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created.
+        // password not returned, but is stored encrypted on database.
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."  // valid for one hour.
 }
-  // password not returned, but is stored encrypted on database
 ```
 --------------------------------
 ### 2. User Login
@@ -56,33 +55,32 @@ Response: `res.body`
 Authenticates user's credentials. Returns JSON object with personalized welcome message, token and user info.
 
 Request: `req.body`
-
 ```
 {
-  email: "hello@gmail.com"   // String Required, must be a valid email address.
-  password: "welcome"        // String Required, must be 6 characters minimum.
+    email: "hello@gmail.com"   // String Required, must be a valid email address.
+    password: "welcome"        // String Required, must be 6 characters minimum.
 }
 ```
 Response: `res.body`
 ```
 {
-  "success": true,
-  "message": ""Welcome to best med-cabinet in the world!"",
-  "logged_user": {
-    "id": 1,
-    "firstName": "test1",
-    "lastName": "test2",
-    "email": "hello@gmail.com"
-    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."
+    "success": true,
+    "message": ""Welcome to best med-cabinet in the world!"",
+    "logged_user": {
+        "id": 1,
+        "firstName": "test1",
+        "lastName": "test2",
+        "email": "hello@gmail.com"
+        "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created..
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 ..."   // valid for one hour.
 }
 ```
 --------------------------------
 ### 3. Add a Product to the User's Cart
 #### **POST** */api/users/cart*
 
-Returns object of the added **Product**.
+Returns a JSON object of the added **Product**.
 
 Request: `req.body`
 ```
@@ -94,7 +92,7 @@ Request: `req.body`
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
@@ -109,8 +107,8 @@ Response: `res.body`
         "strain_type": "indica",
         "flavors": "Sweet,Pine,Woody",
         "effects": "Relaxed,Sleepy,Happy,Euphoric,Hungry",
-        "avg_thc": 37,
-        "avg_cbd": 36,
+        "avg_thc": 37.50,
+        "avg_cbd": 36.30,
         "price": 33,
         "price_unit": "gram",
         "description": "Afgoo, also known as Afgooey ...",
@@ -125,7 +123,7 @@ Response: `res.body`
 ### 4. User writes a review about a product
 #### **POST** */api/users/review*
 
-Returns object of the created **Review**.
+Returns a JSON object of the created **Review**.
 
 Request: `req.body`
 ```
@@ -139,7 +137,7 @@ Request: `req.body`
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
@@ -161,12 +159,16 @@ Response: `res.body`
 ### 5. Access a single User with all Details (cart & reviews)
 #### **GET** */api/users/:id*
 
-Returns a single user via the **user's** `:id` URL param.
+Returns a JSON object with all details of the specified user via the **user's** `:id` URL param.
 
+Request: `req.body`
+```
+// N/A
+```
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
@@ -179,89 +181,87 @@ Response: `res.body`
     "email": "hkimm2@vistaprint.com",
     "created_at": "2019-11-04 02:01:24",  // this is the date when the user was created
     
-     "cart": [      // a nested array that represents all the products this user has in cart
+    "cart": [      // a nested array that represents all the products this user has in cart
         {
-            "id": 6,              // this is the id# of the product (NOT DISPENSARY)
+            "id": 6,              // this is the id# of the product (NOT DISPENSARY).
             "strain_name": "Alien Rock Candy",
             "strain_category": "Pre-rolls",
             "strain_type": "Indica",
-            "avg_thc": 33.23,          // percentage
-            "avg_cbd": 16.41,          // percentage
-            "price": 17.24,            // $
-            "price_unit": "gram",      // gram/piece
+            "avg_thc": 33.23,          // percentage.
+            "avg_cbd": 16.41,          // percentage.
+            "price": 17.24,            // $.
+            "price_unit": "gram",      // gram/piece.
             "description": "From Sonoma County comes Alaska Thunder Grape ...",
-            "img_url": "https:// ...",      // this is the product image
-            "is_available": 0,              // 0 === false, 1 === true
-            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created
-            "dispensary_id": 2         // this the dispensary provider id#
+            "img_url": "https:// ...",      // this is the product image.
+            "is_available": 0,              // 0 === false, 1 === true.
+            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created.
+            "dispensary_id": 2         // this the dispensary provider id#.
         },
         // .. etc
     ]
-    "reviews": [    // a nested array that represents all the reviews written by this user
+    "reviews": [    // a nested array that represents all the reviews written by this user.
         {
             "product_id": 13,
             "rate": 3,
             "description": "Radiation Therapy, Respiratory System, Beam Radiation",
-            "created_at": "2020-05-11 00:32:20",    // this is the date&time when the product was written
-            "updated_at": "2019-08-22 11:37:00"     // this is the date&time when the product was updated
+            "created_at": "2020-05-11 00:32:20",    // this is the date&time when the product was written.
+            "updated_at": "2019-08-22 11:37:00"     // this is the date&time when the product was updated.
         },
-        // ..etc
+        // ...etc
     ]
 }
 ```
 --------------------------------
-### 6. Update User Info
+### 6. Update a User's Info
 #### **PUT** */api/users/:id*
 
-Returns the specified user with the new updates via the **user's** `:id` URL param.
+Returns a JSON object with the new changes fo the specified user via the **user's** `:id` URL param.
 
 Request: `req.body`
 ```
 {
-  firstName: "updated first name",        
-  lastName: "test2"!         
-  email: "hello@gmail.com"   
+    firstName: "updated first name",        
+    lastName: "test2"!         
+    email: "hello@gmail.com"   
 }
 ```
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
 Response: `res.body`
 ```
 {
-  "success": true,      // user registered successfully
-  "updatedUser": {
-    "id": 1,
-    "firstName": "updated first name",
-    "lastName": "test2",
-    "email": "hello@gmail.com",
-    "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created
-  },
+    "success": true,      // user registered successfully.
+    "updatedUser": {
+        "id": 1,
+        "firstName": "updated first name",
+        "lastName": "test2",
+        "email": "hello@gmail.com",
+        "created_at": "2020-06-23 11:41:40"     // this is the date&time when the user was created.
+    },
 }
 ```
 --------------------------------
-### 7. Update User's Review
-#### **PUT** */api/users/review/:id*
+### 7. Update a User's Review
+#### **PUT** */api/users/:user_id/review/:product_id*
 
-Returns the specified review with the new updates via the **user's** `:id` URL param.
+Returns a JSON object with the new changes of the specified user via the **user's** `:id` and **product's**  `:id` URL params.
 
 Request: `req.body`
 ```
 {
-    "user_id": 5,
-    "product_id": 42,
     "rate": 4,
-    "description": "I figured it out!!"  // updated dispcription
+    "description": "I figured it out!!"  // updated dispcription.
 }
 ```
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
@@ -281,28 +281,25 @@ Response: `res.body`
 ```
 --------------------------------
 ### 8. Remove an item from the User's cart
-#### **DELETE** */api/users/cart*
+#### **DELETE** */api/users/:user_id/cart/:product_id*
 
-Returns an object of the removed item.
+Returns a JSON object with the removed product info via the **user's** `:id` and **product's** `:id` URL params.
 
 Request: `req.body`
 ```
-{
-    "user_id": 1,
-    "product_id": 23
-}
+// N/A
 ```
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
 Response: `res.body`
 ```
 {
-    "message": "success",
+    "success": true,
     "removedProduct": {
         "id": 22,
         "strain_name": "A-Train",
@@ -324,33 +321,30 @@ Response: `res.body`
 ```
 --------------------------------
 ### 9. Remove a User's Review
-#### **DELETE** */api/users/cart*
+#### **DELETE** */api/users/:user_id/review/:product_id*
 
-Returns an object of the removed product.
+Returns a JSON object with the removed review info via the **user's** `:id` and **product's** `:id` URL params.
 
 Request: `req.body`
 ```
-{
-    "user_id": 1,
-    "product_id": 23
-}
+// N/A
 ```
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+    Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
 }
 ```
 
 Response: `res.body`
 ```
 {
-    "message": "success",
+    "success": true,
     "removedReview": {
         "user_id": 5,
         "product_id": 42,
         "rate": 5,
-        "description": "Revision of External Fixation Device in Right Metatarsal, Percutaneous Endoscopic Approach",
+        "description": "Revision of External Fixation Device in Right Metatarsal.",
         "created_at": "2020-02-16 20:17:36",
         "updated_at": "2019-08-22 11:37:00"
     }
@@ -360,20 +354,20 @@ Response: `res.body`
 --------------------------------
 ## **DS Recommendations Endpoint**
 
-### 1. Get products recommendations
+### 1. Get product recommendations
 #### **POST** */api/products/recommendations*
 
-Returns an array of objects of **ALL** products recommended based on user input
+Returns a JSON objects of the recommended product based on the user's input.
 
 Request: `req.body`
 ```
 {
-    "UserID": "dbkeyuser123",   // Required
-    "Strain": "User_strain",    // placeholder Required
-    "Type": "Sativa",           // Required
-    "Effects": "Happy, energetic, and creative",    // Required
-    "Flavor": "Sour, fruity, pineapple, citrus",    // Required
-    "Description": "I'm bummed most the time.  I'm just looking to feel good,   // Required
+    "UserID": "dbkeyuser123",   // Required.
+    "Strain": "User_strain",    // placeholder string Required.
+    "Type": "Sativa",           // Required.
+    "Effects": "Happy, energetic, and creative",    // Required.
+    "Flavor": "Sour, fruity, pineapple, citrus",    // Required.
+    "Description": "I'm bummed most the time.  I'm just looking to feel good,   // Required.
     and keep my creative juices flowing. I'm an artist and I find some herb helps my art."
 }
 ```
@@ -406,30 +400,30 @@ Response: `res.body`
 ### 1. Create a Product
 #### **POST** */api/products/create*
 
-Returns object of the created **Review**.
+Returns a JSON object of the created **Product**.
 
 Request: `req.body`
 ```
 {         
-  "strain_name": "Alien Rock Candy",
-  "strain_category": "Pre-rolls",
-  "strain_type": "Indica",
-  "flavors": ["mango", "banana"],   // Array of strings Required
-  "effects": ["focus", "dancing"],  // Array of strings Required
-  "avg_thc": 33.23,          
-  "avg_cbd": 16.41,          
-  "price": 17.24,            
-  "price_unit": "gram",    
-  "description": "From Sonoma County comes Alaska Thunder Grape ...",
-  "img_url": "https:// ...",     
-  "is_available": true,                 
-  "dispensary_id": 19    
+    "strain_name": "Alien Rock Candy",
+    "strain_category": "Pre-rolls",
+    "strain_type": "Indica",
+    "flavors": ["mango", "banana"],   // Array of strings Required.
+    "effects": ["focus", "dancing"],  // Array of strings Required.
+    "avg_thc": 33.23,          
+    "avg_cbd": 16.41,          
+    "price": 17.24,            
+    "price_unit": "gram",    
+    "description": "From Sonoma County comes Alaska Thunder Grape ...",
+    "img_url": "https:// ...",     
+    "is_available": true,                 
+    "dispensary_id": 19    
 }
 ```
 Request: `req.headers`
 ```
 headers: {
-  admin: ** admin password **   // admin password Required
+    admin: ** admin password **   // admin password Required
 }
 ```
 
@@ -460,10 +454,9 @@ Response: `res.body`
 ### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
 
-Returns an object of the created **Dispensary**
+Returns a JSON object of the created **Dispensary**
 
 Request: `req.body`
-
 ```
 {
     "name": "Smokland",
@@ -476,25 +469,25 @@ Request: `req.body`
     "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
     "has_delivery": true,
     
-    "dispensary_hours": [       // Array of 7 objects Required
+    "dispensary_hours": [       // Array of 7 objects Required.
         {
-          "day_of_week": 0,           // (Monday)
-          "open_time": "09:00 AM",    // Same format required || "closed"
-          "close_time": "09:00 PM"    // Same format required || "closed"
+            "day_of_week": 0,           // (Monday).
+            "open_time": "09:00 AM",    // Same format required or "closed".
+            "close_time": "09:00 PM"    // Same format required or "closed".
         },
         {
-          "day_of_week": 1,           // (Tuesday)
-          "open_time": "09:00 AM",
-          "close_time": "08:00 PM"
+            "day_of_week": 1,           // (Tuesday).
+            "open_time": "09:00 AM",
+            "close_time": "08:00 PM"
         },
-        // ... --> "day_of_week": 6,  (Sunday)
+        // ... --> "day_of_week": 6,  (Sunday).
     ]
 }
 ```
 Request: `req.headers`
 ```
 headers: {
-  admin: ** admin password **   // admin password Required
+    admin: ** admin password **   // admin password Required.
 }
 ```
 
@@ -514,8 +507,7 @@ Response: `res.body`
         "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",
         "has_delivery": 1,
         "created_at": "2020-06-24 15:13:17",
-        
-        // dispensary hours not returned but is stored on Database
+        // dispensary hours are not returned, but are stored on Database.
     }
 }
 ```
@@ -526,10 +518,9 @@ Response: `res.body`
 ### 1. GET all products
 #### **GET** */api/products*
 
-Returns an array of objects of **ALL** products
+Returns an array of JSON objects of **ALL** products
 
 Request: `req.body`
-
 ```
 // N/A
 ```
@@ -537,21 +528,21 @@ Response: `res.body`
 ```
 [
     {
-        "id": 1,                // this is the product id#
+        "id": 1,                // this is the product id#.
         "strain_name": "African",
         "strain_category": "Cartridges",
         "strain_type": "hybrid",
         "flavors": "Earthy,Sweet,Citrus",           
         "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
-        "avg_thc": 23.21,      // percentage
-        "avg_cbd": 31.31,     // percentage
+        "avg_thc": 23.21,      // %.
+        "avg_cbd": 31.31,     // %.
         "price": 7.91,        // $
-        "price_unit": "gram",   // gram/piece
+        "price_unit": "gram",   // gram/piece.
         "description": "rapidly becoming a Colorado cannabis staple ...",
-        "img_url": "https:// ..",       // this is the product image
-        "is_available": 0,              // 0 === false, 1 === true
-        "created_at": "2020-04-03 02:01:24",    // this is the date&time when the product was created
-        "dispensary_id": 3      // the dispensary provider id#
+        "img_url": "https:// ..",       // this is the product image.
+        "is_available": 0,              // 0 === false, 1 === true.
+        "created_at": "2020-04-03 02:01:24",    // this is the date&time when the product was created.
+        "dispensary_id": 3      // the dispensary provider id#.
     },
     // ... etc.
 ]
@@ -560,10 +551,9 @@ Response: `res.body`
 ### 2. GET a limited number of products
 #### **GET** */api/products/?limit=2*
 
-Returns an array of objects of products with the limit **query** specified as the max number.
+Returns an array of JSON objects of products with the specified **query** param **limit** as the max number.
 
 Request: `req.body`
-
 ```
 // N/A
 ```
@@ -571,12 +561,12 @@ Response: `res.body`
 ```
 [
     {
-        "id": 1,                // this is the product id#
+        "id": 1,                // this is the product id#.
         "strain_name": "African",
         // ... etc
     },
     {
-        "id": 2,                // this is the product id#
+        "id": 2,                // this is the product id#.
         "strain_name": "Samara",
         // ... etc
     },
@@ -586,33 +576,32 @@ Response: `res.body`
 ### 3. GET a single product
 #### **GET** */api/products/:id*
 
-Returns a single product via the **product's** `:id` URL param.
+Returns a JSON object of the specified product via the **product's** `:id` URL param.
 
 Request: `req.body`
-
 ```
 // N/A
 ```
 Response: `res.body`
 ```
 {
-    "id": 2,                // this is the product id# (NOT USER)
+    "id": 2,                // this is the product id# (NOT USER).
     "strain_name": "African",
     "strain_category": "Cartridges",
     "strain_type": "hybrid",
     "flavors": "Earthy,Sweet,Citrus",           
     "effects": "Creative,Energetic,Tingly,Euphoric,Relaxed",
-    "avg_thc": 5.61,         // percentage
-    "avg_cbd": 31.31,        // percentage
-    "price": 7.91,           // $
-    "price_unit": "gram",    // gram/piece
+    "avg_thc": 5.61,         // %.
+    "avg_cbd": 31.31,        // %.
+    "price": 7.91,           // $.
+    "price_unit": "gram",    // gram/piece.
     "description": "rapidly becoming a Colorado cannabis staple ...",
-    "img_url": "https:// ..",     // this is the product image
-    "is_available": 0,            // 0 === false, 1 === true
+    "img_url": "https:// ..",     // this is the product image.
+    "is_available": 0,            // 0 === false, 1 === true.
     "created_at": "2020-04-03 02:01:24",     // this is the date&time when the product was created
       
-    "provider": {       // a nested object that represents the product dispensary provider info
-        "id": 5,        // this is the dispensary id# (NOT PRODUCT)
+    "provider": {       // a nested object that represents the product dispensary provider info.
+        "id": 5,        // this is the dispensary id# (NOT PRODUCT).
         "name": "Demizz-95",
         "address": "8017 Pleasure Trail",
         "city": "New York City",
@@ -620,18 +609,18 @@ Response: `res.body`
         "postal_code": "10039",
         "phone_number": "212-996-3639",
         "email": "wbains4@bloglovin.com",
-        "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image
-        "has_delivery": 1,      // 0 === false, 1 === true
-        "created_at": "2019-08-10 02:01:24"     // this is the date&time when the dispensary was created
+        "logo_url": "http://dummyimage.com/244x139.jpg/dddddd/000000",  // the dispensary logo image.
+        "has_delivery": 1,      // 0 === false, 1 === true.
+        "created_at": "2019-08-10 02:01:24"     // this is the date&time when the dispensary was created.
     },
     
-    "reviews":[      // a nested array that represents the product reviews written by users
+    "reviews":[      // a nested array that represents the product reviews written by users.
          {
-            "user_id": 1    // the user id# (NOT REVIEW)
-            "rate": 5,      //  [0 - 5]
+            "user_id": 1    // the user id# (NOT REVIEW).
+            "rate": 5,      //  [0 - 5].
             "description": "Removal of Infusion Device from Cervical Vertebral Disc, Percutaneous Endoscopic Approach",
-            "created_at": "2020-01-01 12:01:18",        // this is the date&time when the review was recieved 
-            "updated_at": "2019-08-22 11:37:00"         // this is the date&time when the product was updated
+            "created_at": "2020-01-01 12:01:18",        // this is the date&time when the review was recieved. 
+            "updated_at": "2019-08-22 11:37:00"         // this is the date&time when the product was updated.
          },
         // ... etc
     ]      
@@ -641,17 +630,16 @@ Response: `res.body`
 ### 4. GET a single dispensary
 #### **GET** */api/dispensaries/:id*
 
-Returns a single dispensary via the **dispensaries's** `:id` URL param.
+Returns a JSON object of the specified dispensary via the **dispensaries's** `:id` URL param.
 
 Request: `req.body`
-
 ```
 // N/A
 ```
 Response: `res.body`
 ```
 {
-    "id": 2,        // this the dispensary id#
+    "id": 2,        // this the dispensary id#.
     "name": "Devify-45",
     "address": "112 Division Trail",
     "city": "Pasadena",
@@ -659,35 +647,37 @@ Response: `res.body`
     "postal_code": "91117",
     "phone_number": "(626) 325-0079",
     "email": "bcongreve1@wp.com",
-    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",      // dispensary logo image
-    "has_delivery": 1,      // 0 === false, 1 === true
-    "created_at": "2020-06-16 02:01:24",        // this is the date&time when the dispensary was created
+    "logo_url": "http://dummyimage.com/228x150.jpg/5fa2dd/ffffff",      // dispensary logo image.
+    "has_delivery": 1,      // 0 === false, 1 === true.
+    "created_at": "2020-06-16 02:01:24",        // this is the date&time when the dispensary was created.
     
-    "business_hours": [     // a nested array that represents the dispensary operating hours
+    "business_hours": [     // a nested array that represents the dispensary operating hours.
         {
-            "day_of_week": 0,         // [0 === Monday] --> [6 === Sunday]
-            "open_time": "08:30 AM",  // or "closed"
-            "close_time": "7:45 PM"   // or "closed"
+            "day_of_week": 0,         // [0 === Monday] --> [6 === Sunday].
+            "open_time": "08:30 AM",  // or "closed".
+            "close_time": "7:45 PM"   // or "closed".
         },
-        // ... etc
+        // ... etc.
     ],
-    "products": [       // a nested array that represents all the dispensary products
+    
+    "products": [       // a nested array that represents all the dispensary products.
         {
-            "id": 6,              // this is the id# of the product (NOT DISPENSARY)
+            "id": 6,              // this is the id# of the product (NOT DISPENSARY).
             "strain_name": "Alien Rock Candy",
             "strain_category": "Pre-rolls",
             "strain_type": "Indica",
-            "avg_thc": 33.23,          // percentage
-            "avg_cbd": 16.41,          // percentage
-            "price": 17.24,            // $
-            "price_unit": "gram",      // gram/piece
+            "avg_thc": 33.23,          // %.
+            "avg_cbd": 16.41,          // %.
+            "price": 17.24,            // $.
+            "price_unit": "gram",      // gram/piece.
             "description": "From Sonoma County comes Alaska Thunder Grape ...",
-            "img_url": "https:// ...",      // this is the product image
-            "is_available": 0,              // 0 === false, 1 === true
-            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created
+            "img_url": "https:// ...",      // this is the product image.
+            "is_available": 0,              // 0 === false, 1 === true.
+            "created_at": "2020-06-02 03:57:40",      // this is the date&time when the product was created.
             "dispensary_id": 2         // this the dispensary provider id#
         },
-        // .. etc
+        // .. etc.
     ]
 }
 ```
+--------------------------------
