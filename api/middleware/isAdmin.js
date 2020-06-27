@@ -1,21 +1,17 @@
-const jwt = require("jsonwebtoken");
-
-const { JWT_SECRET, ADMIN_PASSWORD } = require("../../config");
+const { ADMIN_PASSWORD } = require("../../config");
 
 module.exports = (req, res, next) => {
   try {
     const admin = req.headers ? req.headers.admin : false;
 
     if (admin) {
-      jwt.verify(token, JWT_SECRET, error => {
-        if (admin === ADMIN_PASSWORD) {
-          next();
-        } else {
-          error.statusCode = 401;
-          error.message = "Your admin password is not correct!!!";
-          next(error);
-        }
-      });
+      if (admin === ADMIN_PASSWORD) {
+        next();
+      } else {
+        error.statusCode = 401;
+        error.message = "Your admin password is not correct!!!";
+        next(error);
+      }
     } else {
       next({
         success: false,

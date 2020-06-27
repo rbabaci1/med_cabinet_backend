@@ -6,12 +6,13 @@ const {
 } = require("../db/mockData/products");
 
 const random1 = arr => arr[Math.floor(Math.random() * arr.length)];
-const random2 = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const random2 = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min / 100;
 
 const generateProducts = () => {
   return products.map(p => {
     p.strain_category = random1(strain_categories) || strain_categories[0];
-    p.avg_thc = random2(3, 40);
+    p.avg_thc = random2(5, 40);
     p.avg_cbd = random2(5, 40);
     p.price = random2(5, 50);
     p.created_at = "2019-10-17 08:11:20";

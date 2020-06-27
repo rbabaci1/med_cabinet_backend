@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const validateId = require("../middleware/global");
 const validateDispensaryInfo = require("../middleware/validateDispensaryInfo");
-const isAuth = require("../middleware/isAuth");
+const isAdmin = require("../middleware/isAdmin");
 const getController = require("../controllers/dispensariesGet");
 const postController = require("../controllers/dispensaryPost");
 
@@ -13,7 +13,7 @@ router.get("/:id", validateId(TABLE_NAME), getController.getDispensaryById);
 
 router.post(
   "/",
-  isAuth,
+  isAdmin,
   validateDispensaryInfo,
   postController.createDispensary
 );
