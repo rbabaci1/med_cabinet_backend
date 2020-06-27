@@ -4,12 +4,9 @@ const { getBy } = require("../../db/models/global");
 
 module.exports = method => {
   return async (req, res, next) => {
-    const { product_id, user_id } = method === "POST" ? req.body : req.params;
-
-    const result =
-      method === "POST"
-        ? cartSchema.validate(req.body)
-        : cartSchema.validate(req.params);
+    const data = method === "DELETE" ? req.params : req.body;
+    const { product_id, user_id } = data;
+    const result = cartSchema.validate(data);
 
     if (result.error) {
       res.status(400).json(formatError(result.error));
