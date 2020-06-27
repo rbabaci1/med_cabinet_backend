@@ -5,7 +5,7 @@ const removeCartItem = async (req, res, next) => {
     const { user_id, product_id } = req.params;
 
     await remove("users_carts", { user_id, product_id });
-    res.status(204).end();
+    res.status(200).json({ success: true, removedProduct: req.product });
   } catch (error) {
     next(error);
   }
