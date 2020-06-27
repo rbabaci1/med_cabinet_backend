@@ -7,7 +7,7 @@ const deleteController = require("../controllers/usersDelete");
 const isAuth = require("../middleware/isAuth");
 const validateUserCartInfo = require("../middleware/validateUserCartInfo");
 const validateReviewInfo = require("../middleware/validateReviewInfo");
-const { validateUserInfo } = require("../middleware/validateUserInfo");
+const { validateUserUpdateInfo } = require("../middleware/validateUserInfo");
 const validateId = require("../middleware/global");
 
 const TABLE_NAME = "users";
@@ -27,7 +27,12 @@ router.post(
   postController.createReview
 );
 
-router.put("/:id", isAuth, validateUserInfo, putController.updateUserInfo);
+router.put(
+  "/:id",
+  isAuth,
+  validateUserUpdateInfo,
+  putController.updateUserInfo
+);
 router.put(
   "/review/:id",
   isAuth,

@@ -8,4 +8,5 @@ module.exports = {
   SALT_ROUNDS: process.env.SALT_ROUNDS || 8,
   JWT_SECRET: process.env.JWT_SECRET || "hello there 2020@26",
   ONE_HOUR: 60 * 60,
+  ADMIN_PASSWORD: process.env.ADMIN,
 };

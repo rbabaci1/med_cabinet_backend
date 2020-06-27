@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
   } else {
     res.status(409).json({
       success: false,
-      error: "This email is already registered. Try a different one?",
+      message: "This email is already registered. Try a different one?",
     });
   }
 };

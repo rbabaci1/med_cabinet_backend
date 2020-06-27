@@ -1,26 +1,26 @@
 const jwt = require("jsonwebtoken");
 
-const { JWT_SECRET } = require("../../config");
+const { JWT_SECRET, ADMIN_PASSWORD } = require("../../config");
 
 module.exports = (req, res, next) => {
   try {
-    const token = req.headers ? req.headers.authorization : false;
+    const admin = req.headers ? req.headers.admin : false;
 
-    if (token) {
+    if (admin) {
       jwt.verify(token, JWT_SECRET, error => {
-        if (error) {
-          error.statusCode = 401;
-          error.message = "Invalid credentials. Try again?";
-          next(error);
-        } else {
+        if (admin === ADMIN_PASSWORD) {
           next();
+        } else {
+          error.statusCode = 401;
+          error.message = "Your admin password is not correct!!!";
+          next(error);
         }
       });
     } else {
       next({
         success: false,
         statusCode: 401,
-        message: "User token must be included in the header.",
+        message: "You must be an admin user to create shit!!!",
       });
     }
   } catch (error) {

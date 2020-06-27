@@ -4,7 +4,7 @@ const cleanUpDatabase = require("../../helpers/cleanUpDatabase");
 const server = require("../server");
 const request = supertest(server);
 
-let mockUser = {
+const mockUser = {
   firstName: "rabah",
   lastName: "babaci",
   email: "test@gmail.com",
@@ -60,7 +60,7 @@ describe("users endpoints", () => {
       });
 
       expect(res.status).toBe(401);
-      expect(res.body).toHaveProperty("message");
+      expect(res.body).toHaveProperty("success", false);
     });
 
     it("should respond with 200 and the logged user info", async () => {

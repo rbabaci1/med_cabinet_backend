@@ -23,7 +23,7 @@ const timeRegex = Joi.string().pattern(
   new RegExp("^((\\d{2}:\\d{2} (AM|PM))|(closed))$")
 );
 
-const day = Joi.object().keys({
+const dayFormat = Joi.object().keys({
   day_of_week: Joi.number().min(0).max(6).required(),
   open_time: timeRegex.required(),
   close_time: timeRegex.required(),
@@ -41,7 +41,7 @@ const dispensarySchema = Joi.object({
   email: Joi.string().email().required(),
   logo_url: Joi.string().min(10).required(),
   has_delivery: Joi.boolean().required(),
-  dispensary_hours: Joi.array().length(7).items(day),
+  dispensary_hours: Joi.array().length(7).items(dayFormat),
 });
 
 const reviewSchema = Joi.object({

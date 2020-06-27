@@ -5,7 +5,7 @@ const removeCartItem = async (req, res, next) => {
     const { product_id } = req.body;
 
     await remove("users_products", { product_id });
-    res.status(200).json({ message: "success", removedProduct: req.product });
+    res.status(200).json({ success: true, removedProduct: req.product });
   } catch (error) {
     next(error);
   }
@@ -20,19 +20,15 @@ const removeReview = async (req, res, next) => {
     const review = await getBy("reviews", { user_id, product_id });
 
     if (!user) {
-      res
-        .status(404)
-        .json({
-          success: false,
-          message: "The specified user_id is not valid.",
-        });
+      res.status(404).json({
+        success: false,
+        message: "The specified user_id is not valid.",
+      });
     } else if (!product) {
-      res
-        .status(404)
-        .json({
-          success: false,
-          message: "The specified product_id is not valid.",
-        });
+      res.status(404).json({
+        success: false,
+        message: "The specified product_id is not valid.",
+      });
     } else if (!review) {
       res.status(404).json({
         success: false,

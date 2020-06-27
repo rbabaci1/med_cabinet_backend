@@ -11,9 +11,9 @@ const getRecommendations = async (req, res, next) => {
       req.body
     );
     const { UserID, Strain: strain_name } = response.data;
-    const fullProduct = await getBy("products", { strain_name });
+    const originalProduct = await getBy("products", { strain_name });
 
-    res.status(200).json({ UserID, ...fullProduct });
+    res.status(200).json({ UserID, ...originalProduct });
   } catch (error) {
     next(error);
   }

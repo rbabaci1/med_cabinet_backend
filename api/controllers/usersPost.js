@@ -35,12 +35,14 @@ const loginUser = async (req, res, next) => {
 
       res.status(200).json({
         success: true,
-        message: "Welcome to best med-cabinet in the world!",
+        message: "Welcome to best med-cabinet in the planet!",
         logged_user: removeObjKey(user, "password"),
         token,
       });
     } else {
-      res.status(401).json({ message: "Invalid credentials. Try again?" });
+      res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials. Try again?" });
     }
   } catch (error) {
     next(error);

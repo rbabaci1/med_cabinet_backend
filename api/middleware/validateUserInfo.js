@@ -26,7 +26,7 @@ const validateLogin = (req, res, next) => {
   }
 };
 
-const validateUserInfo = async (req, res, next) => {
+const validateUserUpdateInfo = async (req, res, next) => {
   const { id } = req.params;
   const result = userUpdateSchema.validate(req.body);
 
@@ -37,12 +37,10 @@ const validateUserInfo = async (req, res, next) => {
       const user = await getBy("users", { id });
 
       if (!user) {
-        res
-          .status(404)
-          .json({
-            success: false,
-            message: "The specified user doesn't exist.",
-          });
+        res.status(404).json({
+          success: false,
+          message: "The specified user doesn't exist.",
+        });
       } else {
         next();
       }
@@ -52,4 +50,4 @@ const validateUserInfo = async (req, res, next) => {
   }
 };
 
-module.exports = { validateSignup, validateLogin, validateUserInfo };
+module.exports = { validateSignup, validateLogin, validateUserUpdateInfo };
