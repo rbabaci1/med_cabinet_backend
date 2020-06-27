@@ -429,7 +429,7 @@ Request: `req.body`
 Request: `req.headers`
 ```
 headers: {
-  Authorization: **auth token** ("yJhbGciOiJIUzI1N...")
+  admin: ** admin password **   // admin password Required
 }
 ```
 
@@ -491,6 +491,13 @@ Request: `req.body`
     ]
 }
 ```
+Request: `req.headers`
+```
+headers: {
+  admin: ** admin password **   // admin password Required
+}
+```
+
 Response: `res.body`
 ```
 {
