@@ -80,7 +80,7 @@ Response: `res.body`
 ```
 --------------------------------
 ### 3. Add a Product to the User's Cart
-#### **POST** */api/users/auth/cart*
+#### **POST** */api/users/cart*
 
 Returns object of the added **Product**.
 
