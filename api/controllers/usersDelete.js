@@ -2,10 +2,10 @@ const { remove, getBy } = require("../../db/models/global");
 
 const removeCartItem = async (req, res, next) => {
   try {
-    const { product_id } = req.body;
+    const { user_id, product_id } = req.params;
 
-    await remove("users_carts", { product_id });
-    res.status(200).json({ success: true, removedProduct: req.product });
+    await remove("users_carts", { user_id, product_id });
+    res.status(200).json({ success: true });
   } catch (error) {
     next(error);
   }

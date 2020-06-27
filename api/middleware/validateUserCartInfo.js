@@ -4,13 +4,14 @@ const { getBy } = require("../../db/models/global");
 
 module.exports = method => {
   return async (req, res, next) => {
-    const result = cartSchema.validate(req.body);
+    // const result = cartSchema.validate(req.body);
+    const result = false;
 
-    if (result.error) {
+    if (result) {
       res.status(400).json(formatError(result.error));
     } else {
       try {
-        const { product_id, user_id } = req.body;
+        const { product_id, user_id } = req.params;
         const user = await getBy("users", { id: user_id });
         const product = await getBy("products", { id: product_id });
         const productExists = await getBy("users_carts", {

@@ -47,7 +47,7 @@ router.delete(
   deleteController.removeReview
 );
 router.delete(
-  "/cart",
+  "/:user_id/cart/:product_id",
   isAuth,
   validateUserCartInfo("DELETE"),
   deleteController.removeCartItem
