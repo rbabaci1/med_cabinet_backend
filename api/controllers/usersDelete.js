@@ -16,7 +16,7 @@ const removeReview = async (req, res, next) => {
     const { product_id, user_id } = req.params;
 
     await remove("reviews", { user_id, product_id });
-    res.status(204).end();
+    res.status(200).json({ success: true, removedReview: req.review });
   } catch (error) {
     next(error);
   }

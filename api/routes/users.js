@@ -46,7 +46,6 @@ router.delete(
   validateUserCartInfo("DELETE"),
   deleteController.removeCartItem
 );
-// todo, pass ids by params
 router.delete(
   "/:user_id/review/:product_id",
   isAuth,
