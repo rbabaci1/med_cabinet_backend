@@ -1,16 +1,22 @@
-const { reviewSchema, deleteReviewSchema } = require("../validationSchemas");
+const {
+  reviewSchema,
+  updateReviewSchema,
+  deleteReviewSchema,
+} = require("../validationSchemas");
 const formatError = require("../../helpers/formatError");
 const { getBy } = require("../../db/models/global");
 
 module.exports = method => {
   return async (req, res, next) => {
-    const data = method === "DELETE" ? req.params : req.body;
-    const { product_id, user_id } = data;
+    const data = { ...req.body, ...req.params };
+    const { user_id, product_id, rate, description } = data;
 
     const result =
-      method === "DELETE"
-        ? deleteReviewSchema.validate(data)
-        : reviewSchema.validate(data);
+      method === "POST"
+        ? reviewSchema.validate(data)
+        : method === "PUT"
+        ? updateReviewSchema.validate({ rate, description })
+        : deleteReviewSchema.validate({ user_id, product_id });
 
     if (result.error) {
       res.status(400).json(formatError(result.error));

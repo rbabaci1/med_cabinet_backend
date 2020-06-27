@@ -34,7 +34,7 @@ router.put(
   putController.updateUserInfo
 );
 router.put(
-  "/review/:id",
+  "/:user_id/review/:product_id",
   isAuth,
   validateUserReviewInfo("PUT"),
   putController.updateUserReview

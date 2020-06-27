@@ -18,21 +18,16 @@ const updateUserInfo = async (req, res, next) => {
 
 const updateUserReview = async (req, res, next) => {
   try {
-    const changes = req.body;
-    const { user_id, product_id } = changes;
-    const review = await getBy("reviews", { user_id, product_id });
+    const { review, body: changes, params } = req;
+    const { user_id, product_id } = params;
+    const newReview = { ...review, ...changes, updated_at: now() };
 
-    if (!review) {
-      res.status(404).json({
-        success: false,
-        message: "The specified review doesn't exist.",
-      });
-    } else {
-      const newReview = { ...review, ...changes, updated_at: now() };
+    const updatedReview = await update("reviews", newReview, {
+      user_id,
+      product_id,
+    });
 
-      const updatedReview = await update("reviews", newReview, { user_id });
-      res.status(200).json({ success: true, updatedReview });
-    }
+    res.status(200).json({ success: true, updatedReview });
   } catch (error) {
     next(error);
   }
