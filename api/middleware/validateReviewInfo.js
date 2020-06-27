@@ -4,16 +4,17 @@ const { getBy } = require("../../db/models/global");
 
 module.exports = method => {
   return async (req, res, next) => {
+    const { product_id, user_id } = method === "POST" ? req.body : req.params;
+
     const result =
       method === "DELETE"
-        ? deleteReviewSchema.validate(req.body)
+        ? deleteReviewSchema.validate(req.params)
         : reviewSchema.validate(req.body);
 
     if (result.error) {
       res.status(400).json(formatError(result.error));
     } else {
       try {
-        const { product_id, user_id } = req.body;
         const user = await getBy("users", { id: user_id });
         const product = await getBy("products", { id: product_id });
         const reviewExists = await getBy("reviews", {

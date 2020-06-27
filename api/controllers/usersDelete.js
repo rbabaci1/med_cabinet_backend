@@ -1,11 +1,11 @@
-const { remove, getBy } = require("../../db/models/global");
+const { remove } = require("../../db/models/global");
 
 const removeCartItem = async (req, res, next) => {
   try {
     const { user_id, product_id } = req.params;
 
     await remove("users_carts", { user_id, product_id });
-    res.status(200).json({ success: true });
+    res.status(204).end();
   } catch (error) {
     next(error);
   }
@@ -13,31 +13,10 @@ const removeCartItem = async (req, res, next) => {
 
 const removeReview = async (req, res, next) => {
   try {
-    const { product_id, user_id } = req.body;
+    const { product_id, user_id } = req.params;
 
-    const user = await getBy("users", { id: user_id });
-    const product = await getBy("products", { id: product_id });
-    const review = await getBy("reviews", { user_id, product_id });
-
-    if (!user) {
-      res.status(404).json({
-        success: false,
-        message: "The specified user_id is not valid.",
-      });
-    } else if (!product) {
-      res.status(404).json({
-        success: false,
-        message: "The specified product_id is not valid.",
-      });
-    } else if (!review) {
-      res.status(404).json({
-        success: false,
-        message: "The specified review doesn't exists .",
-      });
-    } else {
-      await remove("reviews", { product_id });
-      res.status(200).json({ success: true, removedReview: review });
-    }
+    await remove("reviews", { user_id, product_id });
+    res.status(204).end();
   } catch (error) {
     next(error);
   }

@@ -41,16 +41,17 @@ router.put(
 );
 
 router.delete(
-  "/review",
-  isAuth,
-  validateReviewInfo("DELETE"),
-  deleteController.removeReview
-);
-router.delete(
   "/:user_id/cart/:product_id",
   isAuth,
   validateUserCartInfo("DELETE"),
   deleteController.removeCartItem
+);
+// todo, pass ids by params
+router.delete(
+  "/:user_id/review/:product_id",
+  isAuth,
+  validateReviewInfo("DELETE"),
+  deleteController.removeReview
 );
 
 module.exports = router;
