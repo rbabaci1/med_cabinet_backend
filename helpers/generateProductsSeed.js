@@ -13,10 +13,10 @@ const random3 = (min, max) =>
 const generateProducts = () => {
   return products.map(p => {
     p.strain_category = random1(strain_categories) || strain_categories[0];
-    p.avg_thc = random2(5, 40);
-    p.avg_cbd = random2(5, 40);
     p.dispensary_id = random2(1, 30);
-    p.price = random3(5, 50);
+    p.price = random2(5, 50);
+    p.avg_thc = random3(5, 40);
+    p.avg_cbd = random3(5, 40);
     p.description = p.description.slice(0, 255);
     p.created_at = "2019-10-17 08:11:20";
 

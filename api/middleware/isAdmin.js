@@ -8,9 +8,10 @@ module.exports = (req, res, next) => {
       if (admin === ADMIN_PASSWORD) {
         next();
       } else {
-        error.statusCode = 401;
-        error.message = "Your admin password is not correct!!!";
-        next(error);
+        next({
+          statusCode: 401,
+          message: "Your admin password is not correct!!!",
+        });
       }
     } else {
       next({
