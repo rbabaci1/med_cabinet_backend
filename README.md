@@ -83,7 +83,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-## Add to cart
+### Add to cart
 ### 3. Add a Product to the User's Cart
 #### **POST** */api/users/cart*
 
@@ -127,6 +127,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Add review
 ### 4. User writes a review about a product
 #### **POST** */api/users/review*
 
@@ -163,6 +164,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Get single user
 ### 5. Access a single User with all Details (cart & reviews)
 #### **GET** */api/users/:id*
 
@@ -219,6 +221,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Update user
 ### 6. Update a User's Info
 #### **PUT** */api/users/:id*
 
@@ -253,6 +256,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Update review
 ### 7. Update a User's Review
 #### **PUT** */api/users/:user_id/review/:product_id*
 
@@ -287,6 +291,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Remove cart item
 ### 8. Remove an item from the User's cart
 #### **DELETE** */api/users/:user_id/cart/:product_id*
 
@@ -327,6 +332,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Remove user review
 ### 9. Remove a User's Review
 #### **DELETE** */api/users/:user_id/review/:product_id*
 
@@ -359,6 +365,7 @@ Response: `res.body`
 ```
 --------------------------------
 --------------------------------
+### DS
 ## **DS Recommendations Endpoint**
 
 ### 1. Get product recommendations
@@ -404,6 +411,7 @@ Response: `res.body`
 --------------------------------
 ## **Admin Routes**
 
+### Create product
 ### 1. Create a Product
 #### **POST** */api/products/create*
 
@@ -458,6 +466,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Create dispensary
 ### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
 
@@ -522,6 +531,7 @@ Response: `res.body`
 --------------------------------
 ## **General Routes**
 
+### Get products
 ### 1. GET all products
 #### **GET** */api/products*
 
@@ -555,6 +565,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
+### Get products limit
 ### 2. GET a limited number of products
 #### **GET** */api/products/?limit=2*
 
@@ -580,6 +591,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
+### Get product
 ### 3. GET a single product
 #### **GET** */api/products/:id*
 
@@ -634,6 +646,7 @@ Response: `res.body`
 },
 ```
 --------------------------------
+### Get dispensary
 ### 4. GET a single dispensary
 #### **GET** */api/dispensaries/:id*
 
