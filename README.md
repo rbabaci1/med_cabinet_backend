@@ -17,7 +17,7 @@ For developing and testing purposes, please follow the instructions below to ins
 ### Base URL:
 https://best-med-cabinet.herokuapp.com
 
-- [User login](#2. User Login)
+- [User login](#User Login)
 
 ## **Authentication Routes**
 
