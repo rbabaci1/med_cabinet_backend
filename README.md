@@ -18,7 +18,7 @@ For developing and testing purposes, please follow the instructions below to ins
 https://best-med-cabinet.herokuapp.com
 
 - [User login](#2-user-login)
-- [Add a product to the user's cart](#post-/api/users/cart)
+- [Add a product to the user's cart](#post-api-users-cart)
 
 ## **Authentication Routes**
 
