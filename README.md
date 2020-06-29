@@ -19,8 +19,19 @@ https://best-med-cabinet.herokuapp.com
 
 - [User login](#login)
 - [Add a product to the user's cart](#add-to-cart)
-- [Create a review about a product](#4-user-writes-a-review-about-a-product)
-- [Access a single user with all details](#5-access-a-single-user-with-all-details)
+- [Create a review about a product](#add-review)
+- [Access a single user with all details](#get-single-user)
+- [Update user's info](#update-user)
+- [Update user's review](#update-review)
+- [Remove an item from the user's cart](#remove-cart-item)
+- [Remove a user's review](#remove-user-review)
+- [Get product recommendations](#ds)
+- [Create a product](#create-product)
+- [Create a dispensary](#create-dispensary)
+- [Access all products](#get-products)
+- [Access a limited num of products](#get-products-limit)
+- [Access a single product](#get-product)
+- [Access a single dispensary](#get-dispensary)
 
 ## **Authentication Routes**
 
