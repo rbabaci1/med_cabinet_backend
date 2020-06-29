@@ -17,7 +17,7 @@ For developing and testing purposes, please follow the instructions below to ins
 ### Base URL:
 https://best-med-cabinet.herokuapp.com
 
-- [User login](#2. User Login)
+- [User login](#login)
 
 ## **Authentication Routes**
 
@@ -52,6 +52,7 @@ Response: `res.body`
 ```
 --------------------------------
 ### 2. User Login
+## Login
 #### **POST** */api/auth/login*
 
 Authenticates user's credentials. Returns JSON object with personalized welcome message, token and user info.
