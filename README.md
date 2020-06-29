@@ -17,7 +17,7 @@ For developing and testing purposes, please follow the instructions below to ins
 ### Base URL:
 https://best-med-cabinet.herokuapp.com
 
-- [User login](#2-user-login)
+- [User login](#login)
 - [Add a product to the user's cart](#add-to-cart)
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
 - [Access a single user with all details](#5-access-a-single-user-with-all-details)
@@ -54,6 +54,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
+### Login
 ### 2. User Login
 #### **POST** */api/auth/login*
 
