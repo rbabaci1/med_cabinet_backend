@@ -20,7 +20,7 @@ https://best-med-cabinet.herokuapp.com
 - [User login](#2-user-login)
 - [Add a product to the user's cart](#add-to-cart)
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
-- [Access a single user with all details](#5-access-a-single-user-with-all-details-(cart-&-reviews)
+- [Access a single user with all details](#5-access-a-single-user-with-all-details-(cart&reviews)
 
 ## **Authentication Routes**
 
