@@ -18,8 +18,8 @@ For developing and testing purposes, please follow the instructions below to ins
 https://best-med-cabinet.herokuapp.com
 
 ### All endpoints:
-- [User signup](#1-user-registration)
-- [User login](#login)
+- [User registration](#1-user-registration)
+- [User login](#2-user-login)
 - [Add a product to the user's cart](#add-to-cart)
 - [Create a review about a product](#add-review)
 - [Access a single user with all details](#get-single-user)
@@ -67,7 +67,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Login
 ### 2. User Login
 #### **POST** */api/auth/login*
 
