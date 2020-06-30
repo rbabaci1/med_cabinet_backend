@@ -26,14 +26,14 @@ https://best-med-cabinet.herokuapp.com
 - [Update user's info](#6-update-user-info)
 - [Update user's review](#7-update-user-review)
 - [Remove an item from the user's cart](#8-remove-a-product-from-the-cart)
-- [Remove a user's review](#remove-user-review)
-- [Get product recommendations](#ds)
-- [Create a product](#create-product)
-- [Create a dispensary](#create-dispensary)
-- [Access all products](#get-products)
-- [Access a limited num of products](#get-products-limit)
-- [Access a single product](#get-product)
-- [Access a single dispensary](#get-dispensary)
+- [Remove a user's review](#9-remove-user-review)
+- [Get product recommendations](#1-get-product-recommendations)
+- [Create a product](#1-create-a-product)
+- [Create a dispensary](#2-create-a-dispensary)
+- [Access all products](#1-access-all-products)
+- [Access a limited number of products](#2-access-a-limited-number-of-products)
+- [Access a single product](#3-access-a-single-product)
+- [Access a single dispensary](#4-access-a-single-dispensary)
 
 ## **Authentication Routes**
 
@@ -338,8 +338,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Remove user review
-### 9. Remove a User's Review
+### 9. Remove user review
 #### **DELETE** */api/users/:user_id/review/:product_id*
 
 Returns a JSON object with the removed review info via the **user's** `:id` and **product's** `:id` URL params.
@@ -371,7 +370,6 @@ Response: `res.body`
 ```
 --------------------------------
 --------------------------------
-### DS
 ## **DS Recommendations Endpoint**
 
 ### 1. Get product recommendations
@@ -417,7 +415,6 @@ Response: `res.body`
 --------------------------------
 ## **Admin Routes**
 
-### Create product
 ### 1. Create a Product
 #### **POST** */api/products/create*
 
@@ -472,7 +469,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Create dispensary
 ### 2. Create a Dispensary
 #### **POST** */api/dispensaries*
 
@@ -537,8 +533,7 @@ Response: `res.body`
 --------------------------------
 ## **General Routes**
 
-### Get products
-### 1. GET all products
+### 1. Access all products
 #### **GET** */api/products*
 
 Returns an array of JSON objects of **ALL** products
@@ -571,8 +566,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-### Get products limit
-### 2. GET a limited number of products
+### 2. Access a limited number of products
 #### **GET** */api/products/?limit=2*
 
 Returns an array of JSON objects of products with the specified **query** param **limit** as the max number.
@@ -597,8 +591,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-### Get product
-### 3. GET a single product
+### 3. Access a single product
 #### **GET** */api/products/:id*
 
 Returns a JSON object of the specified product via the **product's** `:id` URL param.
@@ -652,8 +645,7 @@ Response: `res.body`
 },
 ```
 --------------------------------
-### Get dispensary
-### 4. GET a single dispensary
+### 4. Access a single dispensary
 #### **GET** */api/dispensaries/:id*
 
 Returns a JSON object of the specified dispensary via the **dispensaries's** `:id` URL param.
