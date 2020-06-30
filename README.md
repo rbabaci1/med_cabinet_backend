@@ -17,6 +17,26 @@ For developing and testing purposes, please follow the instructions below to ins
 ### Base URL:
 https://best-med-cabinet.herokuapp.com
 
+--------------------------------
+### All endpoints:
+- [User registration](#1-user-registration)
+- [User login](#2-user-login)
+- [Add a product to the user's cart](#3-add-a-product-to-the-cart)
+- [Create a review about a product](#4-create-user-review)
+- [Get a single user with all details](#5-get-a-single-user)
+- [Update user's info](#6-update-user-info)
+- [Update user's review](#7-update-user-review)
+- [Remove an item from the user's cart](#8-remove-a-product-from-the-cart)
+- [Remove user's review](#9-remove-user-review)
+- [Get product recommendations](#1-get-product-recommendations)
+- [Create a product](#1-create-a-product)
+- [Create a dispensary](#2-create-a-dispensary)
+- [Get all products](#1-get-all-products)
+- [Get a limited number of products](#2-get-a-limited-number-of-products)
+- [Get a single product](#3-get-a-single-product)
+- [Get a single dispensary](#4-get-a-single-dispensary)
+--------------------------------
+
 ## **Authentication Routes**
 
 ### 1. User Registration
@@ -77,7 +97,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 3. Add a Product to the User's Cart
+### 3. Add a Product to the Cart
 #### **POST** */api/users/cart*
 
 Returns a JSON object of the added **Product**.
@@ -120,7 +140,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 4. User writes a review about a product
+### 4. Create user review
 #### **POST** */api/users/review*
 
 Returns a JSON object of the created **Review**.
@@ -156,7 +176,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 5. Access a single User with all Details (cart & reviews)
+### 5. Get a single User
 #### **GET** */api/users/:id*
 
 Returns a JSON object with all details of the specified user via the **user's** `:id` URL param.
@@ -212,7 +232,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 6. Update a User's Info
+### 6. Update user info
 #### **PUT** */api/users/:id*
 
 Returns a JSON object with the new changes fo the specified user via the **user's** `:id` URL param.
@@ -246,7 +266,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 7. Update a User's Review
+### 7. Update user review
 #### **PUT** */api/users/:user_id/review/:product_id*
 
 Returns a JSON object with the new changes of the specified user via the **user's** `:id` and **product's**  `:id` URL params.
@@ -280,7 +300,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 8. Remove an item from the User's cart
+### 8. Remove a product from the cart
 #### **DELETE** */api/users/:user_id/cart/:product_id*
 
 Returns a JSON object with the removed product info via the **user's** `:id` and **product's** `:id` URL params.
@@ -320,7 +340,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### 9. Remove a User's Review
+### 9. Remove user review
 #### **DELETE** */api/users/:user_id/review/:product_id*
 
 Returns a JSON object with the removed review info via the **user's** `:id` and **product's** `:id` URL params.
@@ -515,7 +535,7 @@ Response: `res.body`
 --------------------------------
 ## **General Routes**
 
-### 1. GET all products
+### 1. Get all products
 #### **GET** */api/products*
 
 Returns an array of JSON objects of **ALL** products
@@ -548,7 +568,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-### 2. GET a limited number of products
+### 2. Get a limited number of products
 #### **GET** */api/products/?limit=2*
 
 Returns an array of JSON objects of products with the specified **query** param **limit** as the max number.
@@ -573,7 +593,7 @@ Response: `res.body`
 ]
 ```
 --------------------------------
-### 3. GET a single product
+### 3. Get a single product
 #### **GET** */api/products/:id*
 
 Returns a JSON object of the specified product via the **product's** `:id` URL param.
@@ -627,7 +647,7 @@ Response: `res.body`
 },
 ```
 --------------------------------
-### 4. GET a single dispensary
+### 4. Get a single dispensary
 #### **GET** */api/dispensaries/:id*
 
 Returns a JSON object of the specified dispensary via the **dispensaries's** `:id` URL param.
