@@ -20,7 +20,7 @@ https://best-med-cabinet.herokuapp.com
 ### All endpoints:
 - [User registration](#1-user-registration)
 - [User login](#2-user-login)
-- [Add a product to the user's cart](#add-to-cart)
+- [Add a product to the user's cart](#3-add-a-product-to-the-cart)
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
 - [Access a single user with all details](#5-access-a-single-user)
 - [Update user's info](#6-update-user-info)
@@ -95,8 +95,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Add to cart
-### 3. Add a Product to the User's Cart
+### 3. Add a Product to the Cart
 #### **POST** */api/users/cart*
 
 Returns a JSON object of the added **Product**.
