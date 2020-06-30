@@ -23,7 +23,7 @@ https://best-med-cabinet.herokuapp.com
 - [User login](#2-user-login)
 - [Add a product to the user's cart](#3-add-a-product-to-the-cart)
 - [Create a review about a product](#4-create-user-review)
-- [Access a single user with all details](#5-get-a-single-user)
+- [Get a single user with all details](#5-get-a-single-user)
 - [Update user's info](#6-update-user-info)
 - [Update user's review](#7-update-user-review)
 - [Remove an item from the user's cart](#8-remove-a-product-from-the-cart)
