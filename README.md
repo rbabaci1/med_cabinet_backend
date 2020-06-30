@@ -24,8 +24,8 @@ https://best-med-cabinet.herokuapp.com
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
 - [Access a single user with all details](#5-access-a-single-user)
 - [Update user's info](#6-update-user-info)
-- [Update user's review](#update-review)
-- [Remove an item from the user's cart](#remove-cart-item)
+- [Update user's review](#7-update-user-review)
+- [Remove an item from the user's cart](#8-remove-a-product-from-the-cart)
 - [Remove a user's review](#remove-user-review)
 - [Get product recommendations](#ds)
 - [Create a product](#create-product)
@@ -264,8 +264,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Update review
-### 7. Update a User's Review
+### 7. Update user review
 #### **PUT** */api/users/:user_id/review/:product_id*
 
 Returns a JSON object with the new changes of the specified user via the **user's** `:id` and **product's**  `:id` URL params.
@@ -299,8 +298,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Remove cart item
-### 8. Remove an item from the User's cart
+### 8. Remove a product from the cart
 #### **DELETE** */api/users/:user_id/cart/:product_id*
 
 Returns a JSON object with the removed product info via the **user's** `:id` and **product's** `:id` URL params.
