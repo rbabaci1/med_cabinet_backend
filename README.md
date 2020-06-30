@@ -22,7 +22,7 @@ https://best-med-cabinet.herokuapp.com
 - [User login](#2-user-login)
 - [Add a product to the user's cart](#add-to-cart)
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
-- [Access a single user with all details](#get-single-user)
+- [Access a single user with all details](#5-access-a-single-user)
 - [Update user's info](#update-user)
 - [Update user's review](#update-review)
 - [Remove an item from the user's cart](#remove-cart-item)
@@ -139,7 +139,6 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Add review
 ### 4. User writes a review about a product
 #### **POST** */api/users/review*
 
@@ -176,8 +175,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Get single user
-### 5. Access a single User with all Details (cart & reviews)
+### 5. Access a single User
 #### **GET** */api/users/:id*
 
 Returns a JSON object with all details of the specified user via the **user's** `:id` URL param.
