@@ -23,7 +23,7 @@ https://best-med-cabinet.herokuapp.com
 - [Add a product to the user's cart](#add-to-cart)
 - [Create a review about a product](#4-user-writes-a-review-about-a-product)
 - [Access a single user with all details](#5-access-a-single-user)
-- [Update user's info](#update-user)
+- [Update user's info](#6-update-user-info)
 - [Update user's review](#update-review)
 - [Remove an item from the user's cart](#remove-cart-item)
 - [Remove a user's review](#remove-user-review)
@@ -231,8 +231,7 @@ Response: `res.body`
 }
 ```
 --------------------------------
-### Update user
-### 6. Update a User's Info
+### 6. Update user info
 #### **PUT** */api/users/:id*
 
 Returns a JSON object with the new changes fo the specified user via the **user's** `:id` URL param.
