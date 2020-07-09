@@ -29,11 +29,6 @@ module.exports = method => {
             success: false,
             message: "The specified product doesn't exist.",
           });
-        } else if (productExists && method === "POST") {
-          res.status(409).json({
-            success: false,
-            message: "The specified product is already in the cart.",
-          });
         } else if (!productExists && method === "DELETE") {
           res.status(404).json({
             success: false,
