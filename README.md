@@ -12,7 +12,7 @@ For developing and testing purposes, please follow the instructions below to ins
 6. populate database with seeded data: `knex seed:run`
 7. run the server: `npm run server`. Server port default is 5000.
 
-## Usage
+### Usage:
 
 ### Base URL:
 https://best-med-cabinet.herokuapp.com
