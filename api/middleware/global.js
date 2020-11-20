@@ -12,7 +12,7 @@ const validateId = tableName => async (req, res, next) => {
       req[entity] = item;
       next();
     } else {
-      res.status(401).json({
+      res.status(404).json({
         message: `The ${entity} with the specified ID does not exist.`,
       });
     }
